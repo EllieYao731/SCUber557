@@ -17,7 +17,6 @@
         <input type="text" name="name"><br>
         <input type="radio" name="gender" value="man">男
         <input type="radio" name="gender" value="women">女
-        <input type="radio" name="gender" value="secret">秘密
         <input type="submit" name="submit" value="提交">
     </form>
 @endsection
