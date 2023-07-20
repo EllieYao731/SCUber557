@@ -1,12 +1,14 @@
 # Scuber577
 ## Start Dev
 ```
+cd /Applications/XAMPP/htdocs/
+```
+```
 git clone git@github.com:EvonneYao/SCUber577.git
 ```
 ```
-cd /Applications/XAMPP/htdocs/
+cd SCUber577
 ```
-
 ```
 php artisan serve
 ```
