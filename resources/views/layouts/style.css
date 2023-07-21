@@ -1,0 +1,27 @@
+
+body {
+  background-color: rgb(232, 232, 232);
+  text-align: center; /* 將所有內容置中 */
+}
+
+#title{
+  margin-top: 50px;
+  color:black;
+  background-color: rgb(240, 240, 240);
+  border-color: red;
+  border-style:inset;
+  font-size: 20px;
+  border-width: auto;
+}
+
+#log_in, #sign_up {
+  margin-top: 20px; 
+  display: inline-block; /* 讓 div 元素內容水平排列 */
+}
+
+#log_in button, #sign_up button {
+  margin-right: 10px; /* 添加右邊距，設定按鈕之間的間距 */
+  width: 60px;
+  height: 50px;
+}
+
