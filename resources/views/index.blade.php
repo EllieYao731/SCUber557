@@ -10,13 +10,5 @@
 @endsection -->
 
 @section('content')
-    <h1>註冊</h1>
-    <form action="\sign-up" method="post">
-        @csrf
-        <input type="text" name="StudentID"><br>
-        <input type="text" name="name"><br>
-        <input type="radio" name="gender" value="man">男
-        <input type="radio" name="gender" value="women">女
-        <input type="submit" name="submit" value="提交">
-    </form>
+
 @endsection
