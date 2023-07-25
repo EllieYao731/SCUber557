@@ -2,7 +2,7 @@
 
 @section('title', 'SCUber577')
 
-@section('content')
+@section('style')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,8 +10,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>index</title>
-  <link rel="stylesheet"  href="style_index.css">
+  <link rel="stylesheet"  href="{{ asset('css/style_index.css') }}">
 </head>
+
+@section('content')
+
 <body>
     <div id="container">
         <div id="title">
