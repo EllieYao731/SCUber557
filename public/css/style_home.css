@@ -4,6 +4,7 @@ html {
     padding: 0;
     height: 100%;
 }
+
 .container-al {
     margin: 0;
     padding: 0;
@@ -13,6 +14,7 @@ html {
 .container-fluid.container-al {
     height: calc(100% - 60px);
 }
+
 .row {
     display: flex;
     justify-content: center;
@@ -20,6 +22,7 @@ html {
     width: 60%;
     height: 60%;
 }
+
 #greyDiv {
     background-color: grey;
     height: 35%;
@@ -27,12 +30,14 @@ html {
     justify-content: center;
     align-items: center;
 }
+
 #blackDiv {
     width: 100%;
     height: 65%;
     background: black;
     padding: 5% 10% 0%;
 }
+
 .icon-button {
     position: relative;
     width: 50px;
@@ -61,10 +66,12 @@ html {
     bottom: -30px;
     width: 120%;
 }
+
 .text {
     font-size: 14px;
     color: white;
 }
+
 .icon-row {
     display: flex;
     justify-content: center;
@@ -72,6 +79,7 @@ html {
     align-content: center;
     height: 100%;
 }
+
 .message {
     height: 15%;
     width: 100%;
@@ -84,6 +92,21 @@ html {
     align-items: center;
     margin-top: 20px;
 }
+
+@media screen and (min-width: 768px) {
+    .message {
+        height: 10%;
+        margin-bottom: 2%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .message {
+        height: 15%;
+        margin-bottom: 5%;
+    }
+}
+
 @media screen and (max-width: 768px) {
     .col-md-3 {
         flex: 0 0 auto;
@@ -95,23 +118,27 @@ html {
         margin: 17px;
     }
 }
+
 @media screen and (min-width: 450px) {
     .icon-row {
         flex-wrap: nowrap;
     }
+
     .icon-button {
         width: 70px;
         height: 70px;
         margin: 17px;
     }
+
     .icon-button i {
         font-size: 30px;
     }
+
     .icon-label {
         font-size: 18px;
     }
 }
-/* Additional CSS for the modified layout */
+
 .person-info {
     display: flex;
     align-items: center;

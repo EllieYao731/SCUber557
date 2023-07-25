@@ -15,14 +15,12 @@
 	crossorigin="anonymous"
 ></script>
 <link rel="stylesheet" href="{{ asset('css/style_home.css') }}">
-<link
-	rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
 />
 @endsection
 
-@section('content')
 @include('layouts.nav')
+@section('content')
 
 <div class="container-fluid container-al">
 	<div id="greyDiv">
@@ -30,7 +28,7 @@
 			<div class="icon-button col-md-3">
 				<div class="icon-background"></div>
 				<i class="fas fa-motorcycle"></i>
-				<span class="icon-label text">騎士</span>
+				<span class="icon-label text">駕駛</span>
 			</div>
 			<div class="icon-button col-md-3">
 				<div class="icon-background"></div>
