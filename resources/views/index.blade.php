@@ -29,10 +29,10 @@
         </div>
         <div id="buttons-container">
           <div id="log_in">
-            <button>登入</button>
+            <a href="login.html"><button>登入</button></a>
           </div>
           <div id="sign_up">
-            <button>註冊</button>
+            <a href="signup.html"><button>註冊</button></a>
     </div>
   </div>
 </body>
