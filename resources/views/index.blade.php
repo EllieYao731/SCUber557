@@ -25,7 +25,7 @@
           <h1>SCUber<i>577</i></h1>
         </div>
         <div id="slogan">
-            <h3>&nbsp;&nbsp;&nbsp;GO Home Rapidly&nbsp;<img src="/views/pictures/safe.png" height="30px" width="30px">&nbsp;&nbsp;</h3>
+            <h3>&nbsp;&nbsp;&nbsp;GO Home Rapidly&nbsp;<img src="views/pictures/safe.png" height="30px" width="30px">&nbsp;&nbsp;</h3>
         </div>
         <div id="buttons-container">
           <div id="log_in">
@@ -38,7 +38,7 @@
 </body>
 <footer>
   <div id="scooter">
-    <img src="/views/pictures/scooter.png" height="100px" width="100px">
+    <img src="views/pictures/scooter.png" height="100px" width="100px">
   </div>
 </html>
 
