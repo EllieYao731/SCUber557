@@ -4,6 +4,7 @@
 
 @section('style')
     <link rel="stylesheet" href="{{asset('css/style_login.css') }}">
+@endsection
 
 @section('content')
     <div id="container">
