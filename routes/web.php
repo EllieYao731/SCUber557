@@ -25,5 +25,8 @@ Route::get('/home', function () {
     return view('home');
 });
 
+Route::get('/login', function () {
+    return view('login');
+});
 use App\Http\Controllers\SignUp;
 Route::post('/sign-up', [SignUp::class,'signUpProcess']);
