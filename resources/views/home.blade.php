@@ -26,23 +26,31 @@
 	<div id="greyDiv">
 		<div class="row icon-row">
 			<div class="icon-button col-md-3">
-				<div class="icon-background"></div>
-				<i class="fas fa-motorcycle"></i>
+				<a href="{{url('/go-or-leave')}}">
+					<div class="icon-background"></div>
+					<i class="fas fa-motorcycle"></i>
+				</a>
 				<span class="icon-label text">駕駛</span>
 			</div>
 			<div class="icon-button col-md-3">
-				<div class="icon-background"></div>
-				<i class="fas fa-user"></i>
+				<a href="{{url('/go-or-leave')}}">
+					<div class="icon-background"></div>
+					<i class="fas fa-user"></i>
+				</a>
 				<span class="icon-label text">乘客</span>
 			</div>
 			<div class="icon-button col-md-3">
-				<div class="icon-background"></div>
-				<i class="fas fa-comments"></i>
+				<a href="{{url('/')}}">
+					<div class="icon-background"></div>
+					<i class="fas fa-comments"></i>
+				</a>
 				<span class="icon-label text">聊天室</span>
 			</div>
 			<div class="icon-button col-md-3">
-				<div class="icon-background"></div>
-				<i class="fas fa-cog"></i>
+				<a href="{{url('/')}}">
+					<div class="icon-background"></div>
+					<i class="fas fa-cog"></i>
+				</a>
 				<span class="icon-label text">設定</span>
 			</div>
 		</div>

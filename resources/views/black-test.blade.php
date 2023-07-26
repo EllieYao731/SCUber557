@@ -6,6 +6,9 @@
 
 @endsection
 
+<!-- 返回的上一頁連結設定 -->
+@section('back-link', '/home')
+
 @section('content-black')
 
 <!-- 測試 -->
