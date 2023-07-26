@@ -29,5 +29,9 @@ Route::get('/login', function () {
     return view('login');
 });
 
+Route::get('/select-driver', function () {
+    return view('select-driver');
+});
+
 use App\Http\Controllers\SignUp;
 Route::post('/sign-up', [SignUp::class,'signUpProcess']);

@@ -1,0 +1,105 @@
+body {
+    background-color: #1a1a1a;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: #fff;
+}
+
+h1 {
+    text-align: center;
+    color: #fff;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+.back-button {
+    background-color: #1a1a1a;
+    padding: 10px;
+    margin-left: 4%;
+    margin-top: 4%;
+}
+
+.back-button a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+}
+
+main {
+    display: flex;
+    padding: 2%;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.person {
+    display: flex;
+    background-color: #292929;
+    border-radius: 5px;
+    padding: 10px;
+    width: 80%;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.avatar-column {
+    flex: 0.5;
+}
+
+.avatar-column img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+.info-column {
+    flex: 3;
+    padding: 10px 10px 0px 10px;
+}
+
+.name-rating {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.name {
+    font-size: 18px;
+    margin: 0 5px 0 0;
+}
+
+.rating {
+    color: #ffc107;
+    font-size: 16px;
+}
+
+.action-column {
+    flex: 2;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.time {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.reserve-button {
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+    padding: 2px 20px;
+    font-size: 15px;
+}
+
+.reserve-button:hover {
+    background-color: #fff;
+    color: #1a1a1a;
+}
+
+.origin {
+    padding-top: 10px;
+}
