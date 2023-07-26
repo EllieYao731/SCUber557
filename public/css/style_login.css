@@ -1,0 +1,94 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex; /* 使用 flexbox 佈局 */
+    justify-content: center; /* 在水平方向置中 */
+    align-items: center; /* 在垂直方向置中 */
+    min-height: 100vh; /* 設定 body 最小高度為整個視窗高度，確保內容垂直置中 */
+    background-color: rgb(232, 232, 232);
+    text-align: center;
+  }
+  
+  #container {
+    display: flex;
+    flex-direction: column; /* 將內容在垂直方向上排列 */
+    align-items: center; /* 在水平方向置中 */
+    position: relative; /* 將定位方式設為相對定位 */
+  }
+  
+  #title {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  
+  #number {
+    margin-bottom: 10px;
+  }
+  
+  #password {
+    margin-bottom: 10px;
+  }
+  
+  #next {
+    margin-top: 50px;
+  }
+  
+  #forget {
+    font-size: 15px;
+    position: absolute; /* 將定位方式設為絕對定位 */
+    bottom: 60px;
+    right: 15px;
+  }
+  
+  footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(72, 72, 72);
+    text-align: center;
+  }
+  
+  @keyframes scu {
+    0%,
+    100% {
+      text-shadow: 0 0 20px #fff, 0 0 100px #fff, 0 0 20px #fff;
+    }
+    50% {
+      text-shadow: 0 0 50px #fff, 0 0 150px #fff, 0 0 50px #fff;
+      color: rgb(255, 75, 75);
+    }
+  }
+  
+  #scu {
+    color: aliceblue;
+    padding: 10px;
+    animation: scu 1.5s ease-in-out infinite alternate;
+  }
+  
+  /* 其他樣式... */
+  
+  .moving-image {
+      position: absolute;
+      bottom: 0;
+      left: 0; /* 將圖片貼在畫面最左邊 */
+      width: 100%;
+      animation: slideAnimation 10s linear infinite;
+    }
+    
+    .moving-image img {
+      width: 100px; /* 調整圖片寬度 */
+      height: auto; /* 高度按比例自動調整 */
+    }
+    
+    @keyframes slideAnimation {
+      0% {
+        transform: translateX(-100%); /* 初始位置，水平偏移量為 -100% */
+      }
+      100% {
+        transform: translateX(100%); /* 結束位置，水平偏移量為 0% */
+      }
+    }
+    
+    
+    
+  
