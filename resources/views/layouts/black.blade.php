@@ -49,4 +49,5 @@
 	<a href="@yield('back-link')"><i class="fas fa-chevron-left"></i></a>
 </div>
 <main>@yield('content-black')</main>
+@yield('script')
 @endsection

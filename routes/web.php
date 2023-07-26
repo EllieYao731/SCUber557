@@ -41,5 +41,8 @@ Route::get('/go-or-leave', function () {
     return view('go-or-leave');
 });
 
+Route::get('/destination', function () {
+    return view('destination');
+});
 use App\Http\Controllers\SignUp;
 Route::post('/sign-up', [SignUp::class,'signUpProcess']);
