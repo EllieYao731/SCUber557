@@ -32,6 +32,9 @@ Route::get('/login', function () {
 Route::get('/select-driver', function () {
     return view('select-driver');
 });
+Route::get('/black-test', function () {
+    return view('black-test');
+});
 
 use App\Http\Controllers\SignUp;
 Route::post('/sign-up', [SignUp::class,'signUpProcess']);
