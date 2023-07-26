@@ -21,7 +21,7 @@
             <a href="forget.html"><p>忘記密碼？</a></p>
         </div>
         <div id="next">
-            <a href="{{ route('home') }}"><input type="submit" value="下一步"></a>
+            <a href="{{ url('/home') }}"><input type="submit" value="下一步"></a>
         </div>
     </div>
     <footer>
