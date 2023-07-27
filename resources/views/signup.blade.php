@@ -4,8 +4,7 @@
 
 @section('style-black')
 
-@section('style')
-    <link rel="stylesheet" href="{{asset('css/style_signup.css') }}">
+
 @endsection
 
 @section('back-link', '/')
