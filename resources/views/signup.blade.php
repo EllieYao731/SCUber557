@@ -4,7 +4,31 @@
 
 @section('style-black')
 
+<style>
+    #container {
+  display: flex;
+  flex-direction: column; /* 將內容在垂直方向上排列 */
+  align-items: center; /* 在水平方向置中 */
+  position: relative; /* 將定位方式設為相對定位 */
+}
 
+#title {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+#number {
+  margin-bottom: 10px;
+}
+
+#password {
+  margin-bottom: 10px;
+}
+
+#next {
+  margin-top: 50px;
+}
+</style>
 @endsection
 
 @section('back-link', '/')
