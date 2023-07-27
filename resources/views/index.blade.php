@@ -28,7 +28,7 @@
             <a href="{{ url('/login') }}"><button>登入</button></a>
           </div>
           <div id="sign_up">
-            <a href="signup.html"><button>註冊</button></a>
+            <a href="{{ url('/signup') }}"><button>註冊</button></a>
     </div>
   </div>
 </body>
