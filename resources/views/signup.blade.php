@@ -30,7 +30,7 @@
 }
 
 #next:hover {
-    transform: scale(2); /* 將按鈕放大 20% */
+    transform: scale(1.5); /* 將按鈕放大 20% */
 }
 
 </style>
