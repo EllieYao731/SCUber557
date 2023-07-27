@@ -35,6 +35,14 @@
 #mail{
     margin-right: 30px;
 }
+
+#next {
+  margin-top: 50px;
+}
+
+#next:hover {
+    transform: scale(1.5); /* 將按鈕放大 20% */
+}
 </style>
 @endsection
 
@@ -63,7 +71,7 @@
                 <h3>電子郵件：<input type="email"></h3>
             </div>
             <div id="next">
-                <a herf="home.blade.php"><input type="submit" value="下一步"></a>
+                <a herf=""><input type="submit" value="下一步"></a>
             </div>
         </div>
 
