@@ -27,6 +27,8 @@
 
 #next {
   margin-top: 50px;
+  width: 100px;
+  height:80px;
 }
 </style>
 @endsection
