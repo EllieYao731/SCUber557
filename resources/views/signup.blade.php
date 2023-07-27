@@ -5,7 +5,7 @@
 @section('style-black')
 
 <style>
-    #container {
+#container {
   display: flex;
   flex-direction: column; /* 將內容在垂直方向上排列 */
   align-items: center; /* 在水平方向置中 */
@@ -50,7 +50,7 @@
                 <h3>密碼：<input type="password"></h3>
             </div>
             <div id="next">
-                <a herf="{{ url('/information') }}"><input type="submit" value="下一步"></a>
+                <a href="{{ url('/information') }}"><input type="submit" value="下一步"></a>
             </div>
         </div>
     </body>
