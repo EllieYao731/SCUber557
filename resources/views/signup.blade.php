@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="{{asset('css/style_signup.css') }}">
 @endsection
 
-@section('content')
+@section('back-link', '/')
+
+@section('content-black')
 <div id="container">
             <div id="title">
                 <h3>請輸入您的學號、密碼</h3>
