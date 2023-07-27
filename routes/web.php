@@ -44,5 +44,10 @@ Route::get('/go-or-leave', function () {
 Route::get('/destination', function () {
     return view('destination');
 });
+
+Route::get('/signup', function () {
+    return view('signup');
+});
+
 use App\Http\Controllers\SignUp;
 Route::post('/sign-up', [SignUp::class,'signUpProcess']);
