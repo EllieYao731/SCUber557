@@ -28,6 +28,11 @@
 #next {
   margin-top: 50px;
 }
+
+#next:hover {
+    transform: scale(2); /* 將按鈕放大 20% */
+}
+
 </style>
 @endsection
 
