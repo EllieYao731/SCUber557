@@ -36,7 +36,7 @@
 @section('content-black')
 
 <div class="row">
-    <div class="col s10 offset-s1"> <!-- 使用 .col s6 offset-s3 佈局表單 -->
+    <div class="col s12"> <!-- 使用 .col s6 offset-s3 佈局表單 -->
       <div id="center-content">
         <h4>請輸入您的基本資料</h4>
         <div class="row">
