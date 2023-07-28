@@ -21,7 +21,13 @@
   display: inline-block; /* 設置為行內元素，使其保持在同一行 */
   color: white;
   margin: 0; /* 清除上下的外邊距 */
+  white-space: nowrap; /* 防止文字換行 */
 }
+
+#center-content .row {
+  white-space: nowrap; /* 防止 .row 元素內容換行 */
+}
+
 </style>
 @endsection
 
