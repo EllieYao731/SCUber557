@@ -1,12 +1,16 @@
 @extends('layouts.black')
 
-@section('title', 'SCUber557_black-test')
+@section('title', 'SCUber557_time-pick')
 
 @section('style-black')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
 <link rel="stylesheet" href="{{ asset('css/style_go-or-leave.css') }}">
 @endsection
 
-@section('back-link', '/home')
+<!-- 返回的上一頁連結設定 -->
+@section('back-link', '/go-or-leave')
+
 @section('content-black')
 
 <div class="pic">
@@ -137,20 +141,63 @@
 		/>
 	</svg>
 </div>
-<h1>選擇前往/離開東吳</h1>
+<h1>選擇時間</h1>
+
 <div class="btn-group">
-	<input
-		class="button"
-		type="button"
-		value="前往東吳"
-		onclick="location.href='{{url('/time-pick')}}'"
-	/>
-	<input
-		class="button"
-		type="button"
-		value="離開東吳"
-		onclick="location.href='#'"
-	/>
+		<input type="text" id="time-start" name="time_start" class="button timepicker" placeholder="開始接單時間(預設:now)">
+		<input type="text" id="time-end" name="time_end" class="button timepicker" placeholder="接單結束時間(預設:15mins)">
+		<input class="button" type="button" value="下一步" onclick="location.href='{{url('/destination')}}'" />
 </div>
 
+@endsection
+
+@section('script')
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script>
+	document.addEventListener('DOMContentLoaded', function () {
+		var timeStart = document.getElementById('time-start');
+		var timeEnd = document.getElementById('time-end');
+		// 取得目前時間
+		var now = new Date();
+		var currentHour = now.getHours();
+		var currentMinute = now.getMinutes();
+
+		// 格式化時間，確保是兩位數
+		var formattedHour = currentHour.toString().padStart(2, '0');
+		var formattedMinute = currentMinute.toString().padStart(2, '0');
+
+		// 預設值為目前時間
+		var defaultStartTime = formattedHour + ':' + formattedMinute;
+
+		// 將目前時間加上15分鐘，注意處理超過60分鐘的情況
+		var nextHour = currentHour;
+		var nextMinute = currentMinute + 15;
+		if (nextMinute >= 60) {
+			nextHour += 1;
+			nextMinute -= 60;
+		}
+		var formattedNextHour = nextHour.toString().padStart(2, '0');
+		var formattedNextMinute = nextMinute.toString().padStart(2, '0');
+		var defaultEndTime = formattedNextHour + ':' + formattedNextMinute;
+
+		// 初始化Time picker，並設定不同的預設值
+		var options_start = {
+			twelveHour: false,
+			defaultTime: defaultStartTime,
+			showClearBtn: true,
+			autoClose: true,
+			i18n: { cancel: '取消', clear: '重置', done: 'OK' },
+		};
+		var options_end = {
+			twelveHour: false,
+			defaultTime: defaultEndTime,
+			showClearBtn: true,
+			autoClose: true,
+			i18n: { cancel: '取消', clear: '重置', done: 'OK' },
+		};
+		var instance_start = M.Timepicker.init(timeStart, options_start);
+		var instance_end = M.Timepicker.init(timeEnd, options_end);
+	});
+</script>
 @endsection

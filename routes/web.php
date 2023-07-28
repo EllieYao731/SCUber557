@@ -33,16 +33,16 @@ Route::get('/select-driver', function () {
     return view('select-driver');
 });
 
-Route::get('/black-test', function () {
-    return view('black-test');
-});
-
 Route::get('/go-or-leave', function () {
     return view('go-or-leave');
 });
 
 Route::get('/destination', function () {
     return view('destination');
+});
+
+Route::get('/time-pick', function () {
+    return view('time-pick');
 });
 
 Route::get('/signup', function () {

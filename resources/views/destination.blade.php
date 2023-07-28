@@ -38,6 +38,9 @@ i {
 p {
   margin: 0px 0px 0px 0px;
 }
+input{
+	color: white;
+}
 .button {
     background-color: black;
     color: #fff;
@@ -59,10 +62,17 @@ p {
     flex-direction: column;
     align-items: center;
 }
+.btn-transparent {
+	border: none;
+    background-color: transparent;
+    color: white;
+    text-align: left;
+    font-size: large;
+}
 </style>
 @endsection
 
-@section('back-link', '/')
+@section('back-link', '/time-pick')
 
 @section('content-black')
 
@@ -122,8 +132,9 @@ p {
 	</div>
 </div>
 <div class="container" style="display: flex; flex-direction: column">
-	<p><i class="fa-solid fa-magnifying-glass-plus"></i>Saved Places</p>
-	<p><i class="fa-solid fa-location-dot"></i>Set location on map</p>
+
+	<button class="btn-transparent"><i class="fa-solid fa-magnifying-glass-plus"></i>Saved Places</button>
+	<button class="btn-transparent"><i class="fa-solid fa-location-dot"></i>Set location on map</button>
 </div>
 
 <div class="container">
