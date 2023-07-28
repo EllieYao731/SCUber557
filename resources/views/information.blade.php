@@ -13,9 +13,10 @@
     });
   </script>
 <style>
-#center-content h5{
-        margin-left: 200px;
-        color: white;
+#center-content h4{
+    text-align: center;
+    color: white;
+    margin: 0; /* 清除上下的外邊距 */
     }
 </style>
 @endsection
@@ -27,7 +28,7 @@
 <div class="row">
     <div class="col s10 offset-s1"> <!-- 使用 .col s6 offset-s3 佈局表單 -->
       <div id="center-content">
-        <h5>請輸入您的基本資料</h5>
+        <h4>請輸入您的基本資料</h4>
         <div class="row">
           <div class="col s8 offset-s2"> <!-- 使用 .col s6 offset-s3 佈局表單 -->
             <form class="col-sm">
