@@ -14,9 +14,7 @@
   </script>
 <style>
 #center-content h4{
-    text-align: center;
     color: white;
-    margin: 0; /* 清除上下的外邊距 */
     }
 </style>
 @endsection
