@@ -15,6 +15,6 @@
   </div>
   <div class="action-column">
     <div class="time">{{ $driver_time }}</div>
-		<a class="waves-effect waves-light btn modal-trigger white black-text reserve-button" href="#modal1">確定</a>
+		<a class="waves-effect waves-light btn modal-trigger white black-text reserve-button" href="#modal1">預約</a>
   </div>
 </div>

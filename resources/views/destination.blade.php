@@ -12,11 +12,6 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     />
 <style>
-.container {
-  display: flex;
-  width: 80%;
-  margin: 0 0 5% 0;
-}
 .container svg {
   display: block;
   width: 10%;
@@ -42,32 +37,19 @@ input{
 	color: white;
 }
 .button {
-    background-color: black;
-    color: #fff;
-    border: 2px solid #fff;
     padding: 10px 0px;
-    font-size: 15px;
-    margin: 18px 0;
-		text-align: center;
 		width: 80%;
 }
-.button:hover {
-    background-color: #fff;
-    color: #1a1a1a;
-}
-.btn-group {
-    display: flex;
-    padding: 2%;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-}
 .btn-transparent {
-	border: none;
+		border: none;
     background-color: transparent;
     color: white;
     text-align: left;
-    font-size: large;
+    font-size: medium;
+}
+.btn-transparent:hover {
+	background-color: #fff;
+  color: #1a1a1a;
 }
 </style>
 @endsection

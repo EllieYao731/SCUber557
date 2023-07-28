@@ -45,6 +45,10 @@ Route::get('/time-pick', function () {
     return view('time-pick');
 });
 
+Route::get('/setting', function () {
+    return view('setting');
+});
+
 Route::get('/signup', function () {
     return view('signup');
 });

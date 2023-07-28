@@ -47,7 +47,7 @@
 				<span class="icon-label text">聊天室</span>
 			</div>
 			<div class="icon-button col-md-3">
-				<a href="{{url('/')}}">
+				<a href="{{url('/setting')}}">
 					<div class="icon-background"></div>
 					<i class="fas fa-cog"></i>
 				</a>

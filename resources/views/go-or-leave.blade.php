@@ -3,6 +3,7 @@
 @section('title', 'SCUber557_black-test')
 
 @section('style-black')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
 <link rel="stylesheet" href="{{ asset('css/style_go-or-leave.css') }}">
 @endsection
 
@@ -137,7 +138,7 @@
 		/>
 	</svg>
 </div>
-<h1>選擇前往/離開東吳</h1>
+<h4>選擇前往/離開東吳</h4>
 <div class="btn-group">
 	<input
 		class="button"

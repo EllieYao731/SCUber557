@@ -7,8 +7,9 @@
 <link rel="stylesheet" href="{{ asset('css/style_select-driver.css') }}">
 @endsection
 
+@section('back-link', '/go-or-leave')
 @section('content-black')
-<h1>請選擇駕駛</h1>
+<h4>請選擇駕駛</h4>
 
 
 @include('layouts.driver-info',
