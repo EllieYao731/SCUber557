@@ -13,9 +13,15 @@
     });
   </script>
 <style>
-#center-content h4{
-    color: white;
-    }
+#center-content {
+  text-align: center; /* 水平居中 #center-content 內容 */
+}
+
+#center-content h4 {
+  display: inline-block; /* 設置為行內元素，使其保持在同一行 */
+  color: white;
+  margin: 0; /* 清除上下的外邊距 */
+}
 </style>
 @endsection
 
