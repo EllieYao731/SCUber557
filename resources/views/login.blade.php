@@ -12,48 +12,7 @@
       var instances = M.FormSelect.init(elems);
     });
   </script>
-  <style>
-    #center-content {
-      text-align: center;
-    }
-
-    #center-content h4 {
-      display: inline-block;
-      color: white;
-      margin: 0;
-      white-space: nowrap;
-    }
-
-    #center-content .row {
-      white-space: nowrap;
-    }
-
-    #forget {
-      font-size: 15px;
-      position: absolute;
-      bottom: 60px;
-      right: 15px;
-    }
-
-    @keyframes scu {
-        0%,
-        100% {
-        text-shadow: 0 0 20px #fff, 0 0 100px #fff, 0 0 20px #fff;
-        }
-        50% {
-        text-shadow: 0 0 50px #fff, 0 0 150px #fff, 0 0 50px #fff;
-        color: red;
-        }
-    }
   
-    #scu {
-        color: aliceblue;
-        padding: 10px;
-        animation: scu 1.5s ease-in-out infinite alternate;
-    }
-    </style>
-
-@endsection
 
 @section('content')
 @section('back-link', '/')
