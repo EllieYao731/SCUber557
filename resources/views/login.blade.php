@@ -14,44 +14,44 @@
   </script>
   <style>
     #center-content {
-  text-align: center; /* 水平居中 #center-content 內容 */
-}
-
-#center-content h4 {
-  display: inline-block; /* 設置為行內元素，使其保持在同一行 */
-  color: white;
-  margin: 0; /* 清除上下的外邊距 */
-  white-space: nowrap; /* 防止文字換行 */
-}
-
-#center-content .row {
-  white-space: nowrap; /* 防止 .row 元素內容換行 */
-}
-
-#forget {
-  font-size: 15px;
-  position: absolute; /* 將定位方式設為絕對定位 */
-  bottom: 60px;
-  right: 15px;
-}
-
-@keyframes scu {
-    0%,
-    100% {
-      text-shadow: 0 0 20px #fff, 0 0 100px #fff, 0 0 20px #fff;
+      text-align: center;
     }
-    50% {
-      text-shadow: 0 0 50px #fff, 0 0 150px #fff, 0 0 50px #fff;
-      color: red;
+
+    #center-content h4 {
+      display: inline-block;
+      color: white;
+      margin: 0;
+      white-space: nowrap;
     }
-  }
+
+    #center-content .row {
+      white-space: nowrap;
+    }
+
+    #forget {
+      font-size: 15px;
+      position: absolute;
+      bottom: 60px;
+      right: 15px;
+    }
+
+    @keyframes scu {
+        0%,
+        100% {
+        text-shadow: 0 0 20px #fff, 0 0 100px #fff, 0 0 20px #fff;
+        }
+        50% {
+        text-shadow: 0 0 50px #fff, 0 0 150px #fff, 0 0 50px #fff;
+        color: red;
+        }
+    }
   
-  #scu {
-    color: aliceblue;
-    padding: 10px;
-    animation: scu 1.5s ease-in-out infinite alternate;
-  }
-</style>
+    #scu {
+        color: aliceblue;
+        padding: 10px;
+        animation: scu 1.5s ease-in-out infinite alternate;
+    }
+    </style>
 
 @endsection
 
@@ -83,7 +83,7 @@
               <div class="row">
                 <div class="input-field col s12">
                   <div id="forget">
-                  <a href="forget.html"><p>忘記密碼？</a></p>
+                    <a href="forget.html"><p>忘記密碼？</p></a> <!-- 这里的标签闭合有问题 -->
                   </div>
                 </div>
               </div>
@@ -100,6 +100,7 @@
       </div>
     </div>
     <div id="scu">
-            <h1>SCUber<i>577</i></h1>
+      <h1>SCUber<i>577</i></h1>
     </div>
+  </div>
 @endsection
