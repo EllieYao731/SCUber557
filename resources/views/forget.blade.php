@@ -7,8 +7,10 @@
 <style>
   .container {
     display: flex;
+    flex-direction: column;
+    align-items: center; /* Align items horizontally (centered) */
     width: 80%;
-    margin: 0 0 5% 0;
+    margin: 0 auto 5% auto; /* Added auto margins to center the container */
   }
 
   .container svg {
