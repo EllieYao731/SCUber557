@@ -122,13 +122,11 @@
         </div>
       </div>
     </div>
-  </div>
-  <footer>
-        <div id="scu">
+    <div id="scu">
             <h1>SCUber<i>577</i></h1>
         </div>
         <div class="moving-image">
             <img src="{{ asset('pictures/people_scooter.png') }}" alt="騎車圖片">
         </div>
-    </footer>
+  </div>
 @endsection
