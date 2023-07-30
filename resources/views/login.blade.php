@@ -47,7 +47,7 @@
     }
   
     #scu {
-        color: aliceblue;
+        color: red;
         padding: 10px;
         animation: scu 1.5s ease-in-out infinite alternate;
     }
@@ -91,7 +91,7 @@
             <div class="row"> <!-- 使用 .row 來包含 <div id="next"> -->
               <div class="col s12"> <!-- 使用 .col s12 佈局 <div id="next"> -->
                 <div id="next">
-                  <a href="#"><input type="submit" value="下一步"></a>
+                  <a href="{{ url('/home') }}"><input type="submit" value="下一步"></a>
                 </div>
               </div>
             </div>
