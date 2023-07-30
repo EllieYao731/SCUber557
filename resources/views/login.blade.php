@@ -83,7 +83,7 @@
               <div class="row">
                 <div class="input-field col s12">
                   <div id="forget">
-                    <a href="forget.html"><p>忘記密碼？</p></a> 
+                    <a href="forget"><p>忘記密碼？</p></a> 
                   </div>
                 </div>
               </div>
