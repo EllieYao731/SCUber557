@@ -70,6 +70,5 @@
   <div id="scu">
     <h1>SCUber<i>577</i></h1>
   </div>
-</div>
-</footer>
+  </footer>
 @endsection
