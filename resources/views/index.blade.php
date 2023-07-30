@@ -36,6 +36,13 @@
   <div id="scooter">
     <img src="{{ asset('pictures/scooter.png') }}" height="100px" width="100px">
   </div>
+  <div id="scu">
+        <h1>SCUber<i>577</i></h1>
+  </div>
+    <div class="moving-image">
+        <img src="{{ asset('pictures/people_scooter.png') }}" alt="騎車圖片">
+    </div>
+</footer>
 </html>
 
 @endsection
