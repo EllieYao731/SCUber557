@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layouts.black')
 
 @section('title', 'SCUber577_login')
 
