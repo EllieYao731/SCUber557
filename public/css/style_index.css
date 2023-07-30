@@ -101,7 +101,7 @@ body {
     
     .moving-image img {
       width: 100px; /* 調整圖片寬度 */
-      height: auto; /* 高度按比例自動調整 */
+      height: 80px; /* 高度按比例自動調整 */
     }
     
     @keyframes slideAnimation {
