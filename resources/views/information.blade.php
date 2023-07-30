@@ -35,7 +35,7 @@
     }
     50% {
       text-shadow: 0 0 50px #fff, 0 0 150px #fff, 0 0 50px #fff;
-      color: rgb(255, 75, 75);
+      color: red;
     }
   }
   
