@@ -53,5 +53,9 @@ Route::get('/information', function () {
     return view('information');
 });
 
+Route::get('/forget', function () {
+    return view('forget');
+});
+
 use App\Http\Controllers\SignUp;
 Route::post('/sign-up', [SignUp::class,'signUpProcess']);
