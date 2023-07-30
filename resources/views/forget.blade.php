@@ -7,27 +7,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <style>
-    #center-content {
-      text-align: center;
-    }
-
-    #center-content h4 {
-      display: inline-block;
-      color: white;
-      margin: 0;
-      white-space: nowrap;
-    }
-
-    #center-content .row {
-      white-space: nowrap;
-    }
-
-    #forget {
-      font-size: 15px;
-      position: absolute;
-      bottom: 60px;
-      right: 15px;
-    }
+   
 
     @keyframes scu {
         0%,
@@ -86,8 +66,10 @@
       </div>
     </div>
   </div>
+  <footer>
   <div id="scu">
     <h1>SCUber<i>577</i></h1>
   </div>
 </div>
+</footer>
 @endsection
