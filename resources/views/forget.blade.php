@@ -67,9 +67,10 @@
       </div>
     </div>
   </div>
-  <footer>
-  <div id="scu">
-    <h1>SCUber<i>577</i></h1>
-  </div>
-  </footer>
+</div>
+
+<div id="scu">
+  <h1>SCUber<i>577</i></h1>
+</div>
+
 @endsection
