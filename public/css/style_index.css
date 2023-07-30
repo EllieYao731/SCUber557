@@ -77,7 +77,6 @@ body {
     background-color: rgb(72, 72, 72);
     text-align: center;
     height: 80px; /* Set the height to match the height of the image */
-    padding-top: 10px; /* Adjust the top padding to give some space above the text */
   }
   
   @keyframes scu {
