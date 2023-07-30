@@ -40,34 +40,10 @@
   }
   
   #scu {
-    color: aliceblue;
+    color: red;
     padding: 10px;
     animation: scu 1.5s ease-in-out infinite alternate;
   }
-  
-  /* 其他樣式... */
-  
-  .moving-image {
-      position: absolute;
-      bottom: 0;
-      left: 0; /* 將圖片貼在畫面最左邊 */
-      width: 100%;
-      animation: slideAnimation 10s linear infinite;
-    }
-    
-    .moving-image img {
-      width: 100px; /* 調整圖片寬度 */
-      height: auto; /* 高度按比例自動調整 */
-    }
-    
-    @keyframes slideAnimation {
-      0% {
-        transform: translateX(-100%); /* 初始位置，水平偏移量為 -100% */
-      }
-      100% {
-        transform: translateX(100%); /* 結束位置，水平偏移量為 0% */
-      }
-    }
 </style>
 @endsection
 
