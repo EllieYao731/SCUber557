@@ -110,7 +110,7 @@
                 </div>
                 <div class="modal-footer btn-group" style="background-color: black; height:auto; display: flex;">
                   <a href="" class="button modal-close waves-effect">再次寄出</a>
-                  <a href="{{url('/index')}}" class="button">回到首頁</a>
+                  <a href="{{url('/')}}" class="button">回到首頁</a>
                 </div>
               </div>
             </div>
