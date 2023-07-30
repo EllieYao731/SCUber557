@@ -33,9 +33,6 @@
   </div>
 </body>
 <footer>
-  <div id="scooter">
-    <img src="{{ asset('pictures/scooter.png') }}" height="100px" width="100px">
-  </div>
   <div id="scu">
         <h1>SCUber<i>577</i></h1>
   </div>
