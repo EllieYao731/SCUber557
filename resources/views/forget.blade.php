@@ -6,8 +6,70 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('select');
+      var instances = M.FormSelect.init(elems);
+    });
+  </script>
   <style>
-   
+   .container {
+  display: flex;
+  width: 80%;
+  margin: 0 0 5% 0;
+}
+.container svg {
+  display: block;
+  width: 10%;
+}
+.input-group {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 5% 0 5%;
+  justify-content: space-between;
+}
+input,
+p {
+  font-size: large;
+}
+i {
+  margin: 10px;
+}
+p {
+  margin: 0px 0px 0px 0px;
+}
+input{
+	color: white;
+}
+.button {
+    background-color: black;
+    color: #fff;
+    border: 2px solid #fff;
+    padding: 10px 0px;
+    font-size: 15px;
+    margin: 18px 0;
+		text-align: center;
+		width: 80%;
+}
+.button:hover {
+    background-color: #fff;
+    color: #1a1a1a;
+}
+.btn-group {
+    display: flex;
+    padding: 2%;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.btn-transparent {
+	border: none;
+    background-color: transparent;
+    color: white;
+    text-align: left;
+    font-size: large;
+}
 
     @keyframes scu {
         0%,
