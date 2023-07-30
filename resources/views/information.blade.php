@@ -40,7 +40,7 @@
   }
   
   #scu {
-    color: red;
+    color: aliceblue;
     padding: 10px;
     animation: scu 1.5s ease-in-out infinite alternate;
   }
