@@ -3,15 +3,10 @@
 @section('title', 'SCUber577_forget')
 
 @section('style-black')
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      var elems = document.querySelectorAll('select');
-      var instances = M.FormSelect.init(elems);
-    });
-  </script>
+<link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
   <style>
    .container {
   display: flex;
@@ -30,15 +25,7 @@
   justify-content: space-between;
 }
 input,
-p {
-  font-size: large;
-}
-i {
-  margin: 10px;
-}
-p {
-  margin: 0px 0px 0px 0px;
-}
+
 input{
 	color: white;
 }
@@ -136,3 +123,16 @@ input{
 </div>
 
 @endsection
+
+@section('script')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script>
+      document.addEventListener('DOMContentLoaded', function () {
+        var elems = document.querySelectorAll('.modal');
+        var instances = M.Modal.init(elems, {
+          endingTop: '100%',
+          startingTop: '100%',
+        });
+      });
+    </script>
+	@endsection
