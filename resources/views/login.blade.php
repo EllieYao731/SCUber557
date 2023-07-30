@@ -12,7 +12,48 @@
       var instances = M.FormSelect.init(elems);
     });
   </script>
+  <style>
+    #center-content {
+      text-align: center;
+    }
+
+    #center-content h4 {
+      display: inline-block;
+      color: white;
+      margin: 0;
+      white-space: nowrap;
+    }
+
+    #center-content .row {
+      white-space: nowrap;
+    }
+
+    #forget {
+      font-size: 15px;
+      position: absolute;
+      bottom: 60px;
+      right: 15px;
+    }
+
+    @keyframes scu {
+        0%,
+        100% {
+        text-shadow: 0 0 20px #fff, 0 0 100px #fff, 0 0 20px #fff;
+        }
+        50% {
+        text-shadow: 0 0 50px #fff, 0 0 150px #fff, 0 0 50px #fff;
+        color: red;
+        }
+    }
   
+    #scu {
+        color: aliceblue;
+        padding: 10px;
+        animation: scu 1.5s ease-in-out infinite alternate;
+    }
+    </style>
+
+@endsection
 
 @section('content')
 @section('back-link', '/')
@@ -29,20 +70,20 @@
               <!-- 表單內容 -->
               <div class="row">
                 <div class="input-field col s12">
-                  <input id="name" type="text" class="validate">
-                  <label for="name">學號</label>
+                  <input id="number" type="text" class="validate">
+                  <label for="number">學號</label>
                 </div>
               </div>
               <div class="row">
                 <div class="input-field col s12">
-                  <input id="email" type="password" class="validate">
-                  <label for="email">密碼</label>
+                  <input id="password" type="password" class="validate">
+                  <label for="password">密碼</label>
                 </div>
               </div>
               <div class="row">
                 <div class="input-field col s12">
                   <div id="forget">
-                    <a href="forget.html"><p>忘記密碼？</p></a> <!-- 这里的标签闭合有问题 -->
+                    <a href="forget.html"><p>忘記密碼？</p></a> 
                   </div>
                 </div>
               </div>
