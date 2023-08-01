@@ -28,6 +28,22 @@
   white-space: nowrap; /* 防止 .row 元素內容換行 */
 }
 
+@keyframes scu {
+    0%,
+    100% {
+      text-shadow: 0 0 20px #fff, 0 0 100px #fff, 0 0 20px #fff;
+    }
+    50% {
+      text-shadow: 0 0 50px #fff, 0 0 150px #fff, 0 0 50px #fff;
+      color: red;
+    }
+  }
+  
+  #scu {
+    color: aliceblue;
+    padding: 10px;
+    animation: scu 1.5s ease-in-out infinite alternate;
+  }
 </style>
 @endsection
 
@@ -82,6 +98,11 @@
         </div>
       </div>
     </div>
+    <div id="scu">
+            <h1>SCUber<i>577</i></h1>
+        </div>
+        <div class="moving-image">
+            <img src="{{ asset('pictures/people_scooter.png') }}" alt="騎車圖片">
+        </div>
   </div>
-
 @endsection

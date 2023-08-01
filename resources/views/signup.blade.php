@@ -3,56 +3,98 @@
 @section('title', 'SCUber557_signup')
 
 @section('style-black')
-
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('select');
+      var instances = M.FormSelect.init(elems);
+    });
+  </script>
 <style>
-#container {
-  display: flex;
-  flex-direction: column; /* 將內容在垂直方向上排列 */
-  align-items: center; /* 在水平方向置中 */
-  position: relative; /* 將定位方式設為相對定位 */
-}
 
-#title {
-  font-size: 20px;
-  margin-bottom: 20px;
-}
+    #center-content {
+      text-align: center;
+    }
 
-#number {
-  margin-bottom: 10px;
-}
+    #center-content h4 {
+      display: inline-block;
+      color: white;
+      margin: 0;
+      white-space: nowrap;
+    }
 
-#password {
-  margin-bottom: 10px;
-}
+    #center-content .row {
+      white-space: nowrap;
+    }
 
-#next {
-  margin-top: 50px;
-}
+    #forget {
+      font-size: 15px;
+      position: absolute;
+      bottom: 60px;
+      right: 15px;
+    }
 
-#next:hover {
-    transform: scale(1.5); /* 將按鈕放大 20% */
-}
+    @keyframes scu {
+        0%,
+        100% {
+        text-shadow: 0 0 20px #fff, 0 0 100px #fff, 0 0 20px #fff;
+        }
+        50% {
+        text-shadow: 0 0 50px #fff, 0 0 150px #fff, 0 0 50px #fff;
+        color: red;
+        }
+    }
+  
+    #scu {
+        color: aliceblue;
+        padding: 10px;
+        animation: scu 1.5s ease-in-out infinite alternate;
+    }
+    </style>
 
-</style>
 @endsection
 
+@section('content')
 @section('back-link', '/')
 
 @section('content-black')
-<div id="container">
-            <div id="title">
-                <h3>請輸入您的學號、密碼</h3>
-            </div>
-            <div id="number">
-                <h3>學號： <input placeholder="請輸入學號"></h3>
-            </div>
-            <div id="password">
-                <h3>密碼：<input type="password"></h3>
-            </div>
-            <div id="next">
-                <a href="{{ url('/information') }}"><input type="submit" value="下一步"></a>
-            </div>
-        </div>
-    </body>
 
+<div class="row">
+    <div class="col s12"> <!-- 使用 .col s6 offset-s3 佈局表單 -->
+      <div id="center-content">
+        <h4>請輸入您的學號、密碼</h4>
+        <div class="row">
+          <div class="col s12"> <!-- 使用 .col s6 offset-s3 佈局表單 -->
+            <form class="col-sm">
+              <!-- 表單內容 -->
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="number" type="text" class="validate">
+                  <label for="number">學號</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="password" type="password" class="validate">
+                  <label for="password">密碼</label>
+                </div>
+              </div>
+            </form>
+            <div class="row"> <!-- 使用 .row 來包含 <div id="next"> -->
+              <div class="col s12"> <!-- 使用 .col s12 佈局 <div id="next"> -->
+                <div id="next">
+                  <a href="{{ url('/information') }}"><input type="submit" value="下一步"></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="scu">
+      <h1>SCUber<i>577</i></h1>
+    </div>
+  </div>
 @endsection
