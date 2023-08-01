@@ -77,3 +77,8 @@ h1 {
 .origin {
     padding-top: 10px;
 }
+
+.button {
+    padding: 10px 0px;
+    width: 80%;
+}
