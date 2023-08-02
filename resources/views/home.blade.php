@@ -40,7 +40,7 @@
 				<span class="icon-label text">乘客</span>
 			</div>
 			<div class="icon-button col-md-3">
-				<a href="{{url('/')}}">
+				<a href="{{url('/no_message')}}">
 					<div class="icon-background"></div>
 					<i class="fas fa-comments"></i>
 				</a>
