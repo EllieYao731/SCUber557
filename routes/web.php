@@ -49,6 +49,10 @@ Route::get('/setting', function () {
     return view('setting');
 });
 
+Route::get('/personal_info_update', function () {
+    return view('personal_info_update');
+});
+
 Route::get('/no_message', function () {
     return view('no_message');
 });
