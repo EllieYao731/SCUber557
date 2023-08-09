@@ -57,6 +57,10 @@ Route::get('/no_message', function () {
     return view('no_message');
 });
 
+Route::get('/chat', function () {
+    return view('chat');
+});
+
 Route::get('/signup', function () {
     return view('signup');
 });

@@ -31,10 +31,11 @@
 		color: #fff;
 	}
 	.back-button {
-		background-color: #1a1a1a;
-		padding: 10px;
-		margin-left: 4%;
-		margin-top: 4%;
+    height: 5vh;
+    background-color: #1a1a1a;
+    padding: 10px;
+    margin-left: 4%;
+    margin-top: 2vh;
 	}
 
 	.back-button a {
@@ -69,6 +70,8 @@
 <div class="back-button">
 	<a href="@yield('back-link')"><i class="fas fa-chevron-left"></i></a>
 </div>
-<main>@yield('content-black')</main>
+@yield('content-black')
+
+@yield('footer')
 @yield('script')
 @endsection

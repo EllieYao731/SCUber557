@@ -1,0 +1,129 @@
+const webMessage = [
+  {
+    "no":1,
+    "name": "Tech_boy",
+    "photo":"image/avatar/Tech_boy.png",
+    "type":"text",
+    "message":"Hi",
+    "dateTime":"09/23 10:00",
+    "me": false
+  },
+  {
+    "no":2,
+    "name": "Johnny",
+    "photo":"image/avatar/Johnny.png",
+    "type":"text",
+    "message":"你好",
+    "dateTime":"09/23 10:15",
+    "me": true
+  },
+  {
+    "no":3,
+    "name": "Tech_boy",
+    "photo":"image/avatar/Tech_boy.png",
+    "type":"photo",
+    "message":"image/photo/54137321.png",
+    "dateTime":"09/23 10:19",
+    "me": false
+  },
+  {
+    "no":4,
+    "name": "Johnny",
+    "photo":"image/avatar/Johnny.png",
+    "type":"emoji",
+    "message":"image/emoji/like.png",
+    "dateTime":"09/23 10:20",
+    "me": true
+  },
+]
+
+const renderChatRoom = () => {
+  const chatRoomElement = document.getElementById('chatRoom');
+  let message = '';
+
+  webMessage.map(data => {
+    if (data.me) {
+      if (data.type == 'text') {
+        message += `
+          <div class="message_row you-message">
+            <div class="message-content">
+              <div class="message-text">${data.message}</div>
+              <div class="message-time">${data.dateTime}</div>
+            </div>
+          </div>
+        `;
+      } else {
+        message += `
+          <div class="message_row you-message">
+            <div class="message-content">
+              <img class="ejIcon" src="${data.message}" alt="">
+              <div class="message-time">${data.dateTime}</div>
+            </div>
+          </div>
+        `;
+      }
+    } else {
+      if (data.type == 'text') {
+        message += `
+          <div class="message_row other-message">
+            <div class="message-content">
+              <img class="head" src="${data.photo}" alt="">
+              <div class="message-text">${data.message}</div>
+              <div class="message-time">${data.dateTime}</div>
+            </div>
+          </div>
+        `;
+      } else {
+        message += `
+          <div class="message_row other-message">
+            <div class="message-content">
+              <img class="head" src="${data.photo}" alt="">
+              <img class="ejIcon" src="${data.message}" alt="">
+              <div class="message-time">${data.dateTime}</div>
+            </div>
+          </div>
+        `;
+      }
+    }
+  });
+
+  chatRoomElement.innerHTML = message;
+};
+
+const sendMessage = () => {
+  const inputElement = document.querySelector('.sendMsg');
+  const messageText = inputElement.value.trim(); // 取得輸入的文字並去除前後空白
+
+  var date = new Date();
+  var options = { month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false };
+  var formattedDate = date.toLocaleString('en-US', options);
+
+  if (messageText !== '') {
+    const newMessage = {
+      no: webMessage.length + 1,
+      name: "Your Name",
+      photo: "img/your-photo.jpg",
+      type: "text",
+      message: messageText,
+      dateTime: formattedDate,
+      me: true
+    };
+
+    webMessage.push(newMessage); // 新增訊息到 webMessage 陣列
+
+    renderChatRoom(); // 重新渲染聊天訊息
+    inputElement.value = ''; // 清空輸入框
+
+    // 自動捲動到最下面
+    const chatBox = document.querySelector('.chat_message');
+    chatBox.scrollTop = chatBox.scrollHeight;
+  }
+};
+
+// 監聽 "送出" 事件，呼叫 sendMessage 函式
+document.querySelector('.send_icon').addEventListener('click', sendMessage);
+
+// 在頁面載入時直接初始化顯示聊天訊息
+document.addEventListener('DOMContentLoaded', () => {
+  renderChatRoom();
+});
