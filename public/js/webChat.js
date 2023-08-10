@@ -1,8 +1,7 @@
 const webMessage = [
   {
     "no":1,
-    "name": "Tech_boy",
-    "photo":"image/avatar/Tech_boy.png",
+    "name": "David",
     "type":"text",
     "message":"Hi",
     "dateTime":"09/23 10:00",
@@ -11,7 +10,6 @@ const webMessage = [
   {
     "no":2,
     "name": "Johnny",
-    "photo":"image/avatar/Johnny.png",
     "type":"text",
     "message":"你好",
     "dateTime":"09/23 10:15",
@@ -19,8 +17,7 @@ const webMessage = [
   },
   {
     "no":3,
-    "name": "Tech_boy",
-    "photo":"image/avatar/Tech_boy.png",
+    "name": "David",
     "type":"photo",
     "message":"image/photo/54137321.png",
     "dateTime":"09/23 10:19",
@@ -29,7 +26,6 @@ const webMessage = [
   {
     "no":4,
     "name": "Johnny",
-    "photo":"image/avatar/Johnny.png",
     "type":"emoji",
     "message":"image/emoji/like.png",
     "dateTime":"09/23 10:20",
@@ -67,7 +63,6 @@ const renderChatRoom = () => {
         message += `
           <div class="message_row other-message">
             <div class="message-content">
-              <img class="head" src="${data.photo}" alt="">
               <div class="message-text">${data.message}</div>
               <div class="message-time">${data.dateTime}</div>
             </div>
@@ -77,7 +72,6 @@ const renderChatRoom = () => {
         message += `
           <div class="message_row other-message">
             <div class="message-content">
-              <img class="head" src="${data.photo}" alt="">
               <img class="ejIcon" src="${data.message}" alt="">
               <div class="message-time">${data.dateTime}</div>
             </div>
@@ -102,7 +96,6 @@ const sendMessage = () => {
     const newMessage = {
       no: webMessage.length + 1,
       name: "Your Name",
-      photo: "img/your-photo.jpg",
       type: "text",
       message: messageText,
       dateTime: formattedDate,
