@@ -56,8 +56,8 @@
         padding: 10px;
         animation: scu 1.5s ease-in-out infinite alternate;
     }
-    #white-text-input input {
-    color: white !important;
+    .white-text-input input {
+    color: white;
   }
     </style>
 
