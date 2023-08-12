@@ -52,7 +52,7 @@
         animation: scu 1.5s ease-in-out infinite alternate;
     }
     .white-text-input input {
-    color: white; /* 将输入框的字体颜色设置为白色 */
+    color: white !important;
   }
     </style>
 
