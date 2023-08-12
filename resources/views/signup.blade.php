@@ -66,7 +66,7 @@
       <div id="center-content">
         <h4>請輸入您的學號、密碼</h4>
         <div class="row">
-          <div class="col s12"> <!-- 使用 .col s6 offset-s3 佈局表單 -->
+          <div class="col s12 m8 offset-m2 l6 offset-l3"> <!-- 使用 .col s6 offset-s3 佈局表單 -->
             <form class="col-sm">
               <!-- 表單內容 -->
               <div class="row">
