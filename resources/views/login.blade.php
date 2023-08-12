@@ -51,12 +51,6 @@
         padding: 10px;
         animation: scu 1.5s ease-in-out infinite alternate;
     }
-    .back-button {
- 		background-color: #1a1a1a;
- 		padding: 10px;
- 		margin-left: 4%;
- 		margin-top: 4%;
-    }
     </style>
 
 @endsection
