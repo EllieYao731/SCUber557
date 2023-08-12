@@ -51,6 +51,9 @@
         padding: 10px;
         animation: scu 1.5s ease-in-out infinite alternate;
     }
+    .white-text-input input {
+    color: white; /* 将输入框的字体颜色设置为白色 */
+  }
     </style>
 
 @endsection
@@ -70,13 +73,13 @@
             <!-- 表單內容 -->
             <div class="row">
               <div class="input-field col s12">
-                <input id="number" type="text" class="validate">
+                <input id="number" type="text" class="validate white-text-input">
                 <label for="number">學號</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <input id="password" type="password" class="validate">
+                <input id="password" type="password" class="validate white-text-input">
                 <label for="password">密碼</label>
               </div>
             </div>
