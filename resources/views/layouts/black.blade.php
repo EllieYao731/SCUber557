@@ -63,6 +63,10 @@
     flex-direction: column;
     align-items: center;
 	}
+	.white-text-input input {
+    color: white;
+}
+
 </style>
 @endsection
 
