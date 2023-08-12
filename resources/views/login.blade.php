@@ -51,7 +51,7 @@
         padding: 10px;
         animation: scu 1.5s ease-in-out infinite alternate;
     }
-    .white-text-input input {
+    #white-text-input input {
     color: white !important;
   }
     </style>
@@ -64,11 +64,11 @@
 @section('content-black')
 
 <div class="row">
-  <div class="col s12"> <!-- 使用 .col s6 offset-s3 佈局表單 -->
+  <div class="col s12"> 
     <div id="center-content">
       <h4>請輸入您的學號、密碼</h4>
       <div class="row">
-        <div class="col s12"> <!-- 使用 .col s6 offset-s3 佈局表單 -->
+        <div class="col s12 m8 offset-m2 l6 offset-l3"> 
           <form class="col-sm">
             <!-- 表單內容 -->
             <div class="row">
