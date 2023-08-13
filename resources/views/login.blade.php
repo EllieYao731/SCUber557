@@ -56,11 +56,11 @@
         padding: 10px;
         animation: scu 1.5s ease-in-out infinite alternate;
     }
-    #password input{
+    #password {
     color: #fff;
   }
 
-   #number input{
+   #number {
     color: #fff;
   }
     </style>
