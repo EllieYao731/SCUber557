@@ -57,6 +57,12 @@
         padding: 10px;
         animation: scu 1.5s ease-in-out infinite alternate;
     }
+    #password {
+    color: #fff;
+  }
+  #number {
+    color: #fff;
+  }
     </style>
 
 @endsection
