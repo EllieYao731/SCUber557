@@ -53,7 +53,7 @@
     color: #fff;
   }
   #gender {
-    color: #fff;
+    color: #fff!important;
   }
   #email {
     color: #fff;
