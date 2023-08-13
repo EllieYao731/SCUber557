@@ -61,6 +61,9 @@
   #number {
     color: #fff;
   }
+  .select-wrapper .select-dropdown li.white-text {
+  color: #fff !important;
+}
 </style>
 @endsection
 
