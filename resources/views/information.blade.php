@@ -49,6 +49,18 @@
     padding: 10px;
     animation: scu 1.5s ease-in-out infinite alternate;
   }
+  #name {
+    color: #fff;
+  }
+  #gender {
+    color: #fff;
+  }
+  #email {
+    color: #fff;
+  }
+  #number {
+    color: #fff;
+  }
 </style>
 @endsection
 
@@ -75,7 +87,7 @@
                   <select>
                     <option value="1">男</option>
                     <option value="2">女</option>
-                  </select>
+                  </select id='gender'>
                   <label>性別</label>
                 </div>
               </div>
