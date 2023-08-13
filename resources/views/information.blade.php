@@ -61,12 +61,6 @@
   #number {
     color: #fff;
   }
-  #male{
-    color: #fff;
-  }
-  #female{
-    color: #fff;
-  }
 </style>
 @endsection
 
@@ -91,8 +85,8 @@
               <div class="row">
                 <div class="input-field col s12">
                   <select>
-                    <option value="1" id='male'>男</option>
-                    <option value="2" id='female'>女</option>
+                    <option value="1" class="white-text">男</option>
+                    <option value="2" class="white-text">女</option>
                   </select>
                   <label>性別</label>
                 </div>
