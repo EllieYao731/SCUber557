@@ -115,6 +115,16 @@ const sendMessage = () => {
 
 // 監聽 "送出" 事件，呼叫 sendMessage 函式
 document.querySelector('.send_icon').addEventListener('click', sendMessage);
+// 监听输入框的键盘事件
+document.querySelector('.sendMsg').addEventListener('keydown', function(event) {
+  // 判断按下的键是否是 Enter 键 (keyCode 为 13)
+  if (event.keyCode === 13) {
+    // 阻止默认的 Enter 键行为（换行），避免多行输入
+    event.preventDefault();
+    // 调用 sendMessage 函数
+    sendMessage();
+  }
+});
 
 // 在頁面載入時直接初始化顯示聊天訊息
 document.addEventListener('DOMContentLoaded', () => {
