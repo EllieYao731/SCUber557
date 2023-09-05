@@ -31,8 +31,8 @@ class ImageRecognitionController extends Controller
         $x_end = 1200;
         $y_start = 400;
         $y_end = 700;
-        $roi = imagecrop(new TesseractOCR($absoluteImagePath), ['x' => $x_start, 'y' => $y_start, 'width' => $x_end - $x_start, 'height' => $y_end - $y_start]);
-        $recognizedText = ($roi)
+        $roi = imagecrop($absoluteImagePath, ['x' => $x_start, 'y' => $y_start, 'width' => $x_end - $x_start, 'height' => $y_end - $y_start]);
+        $recognizedText = (new TesseractOCR($roi))
                         ->lang('chi_tra')
                         ->userPatterns('/SCUber577/public/user-patterns.txt')
                         ->psm(6)
