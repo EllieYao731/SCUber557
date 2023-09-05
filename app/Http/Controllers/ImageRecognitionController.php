@@ -26,13 +26,8 @@ class ImageRecognitionController extends Controller
         // 调整亮度和对比度
         $adjustedImagePath = $this->adjustImage($imagePath);
         $adabsolutejustedImagePath = public_path("storage/$adjustedImagePath");
-        // 定义要读取的坐标范围
-        $x_start = 530;
-        $x_end = 1200;
-        $y_start = 400;
-        $y_end = 700;
-        $roi = imagecrop($absoluteImagePath, ['x' => $x_start, 'y' => $y_start, 'width' => $x_end - $x_start, 'height' => $y_end - $y_start]);
-        $recognizedText = (new TesseractOCR($roi))
+
+        $recognizedText = (new TesseractOCR($absoluteImagePath))
                         ->lang('chi_tra')
                         ->userPatterns('/SCUber577/public/user-patterns.txt')
                         ->psm(6)
