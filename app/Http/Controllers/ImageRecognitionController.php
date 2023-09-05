@@ -26,33 +26,8 @@ class ImageRecognitionController extends Controller
         // 调整亮度和对比度
         $adjustedImagePath = $this->adjustImage($imagePath);
         $adabsolutejustedImagePath = public_path("storage/$adjustedImagePath");
-        $croppedImagePath = $this->cropImage($imagePath);
-        $croppedImagePath = public_path("storage/$croppedImagePath");
 
-
-        //定義座標範圍
-        $x_start = 530;
-        $x_end = 1200;
-        $y_start = 400;
-        $y_end = 700;
-
-        // 使用GD库进行图像处理
-        $originalImage = imagecreatefrompng($absoluteImagePath);
-
-        // 创建裁剪后的图像
-        $width = $x_end - $x_start;
-        $height = $y_end - $y_start;
-        $roi = imagecrop($originalImage, ['x' => $x_start, 'y' => $y_start, 'width' => $width, 'height' => $height]);
-
-        // 保存裁剪后的图像
-        $croppedImagePath = 'cropped/cropped_' . basename($imagePath);;
-        imagepng($roi, $croppedImagePath);
-
-        // 销毁临时图像资源
-        imagedestroy($roi);
-        imagedestroy($originalImage);
-
-        $recognizedText = (new TesseractOCR($croppedImagePath))
+        $recognizedText = (new TesseractOCR($absoluteImagePath))
                         ->lang('chi_tra')
                         ->userPatterns('/SCUber577/public/user-patterns.txt')
                         ->psm(6)
@@ -92,17 +67,6 @@ class ImageRecognitionController extends Controller
         Storage::disk('public')->put($adjustedImagePath, $adjustedImage->encode());
 
         return $adjustedImagePath;
-    }
-    private function cropImage($imagePath)
-    {
-        $croppedImagePath = public_path("storage/$imagePath");
-        $originalImage = Image::make($croppedImagePath);
-
-        // 保存调整后的图像
-        $croppededImagePath = 'cropped/cropped_' . basename($imagePath);
-        Storage::disk('public')->put($croppedImagePath, $originalImage->encode());
-
-        return $croppedImagePath;
     }
 
 }
