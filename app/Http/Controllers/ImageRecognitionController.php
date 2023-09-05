@@ -26,6 +26,9 @@ class ImageRecognitionController extends Controller
         // 调整亮度和对比度
         $adjustedImagePath = $this->adjustImage($imagePath);
         $adabsolutejustedImagePath = public_path("storage/$adjustedImagePath");
+        $croppedImagePath = $this->cropImage($imagePath);
+        $croppedImagePath = public_path("storage/$croppedImagePath");
+
 
         //定義座標範圍
         $x_start = 530;
