@@ -38,12 +38,32 @@
       color: red;
     }
   }
-  
+  .back-button {
+ 		background-color: #1a1a1a;
+ 		padding: 10px;
+ 		margin-left: 4%;
+ 		margin-top: 4% !important; 
+    }
   #scu {
     color: aliceblue;
     padding: 10px;
     animation: scu 1.5s ease-in-out infinite alternate;
   }
+  #name {
+    color: #fff;
+  }
+  #gender {
+    color: #fff!important;
+  }
+  #email {
+    color: #fff;
+  }
+  #number {
+    color: #fff;
+  }
+  .select-wrapper .select-dropdown li.white-text {
+  color: #fff !important;
+}
 </style>
 @endsection
 
@@ -56,7 +76,7 @@
       <div id="center-content">
         <h4>請輸入您的基本資料</h4>
         <div class="row">
-          <div class="col s12"> <!-- 使用 .col s6 offset-s3 佈局表單 -->
+          <div class="col s12 m8 offset-m2 l6 offset-l3"> <!-- 使用 .col s6 offset-s3 佈局表單 -->
             <form class="col-sm">
               <!-- 表單內容 -->
               <div class="row">
@@ -68,8 +88,8 @@
               <div class="row">
                 <div class="input-field col s12">
                   <select>
-                    <option value="1">男</option>
-                    <option value="2">女</option>
+                    <option value="1" class="white-text">男</option>
+                    <option value="2" class="white-text">女</option>
                   </select>
                   <label>性別</label>
                 </div>
@@ -100,9 +120,6 @@
     </div>
     <div id="scu">
             <h1>SCUber<i>577</i></h1>
-        </div>
-        <div class="moving-image">
-            <img src="{{ asset('pictures/people_scooter.png') }}" alt="騎車圖片">
         </div>
   </div>
 @endsection

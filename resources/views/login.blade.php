@@ -45,12 +45,24 @@
         color: red;
         }
     }
-  
+    .back-button {
+ 		background-color: #1a1a1a;
+ 		padding: 10px;
+ 		margin-left: 4%;
+ 		margin-top: 4% !important; 
+    }
     #scu {
         color: aliceblue;
         padding: 10px;
         animation: scu 1.5s ease-in-out infinite alternate;
     }
+    #password {
+    color: #fff;
+  }
+
+   #number {
+    color: #fff;
+  }
     </style>
 
 @endsection
@@ -61,22 +73,22 @@
 @section('content-black')
 
 <div class="row">
-  <div class="col s12"> <!-- 使用 .col s6 offset-s3 佈局表單 -->
+  <div class="col s12"> 
     <div id="center-content">
       <h4>請輸入您的學號、密碼</h4>
       <div class="row">
-        <div class="col s12"> <!-- 使用 .col s6 offset-s3 佈局表單 -->
+        <div class="col s12 m8 offset-m2 l6 offset-l3"> 
           <form class="col-sm">
             <!-- 表單內容 -->
             <div class="row">
               <div class="input-field col s12">
-                <input id="number" type="text" class="validate">
+                <input id="number" type="text" class="validate white-text-input">
                 <label for="number">學號</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <input id="password" type="password" class="validate">
+                <input id="password" type="password" class="validate white-text-input">
                 <label for="password">密碼</label>
               </div>
             </div>
