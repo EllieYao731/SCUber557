@@ -100,6 +100,8 @@ class ImageRecognitionController extends Controller
 
         // 保存调整后的图像
         $croppededImagePath = 'cropped/cropped_' . basename($imagePath);
+        Storage::disk('public')->put($croppedImagePath, $originalImage->encode());
+
         return $croppedImagePath;
     }
 
