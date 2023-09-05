@@ -42,7 +42,7 @@ class ImageRecognitionController extends Controller
         $roi = imagecrop($originalImage, ['x' => $x_start, 'y' => $y_start, 'width' => $width, 'height' => $height]);
 
         // 保存裁剪后的图像
-        $croppedImagePath = 'path/to/save/cropped_image.jpg'; // 替换为实际的保存路径和文件名
+        $croppedImagePath = 'cropped/cropped_' . basename($imagePath);;
         imagejpeg($roi, $croppedImagePath);
 
         // 销毁临时图像资源
