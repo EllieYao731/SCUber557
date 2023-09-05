@@ -42,7 +42,6 @@ class ImageRecognitionController extends Controller
         $roi = imagecrop($originalImage, ['x' => $x_start, 'y' => $y_start, 'width' => $width, 'height' => $height]);
 
         // 保存裁剪后的图像
-        Storage::makeDirectory('cropped'); // 确保目录存在
         $croppedImagePath = 'cropped/cropped_' . basename($imagePath);;
         imagepng($roi, $croppedImagePath);
 
@@ -90,6 +89,17 @@ class ImageRecognitionController extends Controller
         Storage::disk('public')->put($adjustedImagePath, $adjustedImage->encode());
 
         return $adjustedImagePath;
+    }
+    private function cropImage($imagePath)
+    {
+        $croppedImagePath = public_path("storage/$imagePath");
+        $originalImage = Image::make($croppedImagePath);
+
+        // 保存调整后的图像
+        $croppededImagePath = 'cropped/cropped_' . basename($imagePath);
+        Storage::disk('public')->put($croppedImagePath, $croppedImage->encode());
+
+        return $croppedImagePath;
     }
 
 }
