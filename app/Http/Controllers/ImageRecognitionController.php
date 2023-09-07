@@ -50,6 +50,15 @@ class ImageRecognitionController extends Controller
                 ->userPatterns('/SCUber577/public/user-patterns.txt')
                 ->psm(6)
                 ->run();
+
+            if (strpos($recognizedText, "組")!== false || strpos($adrecognizedText, "組")!== false || strpos($croppedText, "組")!== false) {
+                $split_text="組";
+            }elseif (strpos($recognizedText, "班")!== false || strpos($adrecognizedText, "班")!== false || strpos($croppedText, "班")!== false) {
+                $split_text="班";
+            }else {
+                $split_text="學系";
+            }
+        
             return view('test', [
                 'imagePath' => $imagePath,
                 'adjustedImagePath' => $adjustedImagePath,
