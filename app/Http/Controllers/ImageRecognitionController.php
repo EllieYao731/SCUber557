@@ -96,7 +96,7 @@ class ImageRecognitionController extends Controller
 
         // 定義裁剪的坐標
         $x_start = 110;
-        $x_end = 300;
+        $x_end = 310;
         $y_start = 110;
         $y_end = 200;
 
