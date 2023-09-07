@@ -37,6 +37,11 @@ class ImageRecognitionController extends Controller
         // 讀取圖像
         $originalImage = Image::make($absoluteImagePath);
 
+        // 在圖像上畫一個矩形以標識裁剪的區域（僅用於檢查）
+        $originalImage->rectangle($x_start, $y_start, $x_end, $y_end, function ($draw) {
+            $draw->border(2, [255, 0, 0]); // 紅色邊框
+        });
+
         // 裁剪圖像
         $croppedImage = $originalImage->crop($x_end - $x_start, $y_end - $y_start, $x_start, $y_start);
 
