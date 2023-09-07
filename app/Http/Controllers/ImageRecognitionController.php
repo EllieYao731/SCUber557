@@ -29,7 +29,7 @@ class ImageRecognitionController extends Controller
             $adjustedImagePath = $this->adjustImage($imagePath);
             $adjustedAbsoluteImagePath = public_path("storage/$adjustedImagePath");
 
-            $croppedImagePath = $this->cropImage($imagePath);
+            $croppedImagePath = $this->cropImage($adjustedImagePath);
             $croppedAbsoluteImagePath = public_path("storage/$croppedImagePath");
 
             // 使用 Tesseract OCR 辨識文字
