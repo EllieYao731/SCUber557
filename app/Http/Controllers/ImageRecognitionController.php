@@ -33,7 +33,7 @@ class ImageRecognitionController extends Controller
             $x_start = 530;
             $x_end = 1200;
             $y_start = 400;
-            $y_end = 700;
+            $y_end = 1000;
 
             // 讀取圖像
             $originalImage = Image::make($absoluteImagePath);
