@@ -49,15 +49,27 @@ class ImageRecognitionController extends Controller
         // 將圖像轉換為灰度
         $gray = $roi->greyscale();
 
+        // 保存臨時圖像文件（供 OCR 使用）
+        $tempImagePath = 'temp/temp_' . basename($imagePath);
+        Storage::disk('public')->put($tempImagePath, $gray->encode());
+
         // 對圖像進行二值化處理
-        $binary = $gray->threshold(1);
+        $tempImageFullPath = public_path("storage/$tempImagePath");
+        $image = imagecreatefromjpeg($tempImageFullPath);
+        imagefilter($image, IMG_FILTER_GRAYSCALE);
+        imagefilter($image, IMG_FILTER_THRESHOLD, 1);
+        imagejpeg($image, $tempImageFullPath);
+        imagedestroy($image);
 
         // 使用Tesseract OCR庫識別身份證號碼和姓名
         $config = '--psm 6';
-        $id_number = (new TesseractOCR($binary))
+        $id_number = (new TesseractOCR($tempImageFullPath))
             ->configFile($config)
             ->lang('chi_tra')
             ->run();
+
+        // 刪除臨時圖像文件
+        Storage::disk('public')->delete($tempImagePath);
 
         return view('test', [
             'imagePath' => $imagePath,
