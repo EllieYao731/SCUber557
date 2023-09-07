@@ -55,7 +55,7 @@ class ImageRecognitionController extends Controller
 
         // 對圖像進行二值化處理
         $tempImageFullPath = public_path("storage/$tempImagePath");
-        $image = imagecreatefrompng($tempImageFullPath);
+        $image = imagecreatefromjpeg($tempImageFullPath);
         imagefilter($image, IMG_FILTER_GRAYSCALE);
         imagefilter($image, IMG_FILTER_THRESHOLD, 1);
         imagejpeg($image, $tempImageFullPath);
