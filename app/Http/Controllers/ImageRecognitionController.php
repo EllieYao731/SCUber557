@@ -81,16 +81,16 @@ class ImageRecognitionController extends Controller
     private function cropImage($imagePath)
     {
         $cropImagePath = public_path("storage/$imagePath");
-        $originalImage = Image::make($cropImagePath);
+        $initialImage = Image::make($cropImagePath);
 
         // 定義裁剪的坐標
         $x_start = 530;
-        $x_end = 1200;
+        $x_end = 2200;
         $y_start = 400;
-        $y_end = 700;
+        $y_end = 100;
 
         // 裁剪圖像
-        $croppedImage = $originalImage->crop($x_end - $x_start, $y_end - $y_start, $x_start, $y_start);
+        $croppedImage = $initialImage->crop($x_end - $x_start, $y_end - $y_start, $x_start, $y_start);
 
         // 儲存調整後的圖像
         $croppedImagePath = 'cropped/cropped_' . basename($imagePath);
