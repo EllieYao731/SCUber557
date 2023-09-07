@@ -23,65 +23,15 @@ class ImageRecognitionController extends Controller
         $imagePath = $request->file('image')->store('uploads', 'public');
         $absoluteImagePath = public_path("storage/$imagePath");
 
-        // 调整亮度和对比度
+        // 調整亮度和對比度
         $adjustedImagePath = $this->adjustImage($imagePath);
         $adabsolutejustedImagePath = public_path("storage/$adjustedImagePath");
-
-        $recognizedText = (new TesseractOCR($absoluteImagePath))
-            ->lang('chi_tra')
-            ->userPatterns('/SCUber577/public/user-patterns.txt')
-            ->psm(6)
-            ->run();
-        $adrecognizedText = (new TesseractOCR($adabsolutejustedImagePath))
-            ->lang('chi_tra')
-            ->userPatterns('/SCUber577/public/user-patterns.txt')
-            ->psm(6)
-            ->run();
-
-        if (strpos($recognizedText, "組") !== false || strpos($adrecognizedText, "組") !== false) {
-            $split_text = "組";
-        } elseif (strpos($recognizedText, "班") !== false || strpos($adrecognizedText, "班") !== false) {
-            $split_text = "班";
-        } else {
-            $split_text = "學系";
-        }
-
-        return view('test', [
-            'imagePath' => $imagePath,
-            'adjustedImagePath' => $adjustedImagePath,
-            'recognizedText' => $recognizedText,
-            'adrecognizedText' => $adrecognizedText,
-        ]);
-    }
-
-    private function adjustImage($imagePath)
-    {
-        $absoluteImagePath = public_path("storage/$imagePath");
-        $originalImage = Image::make($absoluteImagePath);
-        // 调整亮度和对比度
-        $adjustedImage = $originalImage->brightness(0)->contrast(30);
-
-        // 保存调整后的图像
-        $adjustedImagePath = 'adjusted/adjusted_' . basename($imagePath);
-        Storage::disk('public')->put($adjustedImagePath, $adjustedImage->encode());
-
-        return $adjustedImagePath;
-    }
-
-    public function cropAndRecognize(Request $request)
-    {
-        $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-        ]);
 
         // 定義 x 和 y 的起始和結束位置
         $x_start = 530;
         $x_end = 1200;
         $y_start = 400;
         $y_end = 700;
-
-        $imagePath = $request->file('image')->store('uploads', 'public');
-        $absoluteImagePath = public_path("storage/$imagePath");
 
         // 讀取圖像
         $img_student = Image::make($absoluteImagePath);
@@ -90,7 +40,6 @@ class ImageRecognitionController extends Controller
         $roi = $img_student->crop($x_end - $x_start, $y_end - $y_start, $x_start, $y_start);
 
         // 保存或進一步處理 roi 區域
-        // 這裡可以對 $roi 做一些後續處理，例如保存或進行其他操作
         $croppedImagePath = 'cropped/cropped_' . basename($imagePath);
         Storage::disk('public')->put($croppedImagePath, $roi->encode());
 
@@ -110,10 +59,25 @@ class ImageRecognitionController extends Controller
             ->lang('chi_tra')
             ->run();
 
-        // 輸出結果
         return view('test', [
             'imagePath' => $imagePath,
+            'adjustedImagePath' => $adjustedImagePath,
+            'croppedImagePath' => $croppedImagePath,
             'recognizedText' => $id_number,
         ]);
+    }
+
+    private function adjustImage($imagePath)
+    {
+        $absoluteImagePath = public_path("storage/$imagePath");
+        $originalImage = Image::make($absoluteImagePath);
+        // 調整亮度和對比度
+        $adjustedImage = $originalImage->brightness(0)->contrast(30);
+
+        // 保存調整後的圖像
+        $adjustedImagePath = 'adjusted/adjusted_' . basename($imagePath);
+        Storage::disk('public')->put($adjustedImagePath, $adjustedImage->encode());
+
+        return $adjustedImagePath;
     }
 }
