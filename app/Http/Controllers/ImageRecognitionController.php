@@ -56,6 +56,7 @@ class ImageRecognitionController extends Controller
                 'croppedImagePath' => $croppedImagePath,
                 'recognizedText' => $recognizedText,
                 'croppedText' => $croppedText,
+                'adrecognizedText' => $adrecognizedText
             ]);
         } catch (\Exception $e) {
             // 處理異常，例如上傳失敗、圖像處理失敗、OCR 失敗等
@@ -81,16 +82,16 @@ class ImageRecognitionController extends Controller
     private function cropImage($imagePath)
     {
         $cropImagePath = public_path("storage/$imagePath");
-        $initialImage = Image::make($cropImagePath);
+        $originalImage = Image::make($cropImagePath);
 
         // 定義裁剪的坐標
         $x_start = 530;
-        $x_end = 2200;
+        $x_end = 1200;
         $y_start = 400;
-        $y_end = 1000;
+        $y_end = 700;
 
         // 裁剪圖像
-        $croppedImage = $initialImage->crop($x_end - $x_start, $y_end - $y_start, $x_start, $y_start);
+        $croppedImage = $originalImage->crop($x_end - $x_start, $y_end - $y_start, $x_start, $y_start);
 
         // 儲存調整後的圖像
         $croppedImagePath = 'cropped/cropped_' . basename($imagePath);
