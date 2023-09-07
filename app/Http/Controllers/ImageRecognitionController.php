@@ -87,7 +87,7 @@ class ImageRecognitionController extends Controller
         $x_start = 530;
         $x_end = 2200;
         $y_start = 400;
-        $y_end = 100;
+        $y_end = 1000;
 
         // 裁剪圖像
         $croppedImage = $initialImage->crop($x_end - $x_start, $y_end - $y_start, $x_start, $y_start);
