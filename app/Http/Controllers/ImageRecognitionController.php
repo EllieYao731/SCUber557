@@ -95,7 +95,7 @@ class ImageRecognitionController extends Controller
         $originalImage = Image::make($cropImagePath);
 
         // 定義裁剪的坐標
-        $x_start = 110;
+        $x_start = 105;
         $x_end = 280;
         $y_start = 120;
         $y_end = 160;
