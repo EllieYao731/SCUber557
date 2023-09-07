@@ -17,16 +17,9 @@
         @isset($recognizedText)
             <h3>辨識結果：</h3>
             <p>{{ $recognizedText }}</p>
-        @endisset
-        @isset($adrecognizedText)
-            <h3>辨識結果：</h3>
             <p>{{ $adrecognizedText }}</p>
-        @endisset
-        @isset($croppedText)
-            <h3>辨識結果：</h3>
-            <p>{{ $croppedText }}</p>
-        @endisset
 
+        @endisset
     @endisset
 </div>
 @endsection
