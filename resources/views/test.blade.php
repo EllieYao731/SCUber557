@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h2>上傳圖片並辨識文字</h2>
+    <h2>上傳圖片並辨識文字:</h2>
 
     <form action="{{ route('uploadAndRecognize') }}" method="POST" enctype="multipart/form-data">
         @csrf
