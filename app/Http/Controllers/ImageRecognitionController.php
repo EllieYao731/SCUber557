@@ -32,15 +32,13 @@ class ImageRecognitionController extends Controller
             $croppedImagePath = $this->cropImage($imagePath);
             $croppedAbsoluteImagePath = public_path("storage/$croppedImagePath");
 
-
-
             // 使用 Tesseract OCR 辨識文字
             $recognizedText = (new TesseractOCR($absoluteImagePath))
                 ->lang('chi_tra')
                 ->userPatterns('/SCUber577/public/user-patterns.txt')
                 ->psm(6)
                 ->run();
-            $adrecognizedText = (new TesseractOCR($adabsolutejustedImagePath))
+            $adrecognizedText = (new TesseractOCR($adjustedAbsoluteImagePath))
                 ->lang('chi_tra')
                 ->userPatterns('/SCUber577/public/user-patterns.txt')
                 ->psm(6)
@@ -51,24 +49,27 @@ class ImageRecognitionController extends Controller
                 ->psm(6)
                 ->run();
 
-            if (strpos($recognizedText, "組")!== false || strpos($adrecognizedText, "組")!== false || strpos($croppedText, "組")!== false) {
-                $split_text="組";
-            }elseif (strpos($recognizedText, "班")!== false || strpos($adrecognizedText, "班")!== false || strpos($croppedText, "班")!== false) {
-                $split_text="班";
-            }else {
-                $split_text="學系";
+            // 判断识别结果
+            if (strpos($recognizedText, "組") !== false || strpos($adrecognizedText, "組") !== false || strpos($croppedText, "組") !== false) {
+                $split_text = "組";
+            } elseif (strpos($recognizedText, "班") !== false || strpos($adrecognizedText, "班") !== false || strpos($croppedText, "班") !== false) {
+                $split_text = "班";
+            } else {
+                $split_text = "學系";
             }
-        
+
             return view('test', [
                 'imagePath' => $imagePath,
                 'adjustedImagePath' => $adjustedImagePath,
                 'croppedImagePath' => $croppedImagePath,
                 'recognizedText' => $recognizedText,
                 'croppedText' => $croppedText,
-                'adrecognizedText' => $adrecognizedText
+                'adrecognizedText' => $adrecognizedText,
             ]);
         } catch (\Exception $e) {
             // 處理異常，例如上傳失敗、圖像處理失敗、OCR 失敗等
+            \Log::error('Exception: ' . $e->getMessage());
+
             return view('test', ['error' => $e->getMessage()]);
         }
     }
