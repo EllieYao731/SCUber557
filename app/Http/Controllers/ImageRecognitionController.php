@@ -89,24 +89,24 @@ class ImageRecognitionController extends Controller
         return $adjustedImagePath;
     }
 
-    private function cropImage($imagePath)
+    private function cropImage($adjustedImagePath)
     {
-        $cropImagePath = public_path("storage/$imagePath");
-        $originalImage = Image::make($cropImagePath);
+    $absoluteImagePath = public_path("storage/$adjustedImagePath");
+    $originalImage = Image::make($absoluteImagePath);
 
-        // 定義裁剪的坐標
-        $x_start = 110;
-        $x_end = 310;
-        $y_start = 110;
-        $y_end = 200;
+    // 定義裁剪的坐標
+    $x_start = 110;
+    $x_end = 310;
+    $y_start = 110;
+    $y_end = 200;
 
-        // 裁剪圖像
-        $croppedImage = $originalImage->crop($x_end - $x_start, $y_end - $y_start, $x_start, $y_start);
-        
-        // 儲存調整後的圖像
-        $croppedImagePath = 'cropped/cropped_' . basename($imagePath);
-        Storage::disk('public')->put($croppedImagePath, $croppedImage->encode());
+    // 裁剪圖像
+    $croppedImage = $originalImage->crop($x_end - $x_start, $y_end - $y_start, $x_start, $y_start);
+    
+    // 儲存裁剪後的圖像
+    $croppedImagePath = 'cropped/cropped_' . basename($adjustedImagePath);
+    Storage::disk('public')->put($croppedImagePath, $croppedImage->encode());
 
-        return $croppedImagePath;
+    return $croppedImagePath;
     }
 }
