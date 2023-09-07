@@ -14,11 +14,12 @@
         <h3>上傳的圖片：</h3>
         <img src="{{ asset('storage/' . $imagePath) }}" alt="Uploaded Image" width="300">
         <img src="{{ asset('storage/' . $adjustedImagePath) }}" alt="Uploaded Image" width="300">
+        <img src="{{ asset('storage/' . $croppedImagePath) }}" alt="Uploaded Image" width="300">
         @isset($recognizedText)
             <h3>辨識結果：</h3>
             <p>{{ $recognizedText }}</p>
             <p>{{ $adrecognizedText }}</p>
-
+            <p>{{ $croppedText }}</p>
         @endisset
     @endisset
 </div>
