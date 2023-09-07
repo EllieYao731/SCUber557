@@ -26,7 +26,7 @@
             <p>{{ $recognizedText }}</p>
             
             <p>調整過的圖片辨識結果：</p>
-            <p>{{ $recognizedText }}</p>
+            <p>{{ $adrecognizedText }}</p>
         @endisset
     @endisset
 </div>
