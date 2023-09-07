@@ -80,7 +80,7 @@ class ImageRecognitionController extends Controller
         $originalImage = Image::make($absoluteImagePath);
 
         // 調整亮度和對比度
-        $adjustedImage = $originalImage->brightness(2)->contrast(50);
+        $adjustedImage = $originalImage->brightness(2)->contrast(70);
 
         // 儲存調整後的圖像
         $adjustedImagePath = 'adjusted/adjusted_' . basename($imagePath);
