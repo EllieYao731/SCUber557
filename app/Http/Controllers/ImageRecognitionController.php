@@ -41,12 +41,12 @@ class ImageRecognitionController extends Controller
             $adrecognizedText = (new TesseractOCR($adjustedAbsoluteImagePath))
                 ->lang('chi_tra')
                 ->userPatterns('/SCUber577/public/user-patterns.txt')
-                ->psm(6)
+                ->psm(11)
                 ->run();
             $croppedText = (new TesseractOCR($croppedAbsoluteImagePath))
                 ->lang('chi_tra')
                 ->userPatterns('/SCUber577/public/user-patterns.txt')
-                ->psm(6)
+                ->psm(11)
                 ->run();
 
             // 判断识别结果
@@ -80,7 +80,7 @@ class ImageRecognitionController extends Controller
         $originalImage = Image::make($absoluteImagePath);
 
         // 調整亮度和對比度
-        $adjustedImage = $originalImage->brightness(5)->contrast(100);
+        $adjustedImage = $originalImage->brightness(4)->contrast(70);
 
         // 儲存調整後的圖像
         $adjustedImagePath = 'adjusted/adjusted_' . basename($imagePath);
@@ -96,9 +96,9 @@ class ImageRecognitionController extends Controller
 
     // 定義裁剪的坐標
     $x_start = 110;
-    $x_end = 310;
+    $x_end = 280;
     $y_start = 110;
-    $y_end = 200;
+    $y_end = 158;
 
     // 裁剪圖像
     $croppedImage = $originalImage->crop($x_end - $x_start, $y_end - $y_start, $x_start, $y_start);
