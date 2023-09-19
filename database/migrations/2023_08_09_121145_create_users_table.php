@@ -22,13 +22,13 @@ return new class extends Migration
     {
         Schema::create($this->tableName, function (Blueprint $table) {
             // $table->engine = 'InnoDB';
+            $table->string('name', 10)->nullable()->default(null);
             $table->string('studentID', 10)->primary();
-            $table->string('password', 20)->nullable()->default(null);
-            $table->string('name', 3)->nullable()->default(null);
-            $table->string('gender', 2)->nullable()->default(null);
+            $table->string('gender', 10)->nullable()->default(null);
             $table->string('mobile', 10)->nullable()->default(null);
-            $table->string('email', 10)->nullable()->default(null);
-            $table->tinyInteger('riderFlag')->nullable()->default(null);
+            $table->boolean('riderFlag')->nullable()->default(null);
+            $table->string('email', 20)->nullable()->default(null);
+            $table->string('password', 255)->nullable()->default(null);
             // new 
             $table->string('api_token')->unique();
         });
