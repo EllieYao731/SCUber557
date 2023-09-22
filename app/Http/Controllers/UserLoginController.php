@@ -3,27 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User
+use App\Models\User;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
 
 class UserLoginController extends Controller
 {
     public function UserLogin(Request $request)
     {
-        $user = User::where([
-            'name' => $request->FName,
-            'studentID'=> $request->FStudentID,
-            'gender'=> $request->FGender,
-            'mobile'=> $request->FMobile, 
-            'riderFlag'=> $request->FRiderFlag,
-            'email' => $request->FEmail,
-            'password' => $request->FPassword
-            ])->first();
+        // 用學號查詢
+        $user = User::whereStudentid($request->studentID)->first();
 
-        $apiToken = Str::random(10);
-        if ($user->update(['api_token'=>$apiToken])) {
-            //  update api_token
-            return "login as User, your api token is $apiToken";
+        if(Hash::check($request->password, $user->password)){
+            return "學號 $user->studentID 登入成功！";
         }
+        return '帳號或密碼錯誤';
     }
 }

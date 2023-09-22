@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Validator;
+use App\Http\Controllers\UserController;
+
 
 class UserController extends Controller
 {
@@ -31,8 +33,7 @@ class UserController extends Controller
             // 取得驗證錯誤訊息
             $errorMessages = $errorMessageData->getMessages();
         }
-        // return "test";
-        $api_token= Str::random(10);
+        // $api_token= Str::random(10);
         $Create=User::create([
             'name' =>$request['name'],
             'studentID' =>$request['studentID'],
@@ -40,48 +41,50 @@ class UserController extends Controller
             'mobile' =>$request['mobile'],
             'riderFlag' =>$request['riderFlag'],
             'email' =>$request['email'],
-            'password' => $request['password'],
-            'api_token' => $api_token
+            'password' => $request['password']
         ]);
 
         if ($Create)
-            return "註冊成功...$api_token";
+            return "註冊成功...";
         else
             return "註冊失敗，請再試一次";
 
     }
 
 // 查詢
-    public function show()
+    public function show(Request $request)
     {
-        // 經過身份驗證的使用者
-        return Auth::user();
+        $userQuery = User::whereStudentid($request->studentID)->first();
+        return "取得的資料為" . $userQuery;
     }
 
 
 // 修改
     public function update(Request $request)
     {
-        $request->validate([
-            'name',
-            'email' => 'unique:users|email',
-            'password',
-        ]);
-
-        // 驗證使用者 => 修改更新（取得所有輸入資料）
-        Auth::user()->update($request->all());
-
-        echo  '資料修改成功，以下爲修改結果';
-        return  $request->all();
-
+        if(true){ // 確認身份or有登入後才能更改
+            $obj = $request->all();
+            // echo $obj->name;
+            try{
+                foreach( $obj as $key => $value ){
+                    if ($key != "studentID"){
+                        $userQuery =  User::whereStudentid($request->studentID)->first();
+                        echo "更新 $key 從 " . $userQuery->$key . "變成 $value <br>";
+                        User::whereStudentid($request->studentID)->update([$key => $value]);
+                    }
+                }
+                echo "更新完成";
+            }catch(Exception $err) {
+                echo 'Message: ' .$err->getMessage();
+            }
+        }
     }
 
-
     // 刪除
-    public function destroy($api_token)
+    public function destroy()
     {
-        $user = User::where('api_token',$api_token);
-        if ($user && $user -> delete()){ // 若條件符合就刪除
+        // 用學號查詢
+        if (User::whereStudentid($studentID)-> delete()){ // 若條件符合就刪除
             return 'User deleted successfully';
         }
         else{

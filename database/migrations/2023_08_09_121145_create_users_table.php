@@ -29,8 +29,6 @@ return new class extends Migration
             $table->boolean('riderFlag')->nullable()->default(null);
             $table->string('email', 20)->nullable()->default(null);
             $table->string('password', 255)->nullable()->default(null);
-            // new 
-            $table->string('api_token')->unique();
         });
     }
 

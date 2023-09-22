@@ -46,10 +46,10 @@ return [
             'hash' => false,
         ],
         'api' => [
-        'driver' => 'passport',
-        'provider' => 'users',
-        'hash' => true,
-    ],
+            'driver' => 'passport',
+            'provider' => 'users',
+            'hash' => true,
+        ],
     ],
 
     /*
