@@ -34,4 +34,4 @@ Route::delete('/user/{studentID}', [UserController::class,'destroy']);
 Route::get('/user', [UserController::class,'show']);
 
 // 更新用
-Route::put('/user', [UserController::class,'update']);
+Route::patch('/user', [UserController::class,'update']);

@@ -69,11 +69,11 @@ class UserController extends Controller
                 foreach( $obj as $key => $value ){
                     if ($key != "studentID"){
                         $userQuery =  User::whereStudentid($request->studentID)->first();
-                        echo "更新 $key 從 " . $userQuery->$key . "變成 $value <br>";
                         User::whereStudentid($request->studentID)->update([$key => $value]);
+                        echo "已將 $key 從 " . $userQuery->$key . " 改成 $value \n";
                     }
                 }
-                echo "更新完成";
+                echo "完成";
             }catch(Exception $err) {
                 echo 'Message: ' .$err->getMessage();
             }
