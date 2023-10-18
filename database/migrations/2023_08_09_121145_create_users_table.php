@@ -30,6 +30,7 @@ return new class extends Migration
             $table->string('email', 20)->unique();
             $table->string('password', 255);
             $table->string('api_token')->unique();
+            $table->boolean('GoOrLeave');
             $table->dateTime('created_at', $precision = 0);
             $table->dateTime('ended_at', $precision = 0);
         });
