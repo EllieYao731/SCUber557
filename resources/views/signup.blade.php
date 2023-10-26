@@ -128,7 +128,7 @@
             <div class="row">
               <div class="col s12">
                 <div id="next">
-                  <a href="{{ url('/information') }}"><input type="submit" value="下一步"></a>
+                <a href="#"><input type="submit" value="下一步"></a>
                 </div>
               </div>
             </div>

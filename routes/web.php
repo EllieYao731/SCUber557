@@ -65,10 +65,10 @@ Route::get('/signup', function () {
     return view('signup');
 });
 
-Route::get('/information', function () {
+/*Route::get('/information', function () {
     return view('information');
 });
-
+*/
 Route::get('/forget', function () {
     return view('forget');
 });
