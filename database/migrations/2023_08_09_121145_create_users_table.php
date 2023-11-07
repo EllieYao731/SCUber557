@@ -33,6 +33,7 @@ return new class extends Migration
             $table->boolean('GoOrLeave');
             $table->dateTime('created_at', $precision = 0);
             $table->dateTime('ended_at', $precision = 0);
+            $table->boolean('Occupied');
         });
     }
 
