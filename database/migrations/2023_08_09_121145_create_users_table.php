@@ -19,7 +19,8 @@ return new class extends Migration
      * @return void
      */
     public function up()
-    {
+    {   
+
         Schema::create($this->tableName, function (Blueprint $table) {
             // $table->engine = 'InnoDB';
             $table->string('name', 10);
@@ -30,10 +31,8 @@ return new class extends Migration
             $table->string('email', 20)->unique();
             $table->string('password', 255);
             $table->string('api_token')->unique();
-            $table->boolean('GoOrLeave');
-            $table->dateTime('created_at', $precision = 0);
-            $table->dateTime('ended_at', $precision = 0);
-            $table->boolean('Occupied');
+            $table->dateTime('created_at');
+            $table->dateTime('updated_at');
         });
     }
 
