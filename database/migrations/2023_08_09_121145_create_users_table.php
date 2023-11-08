@@ -33,7 +33,6 @@ return new class extends Migration
             $table->string('api_token')->unique();
             $table->dateTime('created_at');
             $table->dateTime('updated_at');
-            $table->boolean('Occupied');
         });
     }
 
