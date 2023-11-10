@@ -40,14 +40,15 @@
     align-items: center; /* Center content vertically */
     }
     @keyframes scu {
-      0%, 100% {
+    0%, 100% {
         text-shadow: 0 0 20px #fff, 0 0 100px #fff, 0 0 20px #fff;
-      }
-      50% {
-        text-shadow: 0 0 50px #fff, 0 0 150px #fff, 0 0 50px #fff;
-        color: #FF0000!important;
-      }
+        color: initial; /* 重置顏色 */
     }
+    50% {
+        text-shadow: 0 0 10px red, 0 0 20px red, 0 0 10px red;
+        color: red !important;
+    }
+}
 
     .back-button {
       background-color: #1a1a1a;
