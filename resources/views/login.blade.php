@@ -14,15 +14,22 @@
   </script>
   <style>
     #center-content {
-      text-align: center;
-    }
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
     #center-content h4 {
-      display: inline-block;
-      color: white;
-      margin: 0;
-      white-space: nowrap;
-    }
+    display: block;
+    color: white;
+    margin: 0;
+    white-space: nowrap;
+}
+    .col s12 m8 offset-m2 l6 offset-l3 {
+    margin: 0 auto;
+}
 
     #center-content .row {
       white-space: nowrap;
@@ -36,15 +43,19 @@
     }
 
     @keyframes scu {
-        0%,
-        100% {
+    0%, 100% {
         text-shadow: 0 0 20px #fff, 0 0 100px #fff, 0 0 20px #fff;
-        }
-        50% {
-        text-shadow: 0 0 50px #fff, 0 0 150px #fff, 0 0 50px #fff;
-        color: red!important;
-        }
+        color: initial; /* 重置顏色 */
     }
+    50% {
+        text-shadow: 0 0 10px red, 0 0 20px red, 0 0 10px red;
+        color: red !important;
+    }
+}
+    #next {
+    text-align: center; /* 將按鈕置中 */
+}
+
     .back-button {
  		background-color: #1a1a1a;
  		padding: 10px;
@@ -64,16 +75,17 @@
     color: #fff;
   }
   footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-    height: 30px; /* Set the height to match the height of the image */
-    padding-top: 10px; /* Adjust the top padding to give some space above the text */
-    display: flex; /* Use flexbox to center content */
-    justify-content: center; /* Center content horizontally */
-    align-items: center; /* Center content vertically */
-    }
+  position: absolute;
+  bottom: 10px; /* 調整 bottom 的值來上移 */
+  width: 100%;
+  text-align: center;
+  height: 30px;
+  padding-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
     </style>
 
 @endsection
