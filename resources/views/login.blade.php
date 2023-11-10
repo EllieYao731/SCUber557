@@ -42,7 +42,7 @@
         }
         50% {
         text-shadow: 0 0 50px #fff, 0 0 150px #fff, 0 0 50px #fff;
-        color: red;
+        color: red!important;
         }
     }
     .back-button {
@@ -63,6 +63,17 @@
    #number {
     color: #fff;
   }
+  footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    height: 30px; /* Set the height to match the height of the image */
+    padding-top: 10px; /* Adjust the top padding to give some space above the text */
+    display: flex; /* Use flexbox to center content */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    }
     </style>
 
 @endsection
@@ -115,7 +126,7 @@
 
 <footer>
   <div id="scu">
-    <h1>SCUber<i>577</i></h1>
+  <h4>SCUber<i>577</i></h4>
   </div>
 </footer>
 @endsection
