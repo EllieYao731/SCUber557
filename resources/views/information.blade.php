@@ -52,18 +52,18 @@
   #name {
     color: #fff;
   }
-  #gender {
-    color: #fff!important;
-  }
   #email {
     color: #fff;
   }
   #number {
     color: #fff;
   }
-  .select-wrapper .select-dropdown li.white-text {
-  color: #fff !important;
+  .select-wrapper input[type=text][disabled] + label,
+  .select-wrapper input[type=password][disabled] + label,
+  .select-wrapper .select-dropdown li.disabled span {
+    color: #fff;
 }
+
 </style>
 @endsection
 
