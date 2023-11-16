@@ -58,11 +58,10 @@
   #number {
     color: #fff;
   }
-  .select-wrapper input[type=text][disabled] + label,
-  .select-wrapper input[type=password][disabled] + label,
-  .select-wrapper .select-dropdown li.disabled span {
+  .input-field select option[disabled] + label{
     color: #fff;
 }
+
 
 </style>
 @endsection

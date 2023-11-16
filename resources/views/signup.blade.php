@@ -70,7 +70,9 @@
       color: #fff !important;
     }
 
-
+    .input-field select option+ label{
+    color: #fff;
+}
 
   </style>
 @endsection
