@@ -7,7 +7,6 @@
 <link rel="stylesheet" href="{{ asset('css/style_go-or-leave.css') }}">
 @endsection
 
-@section('back-link', '/home')
 @section('content-black')
 <main>
 	<div class="pic">
@@ -140,7 +139,17 @@
 	</div>
 	<h4>選擇前往/離開東吳</h4>
 	<div class="btn-group">
-		<input
+		<form method="post" action="{{ route('redirect.to.time-pick') }}">
+			@csrf
+			<input type="hidden" name="button_clicked">
+			<button class="button" type="submit">前往東吳</button>
+		</form>
+		<form method="post" action="{{ route('redirect.to.time-pick') }}">
+				@csrf
+				<input type="hidden" name="button_clicked">
+				<button class="button" type="submit">離開東吳</button>
+		</form>
+		<!-- <input
 			class="button"
 			type="button"
 			value="前往東吳"
@@ -151,7 +160,7 @@
 			type="button"
 			value="離開東吳"
 			onclick="location.href='#'"
-		/>
+		/> -->
 	</div>
 </main>
 @endsection

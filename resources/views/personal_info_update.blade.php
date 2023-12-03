@@ -41,7 +41,8 @@
 @section('content-black')
 
 <h4 style="margin-top: unset;">帳號資料變更</h4>
-<form action="" class="center">
+<form method="post" action="{{ route('setting') }}" class="center">
+    @csrf
   <div class="grey darken-4 c">
     <div class="container">
       <div class="row">
@@ -85,7 +86,8 @@
       </div>
     </div>
   </div>
-  <input type="sumit" class="button center" value="確認變更" onclick="location.href='{{url('/setting')}}'">
+  <button class="button center" type="submit">確認變更</button>
+
 </form>
 @endsection
 

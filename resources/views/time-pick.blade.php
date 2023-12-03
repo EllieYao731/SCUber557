@@ -147,7 +147,11 @@
 	<div class="btn-group">
 			<input type="text" id="time-start" name="time_start" class="button timepicker" placeholder="開始接單時間(預設:now)">
 			<input type="text" id="time-end" name="time_end" class="button timepicker" placeholder="接單結束時間(預設:15mins)">
-			<input class="button" type="button" value="下一步" onclick="location.href='{{url('/destination')}}'" />
+			<!-- <input class="button" type="button" value="下一步" onclick="location.href='{{url('/destination')}}'" /> -->
+			<form method="post" action="{{ route('redirect.to.destination') }}">
+					@csrf
+					<button class="button" type="submit">下一步</button>
+			</form>
 	</div>
 </main>
 @endsection

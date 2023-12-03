@@ -36,6 +36,8 @@
     padding: 10px;
     margin-left: 4%;
     margin-top: 2vh;
+		border: 0px;
+    color: white;
 	}
 
 	.back-button a {
@@ -68,9 +70,10 @@
 @endsection
 
 @section('content')
-<div class="back-button">
-	<a href="@yield('back-link')"><i class="fas fa-chevron-left"></i></a>
-</div>
+<button class="back-button" onclick="history.back()">
+    <i class="fas fa-chevron-left"></i>
+</button>
+
 @yield('content-black')
 
 @yield('footer')

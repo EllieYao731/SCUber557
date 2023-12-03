@@ -23,31 +23,12 @@ Route::get('/', function () {
 
 Route::get('/home', function () {
     return view('home');
-});
+})->name('home');
 
 Route::get('/login', function () {
     return view('login');
 });
 
-Route::get('/select-driver', function () {
-    return view('select-driver');
-});
-
-Route::get('/go-or-leave', function () {
-    return view('go-or-leave');
-});
-
-Route::get('/destination', function () {
-    return view('destination');
-});
-
-Route::get('/time-pick', function () {
-    return view('time-pick');
-});
-
-Route::get('/setting', function () {
-    return view('setting');
-});
 
 Route::get('/personal_info_update', function () {
     return view('personal_info_update');
@@ -78,3 +59,19 @@ Route::post('/test', [ImageRecognitionController::class, 'uploadAndRecognize'])-
 
 use App\Http\Controllers\SignUp;
 Route::post('/sign-up', [SignUp::class,'signUpProcess']);
+
+
+use App\Http\Controllers\HomeManageController;
+
+Route::get('/destination', function () {
+    return view('destination');
+})->name('destination');
+
+Route::post('/redirect-to-home', [HomeManageController::class, 'redirectToHome'])->name('redirect.to.home');
+Route::post('/redirect-to-go-or-leave', [HomeManageController::class, 'redirectToGoOrLeave'])->name('redirect.to.go-or-leave');
+Route::post('/redirect-to-time-pick', [HomeManageController::class, 'redirectToTimePick'])->name('redirect.to.time-pick');
+Route::post('/redirect-to-destination', [HomeManageController::class, 'redirectToDestination'])->name('redirect.to.destination');
+Route::get('/select-driver', [HomeManageController::class, 'redirectToSelectDriver'])->name('select-driver');
+Route::post('/redirect-to-ad', [HomeManageController::class, 'redirectToAD'])->name('redirect.to.ad');
+Route::post('/setting', [HomeManageController::class, 'showSetting'])->name('setting');
+Route::post('/personal_info_update', [HomeManageController::class, 'showPersonalInfoUpdate'])->name('personal_info_update');

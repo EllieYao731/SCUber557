@@ -7,7 +7,6 @@
 <link rel="stylesheet" href="{{ asset('css/style_select-driver.css') }}">
 @endsection
 
-@section('back-link', '/go-or-leave')
 @section('content-black')
 <h4>請選擇駕駛</h4>
 
@@ -33,10 +32,14 @@
 				>若超時駕駛有棄單之權力
 			</h6>
 		</div>
-		<div class="modal-footer btn-group" style="background-color: black; height:auto; display: flex;">
-				<a href="" class="button modal-close waves-effect">返回</a>
-				<a href="{{url('/home')}}" class="button">回到首頁</a>
-		</div>
+		<form method="post" action="{{ route('redirect.to.home') }}">
+			@csrf
+			<div class="modal-footer btn-group" style="background-color: black; height:auto; display: flex;">
+					<input type="button" class="button modal-close" value='取消'></input>
+					<input type="hidden" name="pair_success" value="False">
+					<button class="button" type="submit">確認送出</button>
+			</div>
+		</form>
 	</div>
 </div>
 

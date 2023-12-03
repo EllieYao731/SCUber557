@@ -26,17 +26,47 @@
 	<div id="greyDiv">
 		<div class="row icon-row">
 			<div class="icon-button col-md-3">
-				<a href="{{url('/go-or-leave')}}">
-					<div class="icon-background"></div>
-					<i class="fas fa-motorcycle"></i>
-				</a>
+				<form method="post" action="{{ route('redirect.to.go-or-leave') }}">
+						@csrf
+						<input type="hidden" name="button_clicked" value="choose_driver">
+						<button class="icon-button" type="submit"><i class="fas fa-motorcycle"></i></button>
+					</form>
 				<span class="icon-label text">駕駛</span>
 			</div>
 			<div class="icon-button col-md-3">
+				<form method="post" action="{{ route('redirect.to.go-or-leave') }}">
+						@csrf
+						<input type="hidden" name="button_clicked" value="choose_passenger">
+						<button class="icon-button" type="submit"><i class="fas fa-user"></i></button>
+					</form>
+				<span class="icon-label text">乘客</span>
+			</div>
+			<div class="icon-button col-md-3">
+				<form method="post" action="{{ route('setting') }}">
+						@csrf
+						<input type="hidden" name="button_clicked" value="a">
+						<button class="icon-button" type="submit"><i class="fas fa-comments"></i></button>
+					</form>
+				<span class="icon-label text">聊天室</span>
+			</div>
+			<div class="icon-button col-md-3">
+				<form method="post" action="{{ route('setting') }}">
+						@csrf
+						<input type="hidden" name="button_clicked" value="a">
+						<button  class="icon-button" type="submit"><i class="fas fa-cog"></i></button>
+					</form>
+				<span class="icon-label text">設定</span>
+			</div>
+			<!-- <div class="icon-button col-md-3">
 				<a href="{{url('/go-or-leave')}}">
 					<div class="icon-background"></div>
 					<i class="fas fa-user"></i>
 				</a>
+				<form method="post" action="{{ route('redirect.to.go-or-leave') }}">
+						@csrf
+						<input type="hidden" name="button_clicked" value="b">
+						<button type="submit"></button>
+				</form>
 				<span class="icon-label text">乘客</span>
 			</div>
 			<div class="icon-button col-md-3">
@@ -52,31 +82,32 @@
 					<i class="fas fa-cog"></i>
 				</a>
 				<span class="icon-label text">設定</span>
-			</div>
+			</div> -->
 		</div>
 	</div>
 	<div id="blackDiv">
 		<div class="message">
 			<span class="text" style="font-size: 18px">即將到來的預約...</span>
 		</div>
-		<div class="Pairs-successfully">
-			<div class="person-info">
-				<img
-					style="width: 60px; height: 60px; border-radius: 9999px"
-					src="https://via.placeholder.com/60x60"
-				/>
-				<div class="person-details">
-					<span class="person-name">王小明</span>
-					<span class="person-location">士林捷運站</span>
-					<span class="person-destination">->東吳大學</span>
-				</div>
+		@isset($pairInfo)
+        <div class="Pairs-successfully">
+            <div class="person-info">
+                <img style="width: 60px; height: 60px; border-radius: 9999px" src="https://via.placeholder.com/60x60" />
+                <div class="person-details">
+                    <span class="person-name">{{ $pairInfo['name'] }}</span>
+                    <span class="person-location">{{ $pairInfo['location'] }}</span>
+                    <span class="person-destination">{{ $pairInfo['destination'] }}</span>
+                </div>
 
-				<div class="person-schedule">
-					<span class="schedule-time">7/01 10:00</span>
-					<button type="button" class="btn btn-outline-light">詳情</button>
-				</div>
-			</div>
-		</div>
+                <div class="person-schedule">
+                    <span class="schedule-time">{{ $pairInfo['time'] }}</span>
+                    <button type="button" class="btn btn-outline-light">詳情</button>
+                </div>
+            </div>
+        </div>
+    @else
+        <p class="text" style="font-size: 24px;margin_top: 10px;">{{ $message ?? "暫無配對" }}</p>
+    @endisset
 	</div>
 </div>
 

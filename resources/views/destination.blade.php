@@ -114,7 +114,7 @@ input{
 	</div>
 
 	<div class="container">
-		<a class="waves-effect waves-light btn modal-trigger white black-text" href="#modal1">確定</a>
+		<a class="waves-effect waves-light btn modal-trigger white black-text" href="#modal1">確認地點</a>
 
 		<div
 			id="modal1"
@@ -131,10 +131,15 @@ input{
 					>需準備乘客的安全帽
 				</h6>
 			</div>
-			<div class="modal-footer btn-group" style="background-color: black; height:auto; display: flex;">
-					<a href="" class="button modal-close waves-effect">返回</a>
-					<a href="{{url('/home')}}" class="button">回到首頁</a>
-			</div>
+
+			<form method="post" action="{{ route('redirect.to.ad') }}">
+				@csrf
+				<div class="modal-footer btn-group" style="background-color: black; height:auto; display: flex;">
+					<input type="button" class="button modal-close" value="取消"></input>
+					<input type="hidden" name="button_clicked" value="{{ $buttonClicked }}">
+					<button class="button modal-close waves-effect" type="submit">確定送出</button>
+				</div>
+			</form>
 		</div>
 	</div>
 </main>
