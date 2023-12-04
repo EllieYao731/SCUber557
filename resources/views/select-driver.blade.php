@@ -36,7 +36,6 @@
 			@csrf
 			<div class="modal-footer btn-group" style="background-color: black; height:auto; display: flex;">
 					<input type="button" class="button modal-close" value='取消'></input>
-					<input type="hidden" name="pair_success" value="False">
 					<button class="button" type="submit">確認送出</button>
 			</div>
 		</form>

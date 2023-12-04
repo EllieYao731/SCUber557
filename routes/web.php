@@ -63,11 +63,15 @@ Route::post('/sign-up', [SignUp::class,'signUpProcess']);
 
 use App\Http\Controllers\HomeManageController;
 
-Route::get('/destination', function () {
-    return view('destination');
-})->name('destination');
+Route::get('/pair', function () {
+    return view('pair');
+});
 
-Route::post('/redirect-to-home', [HomeManageController::class, 'redirectToHome'])->name('redirect.to.home');
+Route::get('/home', [HomeManageController::class, 'index'])->name('home')->middleware('web');
+Route::post('/redirect-to-home', [HomeManageController::class, 'redirectToHome'])->name('redirect.to.home')->middleware('web');
+
+// Route::get('/home', [HomeManageController::class, 'index'])->name('home');
+// Route::post('/redirect-to-home', [HomeManageController::class, 'redirectToHome'])->name('redirect.to.home');
 Route::post('/redirect-to-go-or-leave', [HomeManageController::class, 'redirectToGoOrLeave'])->name('redirect.to.go-or-leave');
 Route::post('/redirect-to-time-pick', [HomeManageController::class, 'redirectToTimePick'])->name('redirect.to.time-pick');
 Route::post('/redirect-to-destination', [HomeManageController::class, 'redirectToDestination'])->name('redirect.to.destination');

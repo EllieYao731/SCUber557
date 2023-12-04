@@ -106,7 +106,7 @@
             </div>
         </div>
     @else
-        <p class="text" style="font-size: 24px;margin_top: 10px;">{{ $message ?? "暫無配對" }}</p>
+        <p class="text" style="font-size: 24px;margin_top: 10px;">{{ $status }}</p>
     @endisset
 	</div>
 </div>
