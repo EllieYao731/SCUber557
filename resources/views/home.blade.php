@@ -57,32 +57,6 @@
 					</form>
 				<span class="icon-label text">設定</span>
 			</div>
-			<!-- <div class="icon-button col-md-3">
-				<a href="{{url('/go-or-leave')}}">
-					<div class="icon-background"></div>
-					<i class="fas fa-user"></i>
-				</a>
-				<form method="post" action="{{ route('redirect.to.go-or-leave') }}">
-						@csrf
-						<input type="hidden" name="button_clicked" value="b">
-						<button type="submit"></button>
-				</form>
-				<span class="icon-label text">乘客</span>
-			</div>
-			<div class="icon-button col-md-3">
-				<a href="{{url('/no_message')}}">
-					<div class="icon-background"></div>
-					<i class="fas fa-comments"></i>
-				</a>
-				<span class="icon-label text">聊天室</span>
-			</div>
-			<div class="icon-button col-md-3">
-				<a href="{{url('/setting')}}">
-					<div class="icon-background"></div>
-					<i class="fas fa-cog"></i>
-				</a>
-				<span class="icon-label text">設定</span>
-			</div> -->
 		</div>
 	</div>
 	<div id="blackDiv">
@@ -95,13 +69,14 @@
                 <img style="width: 60px; height: 60px; border-radius: 9999px" src="https://via.placeholder.com/60x60" />
                 <div class="person-details">
                     <span class="person-name">{{ $pairInfo['name'] }}</span>
+										<span class="person-location">{{ $pairInfo['car_model'] }}-{{ $pairInfo['color'] }}</span>
+										<span class="person-location">{{ $pairInfo['license_plate'] }}</span>
                     <span class="person-location">{{ $pairInfo['location'] }}</span>
-                    <span class="person-destination">{{ $pairInfo['destination'] }}</span>
+                    <span class="person-destination">->{{ $pairInfo['destination'] }}</span>
                 </div>
 
                 <div class="person-schedule">
                     <span class="schedule-time">{{ $pairInfo['time'] }}</span>
-                    <button type="button" class="btn btn-outline-light">詳情</button>
                 </div>
             </div>
         </div>

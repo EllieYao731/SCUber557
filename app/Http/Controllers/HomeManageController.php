@@ -23,17 +23,7 @@ class HomeManageController extends Controller
 
     public function redirectToHome(Request $request)
     {
-        // 檢查是否有 'pairInfo'，如果有則表示已經配對成功
-        if (Session::has('pairInfo')) {
-            $pairInfo = Session::get('pairInfo');
-            $status = null;
-        } else {
-            $status = '請耐心等待配對結果...';
-            $pairInfo = null;
-        }
-        // return view('home', ['status' => $status, 'pairInfo' => $pairInfo]);
-        Session::put('status', $status);
-        Session::put('pairInfo', $pairInfo);
+        Session::put('status', '請耐心等待配對結果...');
         return redirect()->route('home');
     }
 
@@ -88,21 +78,42 @@ class HomeManageController extends Controller
         if ($formAction === 'agree') {
             Session::put('pairInfo', [
                 'name' => '王小明',
+                'car_model' => '機車',
+                'color' => '白',
+                'license_plate' => 'AAA-1111',
                 'location' => '士林捷運站',
                 'destination' => '東吳大學',
                 'time' => '7/01 10:00',
             ]);
             $pairInfo = Session::get('pairInfo');
             $status = null;
-            return view('home', ['status' => $status, 'pairInfo' => $pairInfo]);
+            Session::put('status', $status);
+            Session::put('pairInfo', $pairInfo);
+            return view('chat-reminder');
 
         } elseif ($formAction === 'reject') {
             Session::forget('pairInfo');
             $status = '請耐心等待配對結果...';
             $pairInfo = null;
+            Session::put('status', $status);
+            Session::put('pairInfo', $pairInfo);
+            return redirect()->route('home');
         }
-        Session::put('status', $status);
-        Session::put('pairInfo', $pairInfo);
-        return redirect()->route('home');
+    }
+
+    public function ChatReminder(Request $request)
+    {
+        $formAction = $request->input('button_form');
+        // $pairInfo = Session::get('pairInfo');
+        // $status = null;
+        // Session::put('status', $status);
+        // Session::put('pairInfo', $pairInfo);
+        if ($formAction === 'to_chatroom') {
+            return view('chat');
+
+        } elseif ($formAction === 'to_home') {
+
+            return redirect()->route('home');
+        }
     }
 }

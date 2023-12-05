@@ -70,6 +70,9 @@ use App\Http\Controllers\HomeManageController;
 Route::get('/pair', function () {
     return view('pair');
 });
+// Route::get('/chat-reminder', function () {
+//     return view('chat-reminder');
+// });
 
 Route::get('/home', [HomeManageController::class, 'index'])->name('home')->middleware('web');
 Route::post('/redirect-to-home', [HomeManageController::class, 'redirectToHome'])->name('redirect.to.home')->middleware('web');
@@ -80,4 +83,5 @@ Route::get('/select-driver', [HomeManageController::class, 'redirectToSelectDriv
 Route::post('/redirect-to-ad', [HomeManageController::class, 'redirectToAD'])->name('redirect.to.ad');
 Route::post('/setting', [HomeManageController::class, 'showSetting'])->name('setting');
 Route::post('/personal_info_update', [HomeManageController::class, 'showPersonalInfoUpdate'])->name('personal_info_update');
-Route::post('/home', [HomeManageController::class, 'handleMatchForm'])->name('matchform');
+Route::post('/chat-reminder', [HomeManageController::class, 'handleMatchForm'])->name('matchform');
+Route::post('/chat-room', [HomeManageController::class, 'ChatReminder'])->name('chat-reminder');
