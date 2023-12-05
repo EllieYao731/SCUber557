@@ -54,6 +54,10 @@ Route::get('/forget', function () {
     return view('forget');
 });
 
+Route::get('/comment', function () {
+    return view('comment');
+});
+
 Route::get('/test', [ImageRecognitionController::class, 'showUploadForm'])->name('showUploadForm');
 Route::post('/test', [ImageRecognitionController::class, 'uploadAndRecognize'])->name('uploadAndRecognize');
 
