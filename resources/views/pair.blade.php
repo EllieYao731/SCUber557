@@ -38,6 +38,9 @@
 .invite{
 	margin: 30px 0px 30px 0px;
 }
+.avatar-column{
+	padding-right:20px;
+}
 </style>
 @endsection
 
@@ -46,6 +49,8 @@
 
 <div class="invite">
 
+<form method="post" action="{{ route('matchform') }}">
+	@csrf
 	<div class="person">
 		<div class="per">
 			<div class="avatar-column">
@@ -53,20 +58,16 @@
 			</div>
 			<div class="info">
 				<div class="name">王小名</div>
-				<div class="rating">4.6/5</div>
+				<div class="rating"><i class="fas fa-star" style="padding-right:10px;"></i>4.6 / 5</div>
 			</div>
 		</div>
-		<!-- <div class="road">
-			<div class="origin">士林捷運站</div>
-			<div class="origin">->東吳大學</div>
-		</div> -->
 	</div>
 </div>
   <div class="action-column">
-		<a class="waves-effect waves-light btn modal-trigger white black-text reserve-button" href="#modal1">同意</a>
-		<a class="waves-effect waves-light btn modal-trigger white black-text reserve-button" href="#modal1">拒絕</a>
+		<button class="waves-effect waves-light btn modal-trigger white black-text reserve-button" type="submit" name="match_form_action" value="reject">拒絕</button>
+		<button class="waves-effect waves-light btn modal-trigger white black-text reserve-button" type="submit" name="match_form_action" value="agree">同意</button>
   </div>
-
+</form>
 
 
 @endsection

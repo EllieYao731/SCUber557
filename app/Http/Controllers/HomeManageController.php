@@ -25,44 +25,16 @@ class HomeManageController extends Controller
     {
         // 檢查是否有 'pairInfo'，如果有則表示已經配對成功
         if (Session::has('pairInfo')) {
-            // $pairInfo = Session::get('pairInfo');
-            $pairInfo = [
-                    'name' => '王小明',
-                    'location' => '士林捷運站',
-                    'destination' => '東吳大學',
-                    'time' => '7/01 10:00',
-            ];
-            $status = 'pairInfo';
+            $pairInfo = Session::get('pairInfo');
+            $status = null;
         } else {
             $status = '請耐心等待配對結果...';
-            $pairInfo = null; // 沒有配對資訊時，將 $pairInfo 設為 null
+            $pairInfo = null;
         }
-
-        return view('home', ['status' => $status, 'pairInfo' => $pairInfo]);
-
-
-
-
-        // $pairSuccess = request('pair_success', false);
-
-        // if ($pairSuccess) {
-        //     $data = [
-        //         'message' => null,
-        //         'pairInfo' => [
-        //             'name' => '王小明',
-        //             'location' => '士林捷運站',
-        //             'destination' => '東吳大學',
-        //             'time' => '7/01 10:00',
-        //         ],
-        //     ];
-        // } else {
-        //     $data = [
-        //         'message' => '請耐心等待配對結果...',
-        //         'pairInfo' => null,
-        //     ];
-        // }
-
-        // return view('home', $data);
+        // return view('home', ['status' => $status, 'pairInfo' => $pairInfo]);
+        Session::put('status', $status);
+        Session::put('pairInfo', $pairInfo);
+        return redirect()->route('home');
     }
 
     public function redirectToGoOrLeave(Request $request)
@@ -109,4 +81,28 @@ class HomeManageController extends Controller
         return view('personal_info_update');
     }
 
+    public function handleMatchForm(Request $request)
+    {
+        $formAction = $request->input('match_form_action');
+
+        if ($formAction === 'agree') {
+            Session::put('pairInfo', [
+                'name' => '王小明',
+                'location' => '士林捷運站',
+                'destination' => '東吳大學',
+                'time' => '7/01 10:00',
+            ]);
+            $pairInfo = Session::get('pairInfo');
+            $status = null;
+            return view('home', ['status' => $status, 'pairInfo' => $pairInfo]);
+
+        } elseif ($formAction === 'reject') {
+            Session::forget('pairInfo');
+            $status = '請耐心等待配對結果...';
+            $pairInfo = null;
+        }
+        Session::put('status', $status);
+        Session::put('pairInfo', $pairInfo);
+        return redirect()->route('home');
+    }
 }

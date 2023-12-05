@@ -73,9 +73,6 @@ Route::get('/pair', function () {
 
 Route::get('/home', [HomeManageController::class, 'index'])->name('home')->middleware('web');
 Route::post('/redirect-to-home', [HomeManageController::class, 'redirectToHome'])->name('redirect.to.home')->middleware('web');
-
-// Route::get('/home', [HomeManageController::class, 'index'])->name('home');
-// Route::post('/redirect-to-home', [HomeManageController::class, 'redirectToHome'])->name('redirect.to.home');
 Route::post('/redirect-to-go-or-leave', [HomeManageController::class, 'redirectToGoOrLeave'])->name('redirect.to.go-or-leave');
 Route::post('/redirect-to-time-pick', [HomeManageController::class, 'redirectToTimePick'])->name('redirect.to.time-pick');
 Route::post('/redirect-to-destination', [HomeManageController::class, 'redirectToDestination'])->name('redirect.to.destination');
@@ -83,3 +80,4 @@ Route::get('/select-driver', [HomeManageController::class, 'redirectToSelectDriv
 Route::post('/redirect-to-ad', [HomeManageController::class, 'redirectToAD'])->name('redirect.to.ad');
 Route::post('/setting', [HomeManageController::class, 'showSetting'])->name('setting');
 Route::post('/personal_info_update', [HomeManageController::class, 'showPersonalInfoUpdate'])->name('personal_info_update');
+Route::post('/home', [HomeManageController::class, 'handleMatchForm'])->name('matchform');
