@@ -60,9 +60,10 @@ Route::post('/sign-up', [SignUp::class,'signUpProcess']);
 use App\Mail\ForgetPWD;
 use Illuminate\Support\Facades\Mail;
 
-Route::get('/forgetpwd', function() {
-    $name = "使用者";
+Route::get('/reset-password', function() {
+    return view('/reset-password');
+    // $name = "使用者";
 
-    // The email sending is done using the to method on the Mail facade
-    Mail::to('evonne731@gmail.com')->send(new ForgetPWD($name));
+    // // The email sending is done using the to method on the Mail facade
+    // Mail::to('evonne731@gmail.com')->send(new ForgetPWD($name));
 });

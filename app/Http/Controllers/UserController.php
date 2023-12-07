@@ -7,13 +7,14 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
-use Validator;
 use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\MessageBag;
 
 
 class UserController extends Controller
@@ -50,9 +51,13 @@ class UserController extends Controller
             $validatorInstance = $exception->validator;
             // 取得錯誤資料
             $errorMessageData = $validatorInstance->getMessageBag();
+            dump($errorMessageData);
             // 取得驗證錯誤訊息
-            $errorMessages = $errorMessageData->getMessages();
-            return redirect()->back()->withErrors($errorMessages)->withInput();
+            // $errorMessages = $errorMessageData->getMessages();
+            // dump($errorMessages);
+            // $exception->validator->getMessageBag();
+
+            return Redirect::back()->withInput()->withErrors($errorMessageData->all())->withInput();
         };
 
         $api_token= Str::random(10);
