@@ -85,3 +85,4 @@ Route::post('/setting', [HomeManageController::class, 'showSetting'])->name('set
 Route::post('/personal_info_update', [HomeManageController::class, 'showPersonalInfoUpdate'])->name('personal_info_update');
 Route::post('/chat-reminder', [HomeManageController::class, 'handleMatchForm'])->name('matchform');
 Route::post('/chat-room', [HomeManageController::class, 'ChatReminder'])->name('chat-reminder');
+Route::post('/comment', [HomeManageController::class, 'starvalue'])->name('submitRating');

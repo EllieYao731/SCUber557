@@ -116,4 +116,9 @@ class HomeManageController extends Controller
             return redirect()->route('home');
         }
     }
+    public function starvalue()
+    {
+        return view('index');
+    }
+
 }
