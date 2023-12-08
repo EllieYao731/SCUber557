@@ -1,0 +1,14 @@
+.pic {
+    max-width: 90%;
+    margin: 10vh 0 5vh 0;
+}
+
+.pic svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.button {
+    padding: 10px 80px;
+}

@@ -1,0 +1,125 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex; /* 使用 flexbox 佈局 */
+    justify-content: center; /* 在水平方向置中 */
+    align-items: center; /* 在垂直方向置中 */
+    min-height: 100vh; /* 設定 body 最小高度為整個視窗高度，確保內容垂直置中 */
+    background-color: rgb(232, 232, 232);
+    text-align: center;
+  }
+  
+  #container {
+    display: flex;
+    flex-direction: column; /* 將內容在垂直方向上排列 */
+    align-items: center; /* 在水平方向置中 */
+  }
+  
+  #title {
+    margin-top: 50px;
+    color: black;
+    background-color: rgb(240, 240, 240);
+    border-color: red;
+    border-style: inset;
+    font-size: 20px;
+    border-width: auto;
+    border-radius: 10px; /* 設定圓弧狀邊框，以10px為例，您可以調整此值以控制圓弧的大小 */
+    padding: 20px;
+  }
+  
+  #slogan {
+    border-style: solid;
+    border-color: rgb(92, 88, 88);
+    font-size: 15px;
+    margin-top: 30px;
+    background-color: rgb(232, 232, 232);
+    border-radius: 5px; /* 設定圓弧狀邊框，以5px為例，您可以調整此值以控制圓弧的大小 */
+  }
+  #slogan h3 {
+    line-height: 20px; /* 設定行高，使得圖片和文字在同一行中對齊 */
+  }
+  
+  #slogan h3 img {
+    vertical-align: middle; /* 調整圖片在行內的垂直對齊方式為居中對齊 */
+  }
+  
+  #buttons-container {
+    display: flex; /* 使用 flexbox 佈局 */
+    margin-top: 50px;
+  }
+  
+  #log_in, #sign_up {
+    margin-right: 20px; /* 添加右邊距，設定按鈕之間的間距 */
+  }
+  
+  #log_in button {
+    width: 60px;
+    height: 50px;
+  }
+  
+  #sign_up button {
+    width: 60px;
+    height: 50px;
+    background-color: black;
+    color: white;
+  }
+  
+  #scooter {
+    margin-bottom: 10px;
+    margin-top: 30px;
+    margin-left: 250px;
+  }
+
+  footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(72, 72, 72);
+    text-align: center;
+    height: 80px; /* Set the height to match the height of the image */
+    padding-top: 10px; /* Adjust the top padding to give some space above the text */
+    display: flex; /* Use flexbox to center content */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+  }
+
+  @keyframes scu {
+    0%,
+    100% {
+      text-shadow: 0 0 20px #fff, 0 0 100px #fff, 0 0 20px #fff;
+    }
+    50% {
+      text-shadow: 0 0 50px #fff, 0 0 150px #fff, 0 0 50px #fff;
+      color: rgb(255, 75, 75);
+    }
+  }
+  
+  #scu {
+    color: aliceblue;
+    padding: 10px;
+    animation: scu 1.5s ease-in-out infinite alternate;
+  }
+  
+  /* 其他樣式... */
+  
+  .moving-image {
+      position: absolute;
+      bottom: 0;
+      left: 0; /* 將圖片貼在畫面最左邊 */
+      width: 100%;
+      animation: slideAnimation 10s linear infinite;
+    }
+    
+    .moving-image img {
+      width: 100px; /* 調整圖片寬度 */
+      height: 80px; /* 高度按比例自動調整 */
+    }
+    
+    @keyframes slideAnimation {
+      0% {
+        transform: translateX(-100%); /* 初始位置，水平偏移量為 -100% */
+      }
+      100% {
+        transform: translateX(100%); /* 結束位置，水平偏移量為 0% */
+      }
+    }
