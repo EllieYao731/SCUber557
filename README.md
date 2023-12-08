@@ -7,6 +7,8 @@ cd SCUber577
 cp .env.example .env
 php artisan key:generate
 php artisan serve
+php artisan storage:link
+
 ```
 打開瀏覽器輸入http://127.0.0.1:8000
 
