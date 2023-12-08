@@ -1,13 +1,11 @@
 # Scuber577
 ## Start Dev
 ```
-git clone git@github.com:EvonneYao/SCUber577.git
-```
-```
 cd /Applications/XAMPP/htdocs/
-```
-
-```
+git clone git@github.com:EvonneYao/SCUber577.git
+cd SCUber577
+cp .env.example .env
+php artisan key:generate
 php artisan serve
 ```
 打開瀏覽器輸入http://127.0.0.1:8000

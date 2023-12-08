@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', function () {
-    return view('index');
+    return view('index'); // 打開 index.blade.php
 });
 
 Route::get('/home', function () {
