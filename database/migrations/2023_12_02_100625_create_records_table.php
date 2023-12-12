@@ -12,15 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('records', function (Blueprint $table) {
-            $table->string('order_ID')->unique();
+            $table->string('order_ID')->nullable();
             $table->string('rider', 10);
-            $table->string('passenger', 10);
-            $table->boolean('go_or_leave');
+            $table->string('passenger', 10)->nullable();
+            $table->boolean('go_or_leave')->nullable();
             $table->dateTime('start_time_rider');
             $table->dateTime('end_time_rider');
-            $table->dateTime('start_time_passenger');
-            $table->dateTime('end_time_passenger');
-            $table->boolean('success');
+            $table->dateTime('start_time_passenger')->nullable();
+            $table->dateTime('end_time_passenger')->nullable();
+            $table->boolean('success')->nullable();
         });
     }
 
