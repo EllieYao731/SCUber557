@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ImageRecognitionController;
+use App\Http\Controllers\RecordsController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -60,6 +62,9 @@ Route::get('/comment', function () {
 
 Route::get('/test', [ImageRecognitionController::class, 'showUploadForm'])->name('showUploadForm');
 Route::post('/test', [ImageRecognitionController::class, 'uploadAndRecognize'])->name('uploadAndRecognize');
+
+Route::post('/records/create', [RecordsController::class, 'create']);
+
 
 use App\Http\Controllers\SignUp;
 Route::post('/sign-up', [SignUp::class,'signUpProcess']);
