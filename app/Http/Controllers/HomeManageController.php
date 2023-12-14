@@ -10,15 +10,16 @@ class HomeManageController extends Controller
     public function __construct()
     {
         // 如果 'status' 尚未設定，則設定為 '暫無資訊'
-        if (!Session::has('status')) {
+        if (Session::get('status')!=null) {
             Session::put('status', '暫無資訊');
         }
     }
 
     public function index()
     {
-        $status = Session::get('status', '暫無資訊');
-        return view('home', ['status' => $status]);
+        $status = Session::get('status');
+        $pairInfo = Session::get('pairInfo');
+        return view('home', ['status' => $status,'pairInfo'=>$pairInfo]);
     }
 
     public function redirectToHome(Request $request)
@@ -85,10 +86,10 @@ class HomeManageController extends Controller
                 'destination' => '東吳大學',
                 'time' => '7/01 10:00',
             ]);
-            $pairInfo = Session::get('pairInfo');
             $status = null;
             Session::put('status', $status);
-            Session::put('pairInfo', $pairInfo);
+            $pairInfo=Session::get('pairInfo');
+
             return view('chat-reminder');
 
         } elseif ($formAction === 'reject') {
@@ -104,15 +105,13 @@ class HomeManageController extends Controller
     public function ChatReminder(Request $request)
     {
         $formAction = $request->input('button_form');
-        // $pairInfo = Session::get('pairInfo');
-        // $status = null;
-        // Session::put('status', $status);
-        // Session::put('pairInfo', $pairInfo);
+        $pairInfo = Session::get('pairInfo');
+        $status = Session::get('status');
         if ($formAction === 'to_chatroom') {
             return view('chat');
+            // return redirect()->route('chat');
 
         } elseif ($formAction === 'to_home') {
-
             return redirect()->route('home');
         }
     }
