@@ -10,15 +10,17 @@
 @section('content-black')
 <h4>請選擇駕駛</h4>
 
-
-@include('layouts.driver-info',
-['driver_img'=>'https://via.placeholder.com/100x100','driver_name'=>'王小明','driver_rating'=>'4.6',
-'driver_origin'=>'士林捷運站','driver_destination'=>'東吳大學','driver_time'=>'7/1 10:00'])
-
-@include('layouts.driver-info',
-['driver_img'=>'','driver_name'=>'','driver_rating'=>'',
-'driver_origin'=>'','driver_destination'=>'','driver_time'=>''])
-
+@foreach($drivers as $driver)
+    @include('layouts.driver-info', [
+        'driver_img' => 'https://via.placeholder.com/100x100',
+				'driver_id' => $driver['id'],
+        'driver_name' => $driver['name'],
+        'driver_rating' => $driver['rating'],
+        'driver_origin' => $driver['location'],
+        'driver_destination' => $driver['destination'],
+        'driver_time' => $driver['time'],
+    ])
+@endforeach
 
 <div class="container">
 	<div
@@ -36,6 +38,8 @@
 			@csrf
 			<div class="modal-footer btn-group" style="background-color: black; height:auto; display: flex;">
 					<input type="button" class="button modal-close" value='取消'></input>
+					<!-- Add a hidden input field to store the selected driver's ID -->
+					<input type="hidden" id="selectedDriverId" name="selectedDriverId" value="">
 					<button class="button" type="submit">確認送出</button>
 			</div>
 		</form>
@@ -51,8 +55,13 @@
         endingTop: '100%',
         startingTop: '100%',
       });
-    });
-  </script>
-@endsection
 
+      document.querySelectorAll('.reserve-button').forEach(function(button) {
+        button.addEventListener('click', function() {
+          var driverId = this.getAttribute('data-driver-id');
+          document.querySelector('#selectedDriverId').value = driverId;
+        });
+      });
+    });
+</script>
 @endsection
