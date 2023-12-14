@@ -9,10 +9,12 @@ class HomeManageController extends Controller
 {
     public function __construct()
     {
-        // 如果 'status' 尚未設定，則設定為 '暫無資訊'
-        if (Session::get('status')!=null) {
-            Session::put('status', '暫無資訊');
-        }
+        Session::put('status', '暫無資訊');
+
+        // // 如果 'status' 尚未設定，則設定為 '暫無資訊'
+        // if (Session::get('status')!=null) {
+        //     Session::put('status', '暫無資訊');
+        // }
     }
 
     public function index()
@@ -115,30 +117,25 @@ class HomeManageController extends Controller
     public function handleMatchForm(Request $request)
     {
         $formAction = $request->input('match_form_action');
+        $pairInfo = [
+            'name' => '王小明',
+            'rating' => '4.6',
+            'car_model' => '機車',
+            'color' => '白',
+            'license_plate' => 'AAA-1111',
+            'location' => '士林捷運站',
+            'destination' => '東吳大學',
+            'time' => '7/01 10:00',
+        ];
+        $status = Session::get('status');
 
         if ($formAction === 'agree') {
-            Session::put('pairInfo', [
-                'name' => '王小明',
-                'rating' => '4.6',
-                'car_model' => '機車',
-                'color' => '白',
-                'license_plate' => 'AAA-1111',
-                'location' => '士林捷運站',
-                'destination' => '東吳大學',
-                'time' => '7/01 10:00',
-            ]);
-            $status = null;
-            Session::put('status', $status);
-            $pairInfo=Session::get('pairInfo');
-
+            Session::put('pairInfo', $pairInfo);
+            $status = Session::put('status', null);
             return view('chat-reminder');
 
         } elseif ($formAction === 'reject') {
             Session::forget('pairInfo');
-            $status = '請耐心等待配對結果...';
-            $pairInfo = null;
-            Session::put('status', $status);
-            Session::put('pairInfo', $pairInfo);
             return redirect()->route('home');
         }
     }
@@ -150,7 +147,6 @@ class HomeManageController extends Controller
         $status = Session::get('status');
         if ($formAction === 'to_chatroom') {
             return view('chat');
-            // return redirect()->route('chat');
 
         } elseif ($formAction === 'to_home') {
             return redirect()->route('home');
@@ -167,8 +163,9 @@ class HomeManageController extends Controller
             'number' => 'required|numeric|digits:8',
             'password' => 'required',
         ]);
+        $status = Session::forget('status');
         return redirect()->route('home'); // 重定向到 home 視圖
-        
+
     }
 
 }
