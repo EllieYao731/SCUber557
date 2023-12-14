@@ -38,17 +38,6 @@
       color: #fff; /* Set the text color when the radio button is checked */
     }
 
-    footer {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      text-align: center;
-      height: 30px;
-      padding-top: 10px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
 
     @keyframes scu {
       0%, 100% {
@@ -246,11 +235,7 @@
             </ul>
         </div>
     @endif
-  <footer>
-    <div id="scu">
-      <h4>SCUber<i>577</i></h4>
-    </div>
-  </footer>
+
 </div>
 <!-- 
 <div id="container">
