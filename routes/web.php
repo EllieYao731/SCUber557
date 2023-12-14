@@ -91,3 +91,15 @@ Route::post('/personal_info_update', [HomeManageController::class, 'showPersonal
 Route::post('/chat-reminder', [HomeManageController::class, 'handleMatchForm'])->name('matchform');
 Route::post('/chat-room', [HomeManageController::class, 'ChatReminder'])->name('chat-reminder');
 Route::post('/comment', [HomeManageController::class, 'starvalue'])->name('submitRating');
+
+// 密碼忘記寄 email
+use App\Mail\ForgetPWD;
+use Illuminate\Support\Facades\Mail;
+
+Route::get('/reset-password', function() {
+    return view('/reset-password');
+    // $name = "使用者";
+
+    // // The email sending is done using the to method on the Mail facade
+    // Mail::to('evonne731@gmail.com')->send(new ForgetPWD($name));
+});

@@ -141,7 +141,7 @@
               <!-- 表單內容 -->
               <div class="row">
                 <div class="input-field col s12">
-                  <input id="number" type="text" class="validate">
+                  <input id="number" type="text" class="validate" pattern="[0-9]{8}" required>
                   <label for="number">學號</label>
                 </div>
               </div>
