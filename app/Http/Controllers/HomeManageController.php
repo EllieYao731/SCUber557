@@ -160,5 +160,15 @@ class HomeManageController extends Controller
     {
         return view('index');
     }
+    public function submitLogin(Request $request)
+    {
+        // 驗證表單數據
+        $request->validate([
+            'number' => 'required|numeric|digits:8',
+            'password' => 'required',
+        ]);
+        return redirect()->route('home'); // 重定向到 home 視圖
+        
+    }
 
 }
