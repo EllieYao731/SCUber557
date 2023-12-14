@@ -105,13 +105,13 @@
             <!-- 表單內容 -->
             <div class="row">
               <div class="input-field col s12">
-                <input id="number" type="text" class="validate white-text-input">
+                <input id="number" type="text" class="validate white-text-input" pattern="[0-9]{8}" required>
                 <label for="number">學號</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <input id="password" type="password" class="validate white-text-input">
+                <input id="password" type="password" class="validate white-text-input" required>
                 <label for="password">密碼</label>
               </div>
             </div>

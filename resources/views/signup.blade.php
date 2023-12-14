@@ -69,8 +69,8 @@
     }
     
     #center-content input[type="radio"].with-gap {
-    margin-right: 5px; /* Adjust the margin as needed */
-}
+      margin-right: 5px; /* Adjust the margin as needed */
+    }
 
     #scu {
       color: aliceblue;
@@ -81,7 +81,8 @@
     #number,
     #name,
     #password,
-    #email {
+    #email,
+    #phone { /* Add #phone for the phone number input */
       color: #fff;
     }
   </style>
@@ -100,49 +101,48 @@
           <form class="col-sm">
             <div class="row">
               <div class="input-field col s12">
-                <input id="number" type="text" class="validate">
+                <input id="number" type="text" class="validate" pattern="[0-9]{8}" required>
                 <label for="number">學號</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <input id="name" type="text" class="validate">
+                <input id="name" type="text" class="validate"  required>
                 <label for="name">姓名</label>
               </div>
             </div>
             <div class="row">
-              <div class="input-field col s12">
-                <input id="password" type="password" class="validate">
+              <div class="input-field col s12"> 
+                <input id="password" type="password" class="validate"  required>
                 <label for="password">密碼</label>
               </div>
             </div>
             <div class="row">
-    <div class="input-field col s12">
-        <label>性別</label>
-        <p>
-            <label>
-                <input name="gender" type="radio" value="1" class="with-gap" />
-                <span class="white-text">男</span>
-            </label>
+              <div class="input-field col s12"  required>
+                <label>性別</label>
+                <p>
+                  <label>
+                    <input name="gender" type="radio" value="1" class="with-gap" />
+                    <span class="white-text">男</span>
+                  </label>
 
-            <label>
-                <input name="gender" type="radio" value="2" class="with-gap" />
-                <span class="white-text">女</span>
-            </label>
-        </p>
-    </div>
-</div>
-
+                  <label>
+                    <input name="gender" type="radio" value="2" class="with-gap" />
+                    <span class="white-text">女</span>
+                  </label>
+                </p>
+              </div>
+            </div>
             <div class="row">
               <div class="input-field col s12">
-                <input id="email" type="email" class="validate">
+                <input id="email" type="email" class="validate" required >
                 <label for="email">Email</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <input id="number" type="tel" class="validate">
-                <label for="number">電話號碼</label>
+                <input id="phone" type="tel" class="validate" pattern="[0-9]{10}" required>
+                <label for="phone">電話號碼</label>
               </div>
             </div>
           </form>
