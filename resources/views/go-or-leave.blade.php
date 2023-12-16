@@ -149,18 +149,6 @@
 				<input type="hidden" name="button_clicked">
 				<button class="button" type="submit">離開東吳</button>
 		</form>
-		<!-- <input
-			class="button"
-			type="button"
-			value="前往東吳"
-			onclick="location.href='{{url('/time-pick')}}'"
-		/>
-		<input
-			class="button"
-			type="button"
-			value="離開東吳"
-			onclick="location.href='#'"
-		/> -->
 	</div>
 </main>
 @endsection

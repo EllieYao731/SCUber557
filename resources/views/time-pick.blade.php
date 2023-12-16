@@ -143,16 +143,14 @@
 		</svg>
 	</div>
 	<h4>選擇時間</h4>
-
-	<div class="btn-group">
-			<input type="text" id="time-start" name="time_start" class="button timepicker" placeholder="開始接單時間(預設:now)">
-			<input type="text" id="time-end" name="time_end" class="button timepicker" placeholder="接單結束時間(預設:15mins)">
-			<!-- <input class="button" type="button" value="下一步" onclick="location.href='{{url('/destination')}}'" /> -->
-			<form method="post" action="{{ route('redirect.to.destination') }}">
-					@csrf
-					<button class="button" type="submit">下一步</button>
-			</form>
-	</div>
+	<form method="post" action="{{ route('redirect.to.destination') }}">
+		@csrf
+		<div class="btn-group">
+				<input type="text" id="time-start" name="time_start" class="button timepicker" placeholder="開始接單時間(預設:now)">
+				<input type="text" id="time-end" name="time_end" class="button timepicker" placeholder="接單結束時間(預設:15mins)">
+				<button class="button" style="padding: 10px 60px;" type="submit" onclick="submitForm()">下一步</button>
+		</div>
+	</form>
 </main>
 @endsection
 
@@ -160,6 +158,39 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script>
+	function submitForm() {
+		var timeStart = document.getElementById('time-start').value;
+		var timeEnd = document.getElementById('time-end').value;
+
+		// 如果輸入框為空，則使用默認時間
+		if (!timeStart) {
+				var now = new Date();
+				var currentHour = now.getHours();
+				var currentMinute = now.getMinutes();
+				var formattedHour = currentHour.toString().padStart(2, '0');
+				var formattedMinute = currentMinute.toString().padStart(2, '0');
+				timeStart = formattedHour + ':' + formattedMinute;
+		}
+
+		if (!timeEnd) {
+				var nextHour = currentHour;
+				var nextMinute = currentMinute + 15;
+				if (nextMinute >= 60) {
+						nextHour += 1;
+						nextMinute -= 60;
+				}
+				var formattedNextHour = nextHour.toString().padStart(2, '0');
+				var formattedNextMinute = nextMinute.toString().padStart(2, '0');
+				timeEnd = formattedNextHour + ':' + formattedNextMinute;
+		}
+
+		// 設定輸入框的值
+		document.getElementById('time-start').value = timeStart;
+		document.getElementById('time-end').value = timeEnd;
+
+		// 提交表單
+		document.getElementById('myForm').submit();
+	}
 	document.addEventListener('DOMContentLoaded', function () {
 		var timeStart = document.getElementById('time-start');
 		var timeEnd = document.getElementById('time-end');

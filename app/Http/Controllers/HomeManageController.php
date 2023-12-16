@@ -46,6 +46,9 @@ class HomeManageController extends Controller
     }
     public function redirectToDestination(Request $request)
     {
+        $time_start = $request->input('time_start');
+        $time_end = $request->input('time_end');
+        // dd($time_start,$time_end);
         $buttonClicked = $request->session()->get('button_clicked');
         return view('destination', ['buttonClicked' => $buttonClicked]);
     }
