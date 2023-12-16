@@ -42,21 +42,32 @@ class HomeManageController extends Controller
 
     public function redirectToTimePick(Request $request)
     {
+        $go_or_leave = $request->input('go_or_leave');
+        $request->session()->put('go_or_leave', $go_or_leave);
         return view('time-pick');
     }
     public function redirectToDestination(Request $request)
     {
         $time_start = $request->input('time_start');
         $time_end = $request->input('time_end');
-        // dd($time_start,$time_end);
+        $request->session()->put('time_start', $time_start);
+        $request->session()->put('time_end', $time_end);
         $buttonClicked = $request->session()->get('button_clicked');
         return view('destination', ['buttonClicked' => $buttonClicked]);
     }
 
     public function redirectToAD(Request $request)
     {
+        $go_or_leave = Session::get('go_or_leave');
+        $time_start = Session::get('time_start');
+        $time_end = Session::get('time_end');
+        $origin = $request->input('origin');
+        $destination = $request->input('destination');
+        // dd($go_or_leave,$time_start,$time_end,$origin,$destination);
+
         $buttonClicked = $request->input('button_clicked');
         if ($buttonClicked === 'choose_driver') {
+
             Session::put('status', '請耐心等待配對結果...');
             return redirect()->route('home');
         } elseif ($buttonClicked === 'choose_passenger') {

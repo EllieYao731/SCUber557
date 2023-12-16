@@ -142,11 +142,13 @@
 		<form method="post" action="{{ route('redirect.to.time-pick') }}">
 			@csrf
 			<input type="hidden" name="button_clicked">
-			<button class="button" type="submit">前往東吳</button>
+			<input type="hidden" name="go_or_leave" value="go">
+			<button class="button" type="submit" name="go_or_leave" value="go">前往東吳</button>
 		</form>
 		<form method="post" action="{{ route('redirect.to.time-pick') }}">
 				@csrf
 				<input type="hidden" name="button_clicked">
+				<input type="hidden" name="go_or_leave" value="leave">
 				<button class="button" type="submit">離開東吳</button>
 		</form>
 	</div>
