@@ -104,3 +104,8 @@ Route::get('/reset-password', function() {
     // // The email sending is done using the to method on the Mail facade
     // Mail::to('evonne731@gmail.com')->send(new ForgetPWD($name));
 });
+
+
+Route::get('/custom-login', function () {
+    return view('login'); // 使用自己的 login 視圖
+})->name('custom.login');

@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use thiagoalessio\TesseractOCR\TesseractOCR;
 use Illuminate\Http\Request;
-use Symfony\Component\Process\Process;
 use Symfony\Component\Process\Exception\ProcessFailedException;
+use Symfony\Component\Process\Process;
 
 class ImageRecognitionController extends Controller
 {
@@ -30,27 +31,30 @@ class ImageRecognitionController extends Controller
             mkdir($outputFolder, 0755, true);
         }
 
-        $command = "/Users/liyingxuan/opt/anaconda3/bin/python $pythonScriptPath $absoluteImagePath $outputFolder"; //$pythonScriptPath之前要改自己的python路徑！
+        $command = "/Users/liyingxuan/opt/anaconda3/bin/python $pythonScriptPath $absoluteImagePath $outputFolder";
         $cropImagePath = exec($command);
 
         // 使用 Laravel 的文件处理函数读取 crop_img 的内容
         $cropImageContents = file_get_contents($cropImagePath);
 
         $recognizedText = (new TesseractOCR($absoluteImagePath))
-        ->lang('chi_tra')
-        ->userPatterns('/SCUber577/public/user-patterns.txt')
-        ->psm(3)
-        ->run();
+            ->lang('chi_tra')
+            ->userPatterns('/SCUber577/public/user-patterns.txt')
+            ->psm(3)
+            ->run();
 
         preg_match_all('/\d+/', $recognizedText, $matches);
         $numericResults = implode('', $matches[0]);
 
-    return view('test', [
-        'imagePath' => $imagePath,
-        'absoluteImagePath' => $absoluteImagePath,
-        'outputImagePath' => $cropImagePath, 
-        'cropImageContents' => $cropImageContents,
-        'recognizedText' => $numericResults
-]);
-}
+        if (!preg_match('/^\d{8}$/', $numericResults)) {
+            return redirect()->back()->with('error', '辨識失敗，請重新上傳！');
+        }
+        // Pass the recognized text to the view
+        return view('test')->with([
+            'imagePath' => $imagePath,
+            'cropImageContents' => $cropImageContents,
+            'recognizedText' => $recognizedText,
+            'numericResults' => $numericResults,
+        ]);
+    }
 }
