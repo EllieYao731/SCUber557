@@ -9,10 +9,12 @@ class HomeManageController extends Controller
 {
     public function __construct()
     {
-        // 如果 'status' 尚未設定，則設定為 '暫無資訊'
-        if (Session::get('status')!=null) {
-            Session::put('status', '暫無資訊');
-        }
+        Session::put('status', '暫無資訊');
+
+        // // 如果 'status' 尚未設定，則設定為 '暫無資訊'
+        // if (Session::get('status')!=null) {
+        //     Session::put('status', '暫無資訊');
+        // }
     }
 
     public function index()
@@ -24,7 +26,10 @@ class HomeManageController extends Controller
 
     public function redirectToHome(Request $request)
     {
+        $selectedDriverId = $request->input('selectedDriverId');
+        Session::forget('pairInfo');
         Session::put('status', '請耐心等待配對結果...');
+
         return redirect()->route('home');
     }
 
@@ -37,18 +42,32 @@ class HomeManageController extends Controller
 
     public function redirectToTimePick(Request $request)
     {
+        $go_or_leave = $request->input('go_or_leave');
+        $request->session()->put('go_or_leave', $go_or_leave);
         return view('time-pick');
     }
     public function redirectToDestination(Request $request)
     {
+        $time_start = $request->input('time_start');
+        $time_end = $request->input('time_end');
+        $request->session()->put('time_start', $time_start);
+        $request->session()->put('time_end', $time_end);
         $buttonClicked = $request->session()->get('button_clicked');
         return view('destination', ['buttonClicked' => $buttonClicked]);
     }
 
     public function redirectToAD(Request $request)
     {
+        $go_or_leave = Session::get('go_or_leave');
+        $time_start = Session::get('time_start');
+        $time_end = Session::get('time_end');
+        $origin = $request->input('origin');
+        $destination = $request->input('destination');
+        // dd($go_or_leave,$time_start,$time_end,$origin,$destination);
+
         $buttonClicked = $request->input('button_clicked');
         if ($buttonClicked === 'choose_driver') {
+
             Session::put('status', '請耐心等待配對結果...');
             return redirect()->route('home');
         } elseif ($buttonClicked === 'choose_passenger') {
@@ -60,8 +79,45 @@ class HomeManageController extends Controller
 
     public function redirectToSelectDriver()
     {
-        return view('select-driver');
+        // $drivers = Driver::all(); // Adjust this according to your database structure and needs
+        $drivers = [
+            [
+                'id' => 'd001',
+                'name' => '王小明',
+                'rating' => '4.6',
+                'car_model' => '機車',
+                'color' => '白',
+                'license_plate' => 'AAA-1111',
+                'location' => '士林捷運站',
+                'destination' => '東吳大學',
+                'time' => '7/01 10:00',
+            ],
+            [
+                'id' => 'd002',
+                'name' => '王小美',
+                'rating' => '4.8',
+                'car_model' => '汽車',
+                'color' => '紅',
+                'license_plate' => 'BBB-2222',
+                'location' => '中正紀念堂',
+                'destination' => '國立台灣大學',
+                'time' => '7/02 12:30',
+            ],
+            [
+                'id' => 'd003',
+                'name' => '王小華',
+                'rating' => '4.5',
+                'car_model' => '電動車',
+                'color' => '綠',
+                'license_plate' => 'CCC-3333',
+                'location' => '忠孝復興站',
+                'destination' => '台北101',
+                'time' => '7/03 15:45',
+            ],
+        ];
+        return view('select-driver', ['drivers' => $drivers]);
     }
+
 
     public function showSetting()
     {
@@ -75,29 +131,25 @@ class HomeManageController extends Controller
     public function handleMatchForm(Request $request)
     {
         $formAction = $request->input('match_form_action');
+        $pairInfo = [
+            'name' => '王小明',
+            'rating' => '4.6',
+            'car_model' => '機車',
+            'color' => '白',
+            'license_plate' => 'AAA-1111',
+            'location' => '士林捷運站',
+            'destination' => '東吳大學',
+            'time' => '7/01 10:00',
+        ];
+        $status = Session::get('status');
 
         if ($formAction === 'agree') {
-            Session::put('pairInfo', [
-                'name' => '王小明',
-                'car_model' => '機車',
-                'color' => '白',
-                'license_plate' => 'AAA-1111',
-                'location' => '士林捷運站',
-                'destination' => '東吳大學',
-                'time' => '7/01 10:00',
-            ]);
-            $status = null;
-            Session::put('status', $status);
-            $pairInfo=Session::get('pairInfo');
-
+            Session::put('pairInfo', $pairInfo);
+            $status = Session::put('status', null);
             return view('chat-reminder');
 
         } elseif ($formAction === 'reject') {
             Session::forget('pairInfo');
-            $status = '請耐心等待配對結果...';
-            $pairInfo = null;
-            Session::put('status', $status);
-            Session::put('pairInfo', $pairInfo);
             return redirect()->route('home');
         }
     }
@@ -109,7 +161,6 @@ class HomeManageController extends Controller
         $status = Session::get('status');
         if ($formAction === 'to_chatroom') {
             return view('chat');
-            // return redirect()->route('chat');
 
         } elseif ($formAction === 'to_home') {
             return redirect()->route('home');
@@ -118,6 +169,17 @@ class HomeManageController extends Controller
     public function starvalue()
     {
         return view('index');
+    }
+    public function submitLogin(Request $request)
+    {
+        // 驗證表單數據
+        $request->validate([
+            'number' => 'required|numeric|digits:8',
+            'password' => 'required',
+        ]);
+        $status = Session::forget('status');
+        return redirect()->route('home'); // 重定向到 home 視圖
+
     }
 
 }

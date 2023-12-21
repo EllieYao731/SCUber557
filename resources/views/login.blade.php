@@ -101,32 +101,33 @@
       <h4>請輸入您的學號、密碼</h4>
       <div class="row">
         <div class="col s12 m8 offset-m2 l6 offset-l3"> 
-          <form class="col-sm">
-            <!-- 表單內容 -->
-            <div class="row">
-              <div class="input-field col s12">
-                <input id="number" type="text" class="validate white-text-input">
-                <label for="number">學號</label>
-              </div>
+        <form id="loginForm" class="col-sm" action="{{ route('home.post') }}" method="post">
+    @csrf
+    <!-- 表單內容 -->
+    <div class="row">
+        <div class="input-field col s12">
+            <input id="number" name="number" type="text" class="validate white-text-input" pattern="[0-9]{8}" required>
+            <label for="number">學號</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12">
+            <input id="password" name="password" type="password" class="validate white-text-input" required>
+            <label for="password">密碼</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12">
+            <div id="forget">
+                <a href="forget"><p>忘記密碼？</p></a>
             </div>
-            <div class="row">
-              <div class="input-field col s12">
-                <input id="password" type="password" class="validate white-text-input">
-                <label for="password">密碼</label>
-              </div>
-            </div>
-            <div class="row">
-              <div class="input-field col s12">
-                <div id="forget">
-                  <a href="forget"><p>忘記密碼？</p></a>
-                </div>
-              </div>
-            </div>
+        </div>
+    </div>
           </form>
           <div class="row"> <!-- 使用 .row 來包含 <div id="next"> -->
             <div class="col s12"> <!-- 使用 .col s12 佈局 <div id="next"> -->
               <div id="next">
-                <a href="{{ url('/home') }}"><input type="submit" value="下一步"></a>
+                <input type="button" value="下一步" onclick="validateForm()">
               </div>
             </div>
           </div>
@@ -141,4 +142,24 @@
   <h4>SCUber<i>577</i></h4>
   </div>
 </footer>
+
+<script>
+      function validateForm() {
+        var inputs = document.querySelectorAll('#loginForm input.validate');
+        var isValid = true;
+
+        for (var i = 0; i < inputs.length; i++) {
+          if (!inputs[i].value.trim()) {
+            isValid = false;
+            alert('請確保所有欄位皆已填寫！');
+            break;
+          }
+        }
+
+        if (isValid) {
+          // 如果所有字段都已填写，提交表單
+          document.getElementById('loginForm').submit();
+        }
+      }
+    </script>
 @endsection
