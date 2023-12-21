@@ -101,12 +101,12 @@
       <h4>請輸入您的學號、密碼</h4>
       <div class="row">
         <div class="col s12 m8 offset-m2 l6 offset-l3"> 
-        <form id="loginForm" class="col-sm" action="{{ route('home.post') }}" method="post">
+        <form id="loginForm" class="col-sm" action="api/user/login" method="post">
     @csrf
     <!-- 表單內容 -->
     <div class="row">
         <div class="input-field col s12">
-            <input id="number" name="number" type="text" class="validate white-text-input" pattern="[0-9]{8}" required>
+            <input id="number" name="studentID" type="text" class="validate white-text-input" pattern="[0-9]{8}" required>
             <label for="number">學號</label>
         </div>
     </div>
@@ -123,14 +123,21 @@
             </div>
         </div>
     </div>
-          </form>
-          <div class="row"> <!-- 使用 .row 來包含 <div id="next"> -->
-            <div class="col s12"> <!-- 使用 .col s12 佈局 <div id="next"> -->
+    <div class="row">
+      <div class="col s12">
+          <div id="next">
+            <button type="submit" value="登入" style="width:5em;height:2em" onclick="validateForm()">登入</button>
+          </div>
+      </div>
+    </div>
+  </form>
+          <!-- <div class="row"> 使用 .row 來包含 <div id="next"> 
+            <div class="col s12">  使用 .col s12 佈局 <div id="next"> 
               <div id="next">
                 <input type="button" value="下一步" onclick="validateForm()">
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
