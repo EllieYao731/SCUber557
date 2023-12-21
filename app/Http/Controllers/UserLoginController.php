@@ -27,9 +27,11 @@ class UserLoginController extends Controller
         $apiToken = Str::random(10);
         if(Hash::check($request->password, $user->password)){
             if (User::whereStudentid($request->studentID)->update(['api_token'=>$apiToken])) { // 更新 token 
-                setcookie('api_token', $apiToken, time()+ 3600);
+                // setcookie('api_token', $apiToken, time()+ 3600);
+
                 // echo $_COOKIE['api_token']; 
-                return "學號 $user->studentID 登入成功！";
+                return redirect()->route('home')->with('msg', "學號 $user->studentID 登入成功！")->withCookie(cookie('api_token', $apiToken, 60))->withCookie(cookie('studentID', $request->studentID, 60));
+                // return "學號 $user->studentID 登入成功！";
             }
         }
         return '帳號或密碼錯誤';
