@@ -86,7 +86,7 @@
       animation: scu 1.5s ease-in-out infinite alternate;
     }
 
-    #number,
+    #studentID,
     #name,
     #password,
     #email {
@@ -164,7 +164,7 @@
             <div class="row">
               <div class="input-field col s12">
                 <input id="studentID" type="text" class="validate" name="studentID">
-                <label for="number">學號</label>
+                <label for="studentID">學號</label>
               </div>
             </div>
             <div class="row">
