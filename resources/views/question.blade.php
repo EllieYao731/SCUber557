@@ -7,7 +7,7 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <style>
     .collapsible-body {
-        background-color: #f5f5f5;
+        background-color: #FDF5E6;
         text-align: left;
     }
 		.collapsible-header{
@@ -22,7 +22,7 @@
     }
 		.badge {
 				background-color: #007bff;
-				color: #fff;
+				color:#fff;
 				padding: 5px 10px;
 				border-radius: 5px;
 				margin-right: 10px;
@@ -68,6 +68,16 @@
 										<span class="material-icons">expand_more</span>
                 </div>
                 <div class="collapsible-body"><span>本平台尚未與其他金錢交易平台合作，僅接受現金交易或交由使用者約定。</span></div>
+            </li>
+            <li>
+                <div class="collapsible-header">
+									<div>
+										<span class="badge">行程 </span>
+											預約的行程要在哪裡看？
+									</div>
+										<span class="material-icons">expand_more</span>
+                </div>
+                <div class="collapsible-body"><span>若成功配對到駕駛或乘客之後，即將到來的行程將會顯示在主頁上</span></div>
             </li>
         </ul>
     </div>
