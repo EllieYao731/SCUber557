@@ -30,7 +30,10 @@ class UserLoginController extends Controller
                 // setcookie('api_token', $apiToken, time()+ 3600);
 
                 // echo $_COOKIE['api_token']; 
-                return redirect()->route('home')->with('msg', "學號 $user->studentID 登入成功！")->withCookie(cookie('api_token', $apiToken, 60))->withCookie(cookie('studentID', $request->studentID, 60));
+                return redirect()->route('home')
+                ->with('msg', "學號 $user->studentID 登入成功！")
+                ->withCookie(cookie('api_token', $apiToken, 60))
+                ->withCookie(Cookie::make('studentID', $request->studentID, 60, '/', null, false, false));
                 // return "學號 $user->studentID 登入成功！";
             }
         }

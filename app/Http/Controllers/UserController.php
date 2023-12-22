@@ -96,12 +96,18 @@ class UserController extends Controller
     // 查詢
     public function show(Request $request)
     {
+        // $apiToken = $request->cookie('api_token');
+        // $studentID = $request->cookie('studentID');
+        // echo $apiToken;
+
         $userQuery = User::whereStudentid($request->studentID)->first();
         if ($userQuery==null){
             return "查無資料";
         }
         if (Cookie::get('api_token') == $userQuery->api_token){ // 用 token 去驗證登入
-            return "取得的資料為" . $userQuery;
+            return $userQuery;
+        }else{
+            return "請重新登入";
         }
     }
 
@@ -109,12 +115,17 @@ class UserController extends Controller
     // 修改
     public function update(Request $request)
     {
+        $data = $request->except('_token');
+        $data = $request->except('_method');
+        date_default_timezone_set('Asia/Taipei');
         $userQuery = User::whereStudentid($request->studentID)->first();
+        dd($data);
+        // dd($userQuery->toSql(), $userQuery->getBindings());
         if ($userQuery==null){ // 若找不到資料
             return "查無資料";
         }
         if(Cookie::get('api_token') == $userQuery->api_token){ // 用 token 去驗證登入
-            $obj = $request->all();
+            $obj = $data;
             try{
                 foreach( $obj as $key => $value ){ // 一個一個更改欄位
                     if ($key != "studentID"){ // 學號不能更改
@@ -127,6 +138,8 @@ class UserController extends Controller
             }catch(Exception $err) {
                 echo 'Message: ' .$err->getMessage();
             }
+        }else{
+            return "更改失敗";
         }
     }
 
