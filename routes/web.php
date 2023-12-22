@@ -23,9 +23,9 @@ Route::get('/', function () {
     return view('index'); // 打開 index.blade.php
 });
 
-Route::get('/home', function () {
-    return view('home');
-})->name('home');
+Route::get('/question', function () {
+    return view('question');
+});
 
 Route::get('/login', function () {
     return view('login');
