@@ -93,7 +93,7 @@ Route::post('/personal_info_update', [HomeManageController::class, 'showPersonal
 Route::post('/chat-reminder', [HomeManageController::class, 'handleMatchForm'])->name('matchform');
 Route::post('/chat-room', [HomeManageController::class, 'ChatReminder'])->name('chat-reminder');
 Route::post('/comment', [HomeManageController::class, 'starvalue'])->name('submitRating');
-Route::post('/login', [HomeManageController::class, 'submitLogin'])->name('home.post');
+// Route::post('/login', [HomeManageController::class, 'submitLogin'])->name('home.post');
 
 // 密碼忘記寄 email
 use App\Mail\ForgetPWD;
