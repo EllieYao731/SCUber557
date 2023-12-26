@@ -47,7 +47,8 @@
 
 @section('content-black')
     <div id="center-content" class="center-align">
-        <h4>上傳圖片並辨識文字</h4>
+        <h4>上傳學生證辨識學號</h4>
+        <p>請注意上傳的圖片周圍要留一點空間較容易辨識成功</p>
 
         <form id="uploadForm" action="{{ route('uploadAndRecognize') }}" method="POST" enctype="multipart/form-data">
             @csrf
@@ -103,7 +104,7 @@
                     document.getElementById('loadingText').innerText = '辨識成功，將為您跳轉至登入頁面';
                     document.getElementById('loadingSpinner').style.display = 'block'; // Show loading spinner
                     setTimeout(function() {
-                        window.location.href = '/custom-login';
+                        window.location.href = '/login';
                     }, 3000);
                 </script>
             @endif
@@ -111,7 +112,7 @@
 
         @isset($imagePath)
             @isset($cropImageContents)
-                <h5>處理後的圖片：</h5>
+                <h5>辨識後後的圖片：</h5>
                 <img class="responsive-img" src="data:image/jpeg;base64,{{ base64_encode($cropImageContents) }}" alt="Processed Image">
             @endisset
         @endisset

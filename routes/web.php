@@ -106,6 +106,6 @@ Route::get('/reset-password', function() {
 });
 
 
-Route::get('/custom-login', function () {
+Route::get('/login', function () {
     return view('login'); // 使用自己的 login 視圖
-})->name('custom.login');
+})->name('login');
