@@ -1,27 +1,28 @@
 @extends('layouts.black')
 
-@section('title', 'SCUber557_select-driver')
+@section('title', 'SCUber557_setting')
 
 @section('style-black')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
 <link rel="stylesheet" href="{{ asset('css/style_select-driver.css') }}">
 @endsection
 
+
 @section('content-black')
+
 <h4>請選擇駕駛</h4>
 
 @foreach($drivers as $driver)
-    @include('layouts.driver-info', [
-        'driver_img' => 'https://via.placeholder.com/100x100',
-				'driver_id' => $driver['id'],
-        'driver_name' => $driver['name'],
-        'driver_rating' => $driver['rating'],
-        'driver_origin' => $driver['location'],
-        'driver_destination' => $driver['destination'],
-        'driver_time' => $driver['time'],
-    ])
-@endforeach
-
+			@include('layouts.driver-info', [
+					'driver_img' => 'https://via.placeholder.com/100x100',
+					'driver_id' => $driver['id'],
+					'driver_name' => $driver['name'],
+					'driver_rating' => $driver['rating'],
+					'driver_origin' => $driver['location'],
+					'driver_destination' => $driver['destination'],
+					'driver_time' => $driver['time'],
+			])
+	@endforeach
 <div class="container">
 	<div
 		id="modal1"
@@ -45,6 +46,7 @@
 		</form>
 	</div>
 </div>
+@endsection
 
 @section('script')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
