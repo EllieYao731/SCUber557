@@ -102,9 +102,10 @@ Route::get('/reset-password', function() {
     // Mail::to('evonne731@gmail.com')->send(new ForgetPWD($name));
 });
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/login', function () {
+    return view('login'); // 使用自己的 login 視圖
+})->name('login');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -117,3 +118,4 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+

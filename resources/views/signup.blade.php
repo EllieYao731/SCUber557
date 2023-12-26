@@ -6,17 +6,17 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      var elems = document.querySelectorAll('select');
-      var instances = M.FormSelect.init(elems);
-    });
-  </script>
 
   <style>
-    #center-content {
-      text-align: center;
-    }
+  #center-content {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px; /* Adjust the value based on your design */
+    width: 80%;
+    margin: auto; /* Center the container */
+    height: 60vh;
+}
+
 
     #center-content h4 {
       display: inline-block;
@@ -26,8 +26,32 @@
     }
 
     #center-content .row {
-      white-space: nowrap;
-    }
+  margin-bottom: 5px; /* Add margin-bottom to create space between rows */
+}
+
+#center-content input[type="text"],
+#center-content input[type="password"],
+#center-content input[type="email"],
+#center-content input[type="tel"] {
+  margin-bottom: 5px; /* Adjust the margin-bottom based on your preference */
+}
+
+#center-content input[type="radio"] {
+  margin-right: 5px; /* Add margin-right to create space between radio buttons */
+}
+
+#center-content input[type="checkbox"] {
+  margin-right: 5px; /* Add margin-right to create space between checkboxes */
+}
+
+#licensePlateField input {
+  margin-bottom: 5px; /* Add margin-bottom to create space between the license plate field and the previous field */
+}
+
+#next {
+  margin-top: 20px; /* Adjust the margin-top based on your preference */
+}
+
 
     /* Add the following style rule for the radio buttons */
     #center-content input[type="radio"].with-gap:checked+span:after {
@@ -37,7 +61,6 @@
     #center-content input[type="radio"].with-gap:checked+span {
       color: #fff; /* Set the text color when the radio button is checked */
     }
-
 
     @keyframes scu {
       0%, 100% {
@@ -56,10 +79,6 @@
       margin-left: 4%;
       margin-top: 4% !important;
     }
-    
-    #center-content input[type="radio"].with-gap {
-    margin-right: 5px; /* Adjust the margin as needed */
-}
 
     #scu {
       color: aliceblue;
@@ -67,7 +86,7 @@
       animation: scu 1.5s ease-in-out infinite alternate;
     }
 
-    #number,
+    #studentID,
     #name,
     #password,
     #email {
@@ -82,24 +101,23 @@
       margin-bottom: 10px;
     }
 
-    #gender ,#riderFlag{
-        margin-right: 110px;
-        display: flex;
-        align-items: center;
-        justify-content: flex-start; /* 將內容水平左對齊 */
+    #gender,
+    #riderFlag {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px; /* Add margin for spacing */
     }
-
 
     #gender h3 {
-        margin-right: 10px; /* 元素之間的間距 */
+      margin-right: 10px; /* 元素之間的間距 */
     }
 
-    #tel{
-        margin-right: 30px;
+    #tel {
+      margin-right: 30px;
     }
 
-    #mail{
-        margin-right: 30px;
+    #mail {
+      margin-right: 30px;
     }
 
     #next {
@@ -107,10 +125,12 @@
     }
 
     #next:hover {
-        transform: scale(1.5); /* 將按鈕放大 20% */
+      transform: scale(1.5); /* 將按鈕放大 20% */
     }
-
-</style>
+    #licensePlateField input {
+    color: #fff; /* Set the text color to white */
+  }
+  </style>
 @endsection
 
 @section('back-link', '/')
@@ -124,6 +144,14 @@
 
         document.cookie ="studentID="+studentID+";password="+password;
     }
+
+    function showLicensePlateField() {
+        document.getElementById("licensePlateField").style.display = "block";
+    }
+
+    function hideLicensePlateField() {
+        document.getElementById("licensePlateField").style.display = "none";
+    }
 </script>
 
 <div class="row">
@@ -136,7 +164,7 @@
             <div class="row">
               <div class="input-field col s12">
                 <input id="studentID" type="text" class="validate" name="studentID">
-                <label for="number">學號</label>
+                <label for="studentID">學號</label>
               </div>
             </div>
             <div class="row">
@@ -152,28 +180,21 @@
               </div>
             </div>
             <div class="row">
-    <div class="input-field col s12">
-        <label>性別</label>
-        <!-- <p>
-            <label>
-                <select name="gender">
-                    <option value="male"><span class="white-text">男</span></option>
-                    <option value="female"><span class="white-text">女</span></option>
-                </select>
-            </label>
-        </p> -->
+    <div class="input-field col s12" style="display: flex; align-items: center;">
+        <label style="margin-right: 10px;">性別</label>
         <p>
-            <label>
+            <label style="display: flex; align-items: center; margin-left: 40px;">
                 <input name="gender" type="radio" value="male" class="with-gap" />
-                <span class="white-text">男</span>
+                <span class="white-text" style="margin-left: 5px;">男</span>
             </label>
 
-            <label>
+            <label style="display: flex; align-items: center; margin-left: 40px;">
                 <input name="gender" type="radio" value="female" class="with-gap" />
-                <span class="white-text">女</span>
+                <span class="white-text" style="margin-left: 5px;">女</span>
             </label>
         </p>
     </div>
+</div>
             <div class="row">
               <div class="input-field col s12">
                 <input id="email" type="email" class="validate" name="email">
@@ -181,52 +202,48 @@
               </div>
             </div>
             <div class="row">
-              <div class="input-field col s12">
+            <div class="input-field col s12" style="display: flex; align-items: center;">
                 <input id="number" type="tel" class="validate" name="mobile">
                 <label for="number">電話號碼</label>
               </div>
             </div>
-            <div class="input-field col s12">
-                <label>是否為騎士</label>
-                <p>
-                    <label>
-                        <input name="riderFlag" type="radio" value="1" class="with-gap" />
-                        <span class="white-text">是</span>
-                    </label>
+            <div class="row">
+                            <div class="input-field col s12">
+                                <label style="margin-right: 10px;">是否為騎士</label>
+                                <p>
+                                    <label style="display: flex; align-items: center; margin-left: 80px;">
+                                        <input name="riderFlag" type="radio" value="1" class="with-gap" onclick="showLicensePlateField();" />
+                                        <span class="white-text">是</span>
+                                    </label>
 
-                    <label>
-                        <input name="riderFlag" type="radio" value="0" class="with-gap" />
-                        <span class="white-text">否</span>
-                    </label>
+                                    <label style="display: flex; align-items: center; margin-left: 80px;">
+                                        <input name="riderFlag" type="radio" value="0" class="with-gap" onclick="hideLicensePlateField();" />
+                                        <span class="white-text">否</span>
+                                    </label>
+                                </p>
                 </p>
             </div>
-            <div class="row">
-                <div class="col s12">
-                  <div id="next">
-                    <button type="submit" value="註冊" style="width:5em;height:2em">註冊</button>
-                  </div>
+
+            <!-- License plate number field -->
+            <div class="row" id="licensePlateField" style="display:none;">
+                <div class="input-field col s12">
+                    <input id="licensePlate" type="text" class="validate" name="licensePlate">
+                    <label for="licensePlate">車牌號碼</label>
                 </div>
             </div>
-          </form>
-          <!-- <div class="row">
-            <div class="col s12">
-              <div id="next">
-                <button type="submit" value="註冊" style="width:5em;height:2em">註冊</button>
-              </div>
+
+            <div class="row" style="text-align: center;">
+              <div class="col s12">
+                  <div id="next">
+                    <button type="submit" value="註冊" style="width:5em;height:2em">註冊</button>
             </div>
-          </div> -->
+          </form>
         </div>
       </div>
     </div>
   </div>
-    <!-- @if($errors->count())
-        @foreach ($errors->all() as $error)
-            <div class="alert">
-                <b>{{$errors}}</b>
-            </div>
-        @endforeach
-    @endif -->
-    @if ($errors->any())
+
+  @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
                 @foreach ($errors->all() as $error)
@@ -235,6 +252,11 @@
             </ul>
         </div>
     @endif
+</div>
+
+@endsection
+
+    
 
 </div>
 <!-- 
@@ -282,4 +304,3 @@
         </div>
          -->
 
-@endsection

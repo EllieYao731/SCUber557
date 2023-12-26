@@ -58,9 +58,9 @@ def img_angle(img):
         cv2.drawContours(angle_img, [box], 0, (0, 0, 255), 2)  # 紅色角度線
 
     # 顯示圖像
-    cv2.imshow("Angle Lines", angle_img)
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()
+    # cv2.imshow("Angle Lines", angle_img)
+    # cv2.waitKey(0)
+    # cv2.destroyAllWindows()
 
     if max_rect is not None:
         # 從最大矩形中獲取角度
@@ -158,5 +158,5 @@ if __name__ == '__main__':
     crop_img = img2[y:y+h, x:x+w]        # 取出陣列的範圍
 
     cv2.imwrite(output_path, crop_img)
-    print("done!")
-    exit(0)
+    print(output_path)
+    # exit(0)
