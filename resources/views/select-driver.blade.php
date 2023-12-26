@@ -1,6 +1,6 @@
 @extends('layouts.black')
 
-@section('title', 'SCUber557_setting')
+@section('title', 'SCUber557_select-driver')
 
 @section('style-black')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
