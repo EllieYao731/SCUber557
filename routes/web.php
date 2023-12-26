@@ -29,9 +29,9 @@ Route::get('/home', function () {
     return view('home');
 })->name('home');
 
-Route::get('/login', function () {
-    return view('login');
-});
+// Route::get('/login', function () {
+//     return view('login');
+// });
 
 
 Route::get('/personal_info_update', function () {
@@ -66,11 +66,6 @@ Route::get('/test', [ImageRecognitionController::class, 'showUploadForm'])->name
 Route::post('/test', [ImageRecognitionController::class, 'uploadAndRecognize'])->name('uploadAndRecognize');
 
 Route::post('/records/create', [RecordsController::class, 'create']);
-
-
-use App\Http\Controllers\SignUp;
-Route::post('/sign-up', [SignUp::class,'signUpProcess']);
-
 
 use App\Http\Controllers\HomeManageController;
 

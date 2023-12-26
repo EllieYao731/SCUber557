@@ -17,6 +17,10 @@ Route::middleware('guest')->group(function () {
 
     Route::post('register', [RegisteredUserController::class, 'store']);
 
+    Route::get('/login', function () {
+        return view('login');
+    });
+
     // Chatbox 預設登入畫面
     // Route::get('login', [AuthenticatedSessionController::class, 'create'])
     //             ->name('login');
