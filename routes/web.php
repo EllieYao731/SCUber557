@@ -65,7 +65,6 @@ Route::get('/comment', function () {
 Route::get('/image-recognition', [ImageRecognitionController::class, 'showUploadForm'])->name('showUploadForm');
 Route::post('/image-recognition', [ImageRecognitionController::class, 'uploadAndRecognize'])->name('uploadAndRecognize');
 
-Route::post('/records/create', [RecordsController::class, 'create']);
 
 use App\Http\Controllers\HomeManageController;
 

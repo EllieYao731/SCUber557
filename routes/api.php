@@ -35,3 +35,7 @@ Route::get('/user', [UserController::class,'show']);
 
 // 更新用
 Route::patch('/user', [UserController::class,'update']);
+
+// 紀錄訂單記錄
+use App\Http\Controllers\RecordsController;
+Route::post('/records/create', [RecordsController::class, 'create']);
