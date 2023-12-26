@@ -62,8 +62,8 @@ Route::get('/comment', function () {
     return view('comment');
 });
 
-Route::get('/test', [ImageRecognitionController::class, 'showUploadForm'])->name('showUploadForm');
-Route::post('/test', [ImageRecognitionController::class, 'uploadAndRecognize'])->name('uploadAndRecognize');
+Route::get('/image-recognition', [ImageRecognitionController::class, 'showUploadForm'])->name('showUploadForm');
+Route::post('/image-recognition', [ImageRecognitionController::class, 'uploadAndRecognize'])->name('uploadAndRecognize');
 
 Route::post('/records/create', [RecordsController::class, 'create']);
 

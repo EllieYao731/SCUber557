@@ -25,7 +25,7 @@
         </div>
         <div id="buttons-container">
           <div id="log_in">
-            <a href="{{ url('/login') }}"><button>登入</button></a>
+            <a href="{{ url('/image-recognition') }}"><button>登入</button></a>
           </div>
           <div id="sign_up">
             <a href="{{ url('/signup') }}"><button>註冊</button></a>
