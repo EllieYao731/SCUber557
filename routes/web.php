@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ImageRecognitionController;
 use App\Http\Controllers\RecordsController;
+use App\Http\Controllers\ProfileController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -27,9 +29,9 @@ Route::get('/home', function () {
     return view('home');
 })->name('home');
 
-Route::get('/login', function () {
-    return view('login');
-});
+// Route::get('/login', function () {
+//     return view('login');
+// });
 
 
 Route::get('/personal_info_update', function () {
@@ -65,11 +67,6 @@ Route::post('/test', [ImageRecognitionController::class, 'uploadAndRecognize'])-
 
 Route::post('/records/create', [RecordsController::class, 'create']);
 
-
-use App\Http\Controllers\SignUp;
-Route::post('/sign-up', [SignUp::class,'signUpProcess']);
-
-
 use App\Http\Controllers\HomeManageController;
 
 Route::get('/pair', function () {
@@ -91,7 +88,7 @@ Route::post('/personal_info_update', [HomeManageController::class, 'showPersonal
 Route::post('/chat-reminder', [HomeManageController::class, 'handleMatchForm'])->name('matchform');
 Route::post('/chat-room', [HomeManageController::class, 'ChatReminder'])->name('chat-reminder');
 Route::post('/comment', [HomeManageController::class, 'starvalue'])->name('submitRating');
-Route::post('/login', [HomeManageController::class, 'submitLogin'])->name('home.post');
+// Route::post('/login', [HomeManageController::class, 'submitLogin'])->name('home.post');
 
 // 密碼忘記寄 email
 use App\Mail\ForgetPWD;
@@ -105,7 +102,20 @@ Route::get('/reset-password', function() {
     // Mail::to('evonne731@gmail.com')->send(new ForgetPWD($name));
 });
 
-
 Route::get('/login', function () {
     return view('login'); // 使用自己的 login 視圖
 })->name('login');
+
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';
+

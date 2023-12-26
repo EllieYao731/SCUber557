@@ -20,10 +20,19 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+
     protected $fillable = [          
         // 使用批量分配（ Mass Assignment ）的填充白名單
         'name', 'studentID', 'gender','mobile', 'riderFlag','email', 'password', 'api_token','created_at', 'updated_at'
     ];
+
+    // // Chatbox 分支保留
+    // protected $fillable = [
+    //     'name',
+    //     'email',
+    //     'password',
+
+    // ];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -31,7 +40,8 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
-        'password'
+        'password',
+        // 'remember_token', // Chatbox 保留
     ];
 
     /**

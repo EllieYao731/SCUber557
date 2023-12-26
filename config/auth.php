@@ -79,10 +79,10 @@ return [
             'model' => App\User::class,    // 對應 app/User.php 檔案內的 class 
         ],
 
-        'users' => [
-            'driver' => 'database',
-            'table' => 'users',
-        ],
+        // 'users' => [
+        //     'driver' => 'database',
+        //     'table' => 'users',
+        // ],
     ],
 
     /*
