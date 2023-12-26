@@ -89,6 +89,7 @@
     #studentID,
     #name,
     #password,
+    #number,
     #email {
       color: #fff;
     }
