@@ -56,7 +56,7 @@
 
 <h4 style="margin-top: unset;">帳號資料變更</h4>
 <form method="post" action="api/user" class="center">
-    @csrf
+     {{ csrf_field() }}
     @method('PATCH')
   <div class="grey darken-4 c">
     <div class="container">

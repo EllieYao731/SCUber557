@@ -13,6 +13,7 @@ use App\Http\Requests\Auth\LoginRequest;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Session;
 
 class UserLoginController extends Controller
 {
@@ -46,16 +47,17 @@ class UserLoginController extends Controller
                 // }
 
                 // echo $_COOKIE['api_token']; 
+                Session::flash("UserStatus","$user->name 歡迎使用！");
 
                 return redirect()->route('home')
-                ->with('msg', "學號 $user->studentID 登入成功！")
                 ->withCookie(cookie('api_token', $apiToken, 60))
-                ->withCookie(Cookie::make('studentID', $request->studentID, 60, '/', null, false, false));
+                ->withCookie(cookie('studentID', $request->studentID, 60, '/', null, false, false));
 
                 // return "學號 $user->studentID 登入成功！";
             }
         }
         return '帳號或密碼錯誤';
+
 
         // 使用 Auth::attempt 进行身份验证
         // if (Auth::attempt($credentials)) {

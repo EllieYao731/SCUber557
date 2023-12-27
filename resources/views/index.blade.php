@@ -18,14 +18,14 @@
 <body>
     <div id="container">
         <div id="title">
-          <h1>SCUber<i>577</i></h1>
+          <h1>SCUber<i>557</i></h1>
         </div>
         <div id="slogan">
             <h3>&nbsp;&nbsp;&nbsp;GO Home Rapidly&nbsp;<img src="{{ asset('pictures/safe.png') }}" height="30px" width="30px">&nbsp;&nbsp;</h3>
         </div>
         <div id="buttons-container">
           <div id="log_in">
-            <a href="{{ url('/image-recognition') }}"><button>登入</button></a>
+            <a href="{{ url('/login') }}"><button>登入</button></a>
           </div>
           <div id="sign_up">
             <a href="{{ url('/signup') }}"><button>註冊</button></a>

@@ -60,6 +60,9 @@
 		</div>
 	</div>
 	<div id="blackDiv">
+		@if(Session::has('UserStatus'))
+		    <p style="color:white;">{{ Session::get('UserStatus') }}</p>
+		@endif
 		<div class="message">
 			<span class="text" style="font-size: 18px">即將到來的預約...</span>
 		</div>

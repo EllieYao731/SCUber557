@@ -15,6 +15,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\MessageBag;
+use Illuminate\Support\Facades\Session;
 
 
 class UserController extends Controller
@@ -88,7 +89,8 @@ class UserController extends Controller
 
         if ($Create)
         {
-            return redirect('/home')->with('success', 'your message,here');
+            Session::flash("UserStatus","註冊成功！");
+            return redirect()->route('home');
         }
 
     }
@@ -104,42 +106,56 @@ class UserController extends Controller
         if ($userQuery==null){
             return "查無資料";
         }
-        if (Cookie::get('api_token') == $userQuery->api_token){ // 用 token 去驗證登入
-            return $userQuery;
-        }else{
-            return "請重新登入";
-        }
+        return $userQuery;
+        // if (Cookie::get('api_token') == $userQuery->api_token){ // 用 token 去驗證登入
+        //     return $userQuery;
+        // }else{
+        //     return "請重新登入";
+        // }
     }
 
 
     // 修改
     public function update(Request $request)
     {
-        $data = $request->except('_token');
-        $data = $request->except('_method');
         date_default_timezone_set('Asia/Taipei');
-        $userQuery = User::whereStudentid($request->studentID)->first();
-        dd($data);
+
+        $request->offsetSet('updated_at', date("Y-m-d H:i:s"));
+
+        $data = $request->except(['_token', '_method']);
+        // $data->updated_at = date("Y-m-d H:i:s");
+        // $data->offsetSet('updated_at', date("Y-m-d H:i:s"));
+
+        $objectData = (object) $data;
+        // return $objectData->studentID;
+
+        $userQuery = User::whereStudentid($objectData->studentID)->first();
+        // dd($objectData);
         // dd($userQuery->toSql(), $userQuery->getBindings());
         if ($userQuery==null){ // 若找不到資料
             return "查無資料";
         }
+
         if(Cookie::get('api_token') == $userQuery->api_token){ // 用 token 去驗證登入
-            $obj = $data;
             try{
-                foreach( $obj as $key => $value ){ // 一個一個更改欄位
+                foreach( $objectData as $key => $value ){ // 一個一個更改欄位
                     if ($key != "studentID"){ // 學號不能更改
                         $userQuery =  User::whereStudentid($request->studentID)->first();
                         User::whereStudentid($request->studentID)->update([$key => $value]);
-                        echo "已將 $key 從 " . $userQuery->$key . " 改成 $value \n";
+                        // echo "已將 $key 從 " . $userQuery->$key . " 改成 $value \n";
                     }
                 }
-                echo "完成";
+
+                Session::flash('UserStatus', '您的資料已更新');
+                return redirect()->route('home');
+                // echo "完成";
             }catch(Exception $err) {
-                echo 'Message: ' .$err->getMessage();
+                Session::flash("UserStatus","更新失敗，請再試一次");
+                return redirect()->route('home');
             }
         }else{
-            return "更改失敗";
+            Session::flash("UserStatus","更新失敗，請再試一次");
+            return redirect()->route('home');
         }
     }
 
@@ -152,7 +168,7 @@ class UserController extends Controller
         if (!$userQuery){
             return "找不到欲刪除的使用者";
         }
-        if (Cookie::get('api_token') == $userQuery->api_token){ // 用 token 去驗證登入
+        if (base64_decode(Cookie::get('api_token')) == $userQuery->api_token){ // 用 token 去驗證登入
             if (User::whereStudentid($studentID)-> delete()){ // 若條件符合就刪除
                 return 'User ' . $studentID .  'deleted successfully';
             }

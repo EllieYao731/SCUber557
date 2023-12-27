@@ -147,7 +147,8 @@
 
     var studentID = getCookie('studentID');
 
-    // console.log(studentID);
+    console.log(studentID);
+    // console.log(atob(studentID));
 
     async function fetchData(studentID) {
       var requestOptions = {
@@ -160,13 +161,12 @@
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
-        console.log('hello')
         const data = await response.json();
 
         document.getElementById("name").innerText = data.name
         document.getElementById("studentID").innerText = data.studentID
         document.querySelectorAll('input#mobile')[0].value = data.mobile
-       document.querySelectorAll('input#email')[0].value = data.email
+        document.querySelectorAll('input#email')[0].value = data.email
 
 
         // 在这里使用获取的数据

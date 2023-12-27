@@ -22,19 +22,19 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserLoginController;
 
 // 註冊用
-Route::post('/user/register',[UserController::class,'store']);
+Route::post('/user/register',[UserController::class,'store'])->middleware('web');
 
 // 登入用
-Route::post('/user/login',[UserLoginController::class,'UserLogin']);
+Route::post('/user/login',[UserLoginController::class,'UserLogin'])->middleware('web');
 
 // 刪除用
-Route::delete('/user/{studentID}', [UserController::class,'destroy']);
+Route::delete('/user/{studentID}', [UserController::class,'destroy'])->middleware('web');
 
 // 顯示用
 Route::get('/user', [UserController::class,'show']);
 
 // 更新用
-Route::patch('/user', [UserController::class,'update']);
+Route::patch('/user', [UserController::class,'update'])->middleware('web');
 
 // 紀錄訂單記錄
 use App\Http\Controllers\RecordsController;

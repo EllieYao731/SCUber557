@@ -89,8 +89,9 @@
     #studentID,
     #name,
     #password,
-    #email {
-      color: #fff;
+    #email
+    #number {
+      color: #fff !important;
     }
 
     #number {
@@ -197,14 +198,14 @@
 </div>
             <div class="row">
               <div class="input-field col s12">
-                <input id="email" type="email" class="validate" name="email">
+                <input id="email" type="email" class="validate" name="email" style="color: #fff !important">
                 <label for="email">Email</label>
               </div>
             </div>
             <div class="row">
-            <div class="input-field col s12" style="display: flex; align-items: center;">
-                <input id="number" type="tel" class="validate" name="mobile">
-                <label for="number">電話號碼</label>
+              <div class="input-field col s12" style="display: flex; align-items: center;">
+                  <input id="number" type="tel" class="validate" name="mobile" style="color: #fff !important">
+                  <label for="number">電話號碼</label>
               </div>
             </div>
             <div class="row">
