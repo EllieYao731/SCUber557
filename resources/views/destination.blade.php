@@ -105,8 +105,8 @@ input{
 		<div class="input-group">
 		<form method="post" action="{{ route('redirect.to.ad') }}">
 				@csrf
-			<input type="text" name="origin" placeholder="士林捷運站" value ="士林捷運站" />
-			<input type="text" name="destination" placeholder="東吳大學" value ="東吳大學" />
+			<input type="text" placeholder="士林捷運站" value="士林捷運站" />
+			<input type="text" placeholder="東吳大學" value ="東吳大學" />
 		</div>
 	</div>
 	<div class="container" style="display: flex; flex-direction: column">
@@ -137,7 +137,7 @@ input{
 
 				<div class="modal-footer btn-group" style="background-color: black; height:auto; display: flex;">
 					<input type="button" class="button modal-close" value="取消"></input>
-					<input type="hidden" name="button_clicked" value="{{ $buttonClicked }}">
+					<input type="hidden" value="{{ $buttonClicked }}">
 					<button class="button modal-close waves-effect" type="submit">確定送出</button>
 				</div>
 			</form>

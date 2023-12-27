@@ -112,7 +112,7 @@
 
         @isset($imagePath)
             @isset($cropImageContents)
-                <h5>辨識後後的圖片：</h5>
+                <h5>辨識後的圖片：</h5>
                 <img class="responsive-img" src="data:image/jpeg;base64,{{ base64_encode($cropImageContents) }}" alt="Processed Image">
             @endisset
         @endisset
