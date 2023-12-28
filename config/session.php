@@ -47,6 +47,7 @@ return [
     */
 
     'encrypt' => env('SESSION_ENCRYPT', false),
+    // 'encrypt' => false, // chatbox
 
     /*
     |--------------------------------------------------------------------------
@@ -155,7 +156,7 @@ return [
     |
     */
 
-    'domain' => env('SESSION_DOMAIN'),
+    'domain' => env('SESSION_DOMAIN', null),
 
     /*
     |--------------------------------------------------------------------------
@@ -168,7 +169,8 @@ return [
     |
     */
 
-    'secure' => env('SESSION_SECURE_COOKIE', false),
+    'secure' => env('SESSION_SECURE_COOKIE', true),
+    // 'secure' => env('SESSION_SECURE_COOKIE'), // Chatbox 分支保留
 
     /*
     |--------------------------------------------------------------------------
@@ -197,5 +199,6 @@ return [
     */
 
     'same_site' => null,
+    // 'same_site' => 'lax', // Chatbox 分支保留
 
 ];

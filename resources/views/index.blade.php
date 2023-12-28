@@ -18,7 +18,7 @@
 <body>
     <div id="container">
         <div id="title">
-          <h1>SCUber<i>577</i></h1>
+          <h1>SCUber<i>557</i></h1>
         </div>
         <div id="slogan">
             <h3>&nbsp;&nbsp;&nbsp;GO Home Rapidly&nbsp;<img src="{{ asset('pictures/safe.png') }}" height="30px" width="30px">&nbsp;&nbsp;</h3>

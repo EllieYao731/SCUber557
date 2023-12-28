@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ImageRecognitionController;
 use App\Http\Controllers\RecordsController;
+use App\Http\Controllers\ProfileController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -27,9 +29,9 @@ Route::get('/question', function () {
     return view('question');
 });
 
-Route::get('/login', function () {
-    return view('login');
-});
+// Route::get('/login', function () {
+//     return view('login');
+// });
 
 
 Route::get('/personal_info_update', function () {
@@ -60,14 +62,8 @@ Route::get('/comment', function () {
     return view('comment');
 });
 
-Route::get('/test', [ImageRecognitionController::class, 'showUploadForm'])->name('showUploadForm');
-Route::post('/test', [ImageRecognitionController::class, 'uploadAndRecognize'])->name('uploadAndRecognize');
-
-Route::post('/records/create', [RecordsController::class, 'create']);
-
-
-use App\Http\Controllers\SignUp;
-Route::post('/sign-up', [SignUp::class,'signUpProcess']);
+Route::get('/image-recognition', [ImageRecognitionController::class, 'showUploadForm'])->name('showUploadForm');
+Route::post('/image-recognition', [ImageRecognitionController::class, 'uploadAndRecognize'])->name('uploadAndRecognize');
 
 
 use App\Http\Controllers\HomeManageController;
@@ -91,7 +87,7 @@ Route::post('/personal_info_update', [HomeManageController::class, 'showPersonal
 Route::post('/chat-reminder', [HomeManageController::class, 'handleMatchForm'])->name('matchform');
 Route::post('/chat-room', [HomeManageController::class, 'ChatReminder'])->name('chat-reminder');
 Route::post('/comment', [HomeManageController::class, 'starvalue'])->name('submitRating');
-Route::post('/login', [HomeManageController::class, 'submitLogin'])->name('home.post');
+// Route::post('/login', [HomeManageController::class, 'submitLogin'])->name('home.post');
 
 // 密碼忘記寄 email
 use App\Mail\ForgetPWD;
@@ -104,3 +100,21 @@ Route::get('/reset-password', function() {
     // // The email sending is done using the to method on the Mail facade
     // Mail::to('evonne731@gmail.com')->send(new ForgetPWD($name));
 });
+
+Route::get('/login', function () {
+    return view('login'); // 使用自己的 login 視圖
+})->name('login');
+
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';
+

@@ -90,7 +90,7 @@ class HomeManageController extends Controller
                 'license_plate' => 'AAA-1111',
                 'location' => '士林捷運站',
                 'destination' => '東吳大學',
-                'time' => '7/01 10:00',
+                'time' => '12/27 12:10',
             ],
             [
                 'id' => 'd002',
@@ -99,9 +99,9 @@ class HomeManageController extends Controller
                 'car_model' => '汽車',
                 'color' => '紅',
                 'license_plate' => 'BBB-2222',
-                'location' => '中正紀念堂',
-                'destination' => '國立台灣大學',
-                'time' => '7/02 12:30',
+                'location' => '士林捷運站',
+                'destination' => '東吳大學',
+                'time' => '12/27 12:30',
             ],
             [
                 'id' => 'd003',
@@ -110,9 +110,9 @@ class HomeManageController extends Controller
                 'car_model' => '電動車',
                 'color' => '綠',
                 'license_plate' => 'CCC-3333',
-                'location' => '忠孝復興站',
-                'destination' => '台北101',
-                'time' => '7/03 15:45',
+                'location' => '士林捷運站',
+                'destination' => '東吳大學',
+                'time' => '12/27 12:21',
             ],
         ];
         return view('select-driver', ['drivers' => $drivers]);
