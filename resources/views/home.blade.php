@@ -42,9 +42,9 @@
 				<span class="icon-label text">乘客</span>
 			</div>
 			<div class="icon-button col-md-3">
-				<a href="{{ route('chatify') }}" style="display: block;margin-top: 0em;margin-block-end: 1em;">
+				<a href="{{ route('no_message') }}" style="display: block;margin-top: 0em;margin-block-end: 1em;">
 					@csrf
-					<input type="hidden" name="button_clicked" value="a">
+					<input type="hidden" name="button_clicked" value="chatroom">
 					<button class="icon-button" type="submit"><i class="fas fa-comments"></i></button>
 				</a>
 				<span class="icon-label text">聊天室</span>
@@ -52,7 +52,7 @@
 			<div class="icon-button col-md-3">
 				<form method="post" action="{{ route('setting') }}">
 						@csrf
-						<input type="hidden" name="button_clicked" value="a">
+						<input type="hidden" name="button_clicked" value="setting">
 						<button  class="icon-button" type="submit"><i class="fas fa-cog"></i></button>
 					</form>
 				<span class="icon-label text">設定</span>
