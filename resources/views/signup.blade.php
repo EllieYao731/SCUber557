@@ -89,9 +89,9 @@
     #studentID,
     #name,
     #password,
-    #email
-    #number {
-      color: #fff !important;
+    #number,
+    #email {
+      color: #fff;
     }
 
     #number {
@@ -258,10 +258,10 @@
 
 @endsection
 
-    
+
 
 </div>
-<!-- 
+<!--
 <div id="container">
             <form action="/api/user/register" method="post">
                 <div id="title">
@@ -305,4 +305,3 @@
             </form>
         </div>
          -->
-
