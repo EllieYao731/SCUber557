@@ -40,7 +40,7 @@ Route::get('/personal_info_update', function () {
 
 Route::get('/no_message', function () {
     return view('no_message');
-});
+})->name('no_message');
 
 Route::get('/chat', function () {
     return view('chat');
@@ -117,4 +117,3 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
-
